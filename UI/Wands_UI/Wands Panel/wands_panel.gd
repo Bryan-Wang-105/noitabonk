@@ -15,8 +15,6 @@ extends MarginContainer
 @onready var grid_container3: GridContainer = $WandsVBOX/Wand3Box/MarginContainer/VBoxContainer/GridContainer
 @onready var grid_container4: GridContainer = $WandsVBOX/Wand4Box/MarginContainer/VBoxContainer/GridContainer
 
-@export var spellSlotScene: PackedScene
-@export var spellScene: PackedScene
 
 var wandLabels = []
 var wandSlots = []
@@ -92,3 +90,9 @@ func update_wand_slots():
 func delete_all_children(node: Node):
 	for child in node.get_children():
 		child.queue_free()
+
+func _on_wand_box_mouse_entered(wand_slot):
+	Global.canvas_layer.preview_wand_panel._on_wand_box_mouse_entered(wand_slot)
+
+func _on_wand_box_mouse_exited(wand_slot):
+	Global.canvas_layer.preview_wand_panel._on_wand_box_mouse_exited(wand_slot)

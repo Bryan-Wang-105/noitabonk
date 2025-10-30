@@ -14,7 +14,12 @@ var mouse_on = false
 var mouse_on_slot = null
 
 func _ready() -> void:
+	Global.wandInventory.connect("inventory_changed", update_preview_panel)
 	visible = false
+
+func update_preview_panel():
+	if mouse_on:
+		_on_wand_box_mouse_entered(mouse_on_slot)
 
 func _on_wand_box_mouse_entered(wand_slot) -> void:
 	mouse_on = true

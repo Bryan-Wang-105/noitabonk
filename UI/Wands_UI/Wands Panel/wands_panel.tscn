@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://chuq7owxfvdux"]
+[gd_scene load_steps=3 format=3 uid="uid://chuq7owxfvdux"]
 
 [ext_resource type="Script" uid="uid://bdgqhdhhyboqg" path="res://UI/Wands_UI/Wands Panel/wands_panel.gd" id="1_akhxv"]
-[ext_resource type="PackedScene" uid="uid://cttoi0mn1tgww" path="res://UI/Spells_UI/Spell_Slot/Spell_Slot.tscn" id="2_qs1r7"]
-[ext_resource type="PackedScene" uid="uid://bh51pyfnfc4dg" path="res://UI/Spells_UI/Spell_UI/Spell_UI.tscn" id="3_or8fc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a2ak"]
 bg_color = Color(0.6, 0.6, 0.6, 0.06666667)
@@ -14,8 +12,6 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 script = ExtResource("1_akhxv")
-spellSlotScene = ExtResource("2_qs1r7")
-spellScene = ExtResource("3_or8fc")
 
 [node name="WandsVBOX" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -121,3 +117,12 @@ text = "WAND 4"
 [node name="GridContainer" type="GridContainer" parent="WandsVBOX/Wand4Box/MarginContainer/VBoxContainer"]
 layout_mode = 2
 columns = 8
+
+[connection signal="mouse_entered" from="WandsVBOX/Wand1Box" to="." method="_on_wand_box_mouse_entered" binds= [0]]
+[connection signal="mouse_exited" from="WandsVBOX/Wand1Box" to="." method="_on_wand_box_mouse_exited" binds= [0]]
+[connection signal="mouse_entered" from="WandsVBOX/Wand2Box" to="." method="_on_wand_box_mouse_entered" binds= [1]]
+[connection signal="mouse_exited" from="WandsVBOX/Wand2Box" to="." method="_on_wand_box_mouse_exited" binds= [1]]
+[connection signal="mouse_entered" from="WandsVBOX/Wand3Box" to="." method="_on_wand_box_mouse_entered" binds= [2]]
+[connection signal="mouse_exited" from="WandsVBOX/Wand3Box" to="." method="_on_wand_box_mouse_exited" binds= [2]]
+[connection signal="mouse_entered" from="WandsVBOX/Wand4Box" to="." method="_on_wand_box_mouse_entered" binds= [3]]
+[connection signal="mouse_exited" from="WandsVBOX/Wand4Box" to="." method="_on_wand_box_mouse_exited" binds= [3]]

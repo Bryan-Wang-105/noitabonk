@@ -27,11 +27,13 @@ script = ExtResource("3_u5cad")
 
 [node name="Wand_Preview" parent="Current_Scene/CanvasLayer" instance=ExtResource("5_ks21e")]
 
-[node name="Preview_Wand_Panel" parent="Current_Scene/CanvasLayer" instance=ExtResource("6_ils22")]
-
 [node name="Inventory" parent="Current_Scene/CanvasLayer" instance=ExtResource("7_njaee")]
 
 [node name="SpellPreview" parent="Current_Scene/CanvasLayer" instance=ExtResource("8_05q57")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Preview_Wand_Panel" parent="Current_Scene/CanvasLayer" instance=ExtResource("6_ils22")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
