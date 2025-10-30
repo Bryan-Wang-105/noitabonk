@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8245vgq3eije"]
+
+[ext_resource type="Script" uid="uid://cew2k734kvc70" path="res://Player/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://c1opy0wff4x1t" path="res://Player/Raycast/ray.gd" id="2_g2els"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvnsp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2els"]
+albedo_color = Color(0, 0.456822, 0.0942921, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6t5aa"]
+material = SubResource("StandardMaterial3D_g2els")
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 21
+script = ExtResource("1_v0iea")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01536, 0)
+shape = SubResource("CapsuleShape3D_cvnsp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_6t5aa")
+skeleton = NodePath("../..")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58903, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 32
+script = ExtResource("2_g2els")

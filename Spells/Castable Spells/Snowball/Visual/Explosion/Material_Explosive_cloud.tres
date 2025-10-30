@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cqglasu656sjb"]
+
+[ext_resource type="Shader" uid="uid://nk5slp3jind0" path="res://Spells/Castable Spells/Fireball/Visual/Explosion/shaderExplosionCloud.tres" id="1_c3dpe"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_c3dpe")
+shader_parameter/CloudSpeed = Vector2(0, 1)
+shader_parameter/CloudIntensity = 0.25
+shader_parameter/ExplosionColor = Color(0.887127, 0.410794, 0.0750898, 1)

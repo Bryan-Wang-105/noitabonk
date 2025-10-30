@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l8lloysdy7ux"]
+
+[ext_resource type="Script" uid="uid://cs2vgbxtwtg65" path="res://Wands/Wand Controller/wand_controller.gd" id="1_xiymk"]
+
+[node name="WandController" type="Node"]
+script = ExtResource("1_xiymk")

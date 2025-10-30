@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpauk0iruced0"]
+
+[ext_resource type="Script" uid="uid://x7f8oknarfh1" path="res://Wands/Wand Inventory/wand_inventory.gd" id="1_8ukff"]
+
+[node name="WandInventory" type="Node"]
+script = ExtResource("1_8ukff")

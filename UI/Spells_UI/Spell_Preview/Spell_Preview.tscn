@@ -1,0 +1,130 @@
+[gd_scene load_steps=4 format=3 uid="uid://ks7qceniqy6g"]
+
+[ext_resource type="Script" uid="uid://diosf076wsx35" path="res://UI/Spells_UI/Spell_Preview/Spell_Preview.gd" id="1_6oixy"]
+[ext_resource type="Texture2D" uid="uid://b78qudd2h5dy0" path="res://Spells/Castable Spells/Snowball/snowball_icon.png" id="2_yeydm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgy6v"]
+
+[node name="SpellPreview" type="PanelContainer"]
+custom_minimum_size = Vector2(350, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -100.0
+offset_right = 175.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.75, 1.75)
+mouse_filter = 2
+script = ExtResource("1_6oixy")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Name" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "PLACE HOLDER SPELL NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sgy6v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 30)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sgy6v")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_yeydm")
+stretch_mode = 2
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 30)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sgy6v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DMG" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Damage:"
+
+[node name="CSTDLY" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Cast Delay:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DMG" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "?"
+
+[node name="CSTDLY" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "?"
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sgy6v")
+
+[node name="DESC" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Description:"

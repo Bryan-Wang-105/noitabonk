@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjiuy2fi1v5cs"]
+
+[ext_resource type="Script" uid="uid://crjo0ywv5hl41" path="res://Spells/Spell Pickups/Spell_Item.gd" id="1_o4q4d"]
+[ext_resource type="Script" uid="uid://baf2rbt0kyx55" path="res://Spells/Castable Spells/Snowball/Programming/SnowballSpell.gd" id="2_75b01"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_75b01"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xl11q"]
+size = Vector3(0.15, 0.15, 0.15)
+
+[node name="Node3D" type="RigidBody3D" groups=["interactable"]]
+collision_layer = 32
+script = ExtResource("1_o4q4d")
+SPELL = ExtResource("2_75b01")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0178956, 0)
+shape = SubResource("CylinderShape3D_75b01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7077108, 0)
+mesh = SubResource("BoxMesh_xl11q")

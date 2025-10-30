@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://q4y1siqkv8x7"]
+
+[ext_resource type="Script" uid="uid://dwuir35k061rt" path="res://Enemies/BadBoy/bad_boy.gd" id="1_rm27s"]
+[ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="2_adkxl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rm27s"]
+albedo_color = Color(0.582282, 0, 0.187312, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_adkxl"]
+material = SubResource("StandardMaterial3D_rm27s")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1i4n4"]
+albedo_color = Color(0.122252, 0.122252, 0.122252, 1)
+metallic = 1.0
+roughness = 0.0
+refraction_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3mxyf"]
+
+[node name="BadBoy" type="CharacterBody3D" groups=["enemy"]]
+script = ExtResource("1_rm27s")
+loot = ExtResource("2_adkxl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06626, 0)
+mesh = SubResource("CapsuleMesh_adkxl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00286674, 1.688843, -0.414517)
+size = Vector3(0.737305, 0.261597, 0.139648)
+material = SubResource("StandardMaterial3D_1i4n4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0757264, 0)
+shape = SubResource("CapsuleShape3D_3mxyf")

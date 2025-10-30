@@ -1,0 +1,38 @@
+[gd_scene load_steps=11 format=3 uid="uid://bk43map7dcky8"]
+
+[ext_resource type="Script" uid="uid://ddqpbt1603703" path="res://Environment/Root/Root.gd" id="1_254ry"]
+[ext_resource type="PackedScene" uid="uid://dtncas7j2bcxp" path="res://Environment/World/World.tscn" id="1_j5px3"]
+[ext_resource type="PackedScene" uid="uid://cpauk0iruced0" path="res://Wands/Wand Inventory/wand_inventory.tscn" id="2_yqnby"]
+[ext_resource type="PackedScene" uid="uid://l8lloysdy7ux" path="res://Wands/Wand Controller/wand_controller.tscn" id="3_do47b"]
+[ext_resource type="Script" uid="uid://64ay6myygwp4" path="res://Environment/Root/canvas_layer_refactored.gd" id="3_u5cad"]
+[ext_resource type="PackedScene" uid="uid://cb0x38fi6a75c" path="res://UI/HUD/player_hud.tscn" id="4_ks21e"]
+[ext_resource type="PackedScene" uid="uid://bapddnfjn0egc" path="res://UI/Wands_UI/Wands Preview/wand_preview.tscn" id="5_ks21e"]
+[ext_resource type="PackedScene" uid="uid://c3vrua7qnl6uw" path="res://UI/Wands_UI/Wand Panel Preview/preview_wand_panel.tscn" id="6_ils22"]
+[ext_resource type="PackedScene" uid="uid://boqskgfeluso" path="res://UI/HUD/Inventory_UI/inventory_ui.tscn" id="7_njaee"]
+[ext_resource type="PackedScene" uid="uid://ks7qceniqy6g" path="res://UI/Spells_UI/Spell_Preview/Spell_Preview.tscn" id="8_05q57"]
+
+[node name="Root" type="Node"]
+script = ExtResource("1_254ry")
+
+[node name="Current_Scene" type="Node" parent="."]
+
+[node name="WandInventory" parent="Current_Scene" instance=ExtResource("2_yqnby")]
+
+[node name="WandController" parent="Current_Scene" instance=ExtResource("3_do47b")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Current_Scene"]
+script = ExtResource("3_u5cad")
+
+[node name="Player_HUD" parent="Current_Scene/CanvasLayer" instance=ExtResource("4_ks21e")]
+
+[node name="Wand_Preview" parent="Current_Scene/CanvasLayer" instance=ExtResource("5_ks21e")]
+
+[node name="Preview_Wand_Panel" parent="Current_Scene/CanvasLayer" instance=ExtResource("6_ils22")]
+
+[node name="Inventory" parent="Current_Scene/CanvasLayer" instance=ExtResource("7_njaee")]
+
+[node name="SpellPreview" parent="Current_Scene/CanvasLayer" instance=ExtResource("8_05q57")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="World" parent="Current_Scene" instance=ExtResource("1_j5px3")]
