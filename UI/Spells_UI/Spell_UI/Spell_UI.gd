@@ -11,6 +11,7 @@ signal dragging_toggle
 
 var stylebox: StyleBoxFlat
 
+
 func _ready() -> void:
 	#Global.canvas_layer
 	dragging_toggle.emit()
@@ -19,6 +20,30 @@ func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	
+	
+	# Connect the gui_input signal
+	gui_input.connect(_on_panel_clicked)
+	
+
+func _on_panel_clicked(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		# Check if Shift is being held
+		if event.shift_pressed:
+			print("Panel clicked with Shift held!")
+			# Do X here (shift + click behavior)
+			
+			# Remove spell object from parent
+			var parent_slot = get_parent()
+			parent_slot.remove_spell_object()
+			
+			# Add spell object to inventory
+			SpellLibrary.add_spell_auto(spell)
+			
+			
+		else:
+			print("Panel clicked without Shift")
+			# Normal click behavior
+
 func _on_mouse_entered() -> void:
 	print("HOVERING SLOT")
 	Global.canvas_layer.spell_preview.position.x = global_position.x
