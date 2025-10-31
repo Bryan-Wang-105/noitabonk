@@ -7,6 +7,7 @@ extends Spell
 
 func _init():
 	name = "Snowball"
+	rarity = "Uncommon"
 	projectile_scene = preload("uid://bmxm7ahckgd3g")
 	icon_path = "uid://b78qudd2h5dy0"
 	projectile_sound = load("uid://c323v5kn0omhc")

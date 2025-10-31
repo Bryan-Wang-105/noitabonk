@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvorc5cje7vhf"]
+
+[ext_resource type="Script" uid="uid://b7vsxplguukb5" path="res://Spells/Castable Spells/BlackHole/Programming/black_hole.gd" id="1_bjy8h"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rv61l"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4q54"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ivaat"]
+radius = 25.0
+
+[node name="Blackhole" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_bjy8h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_rv61l")
+surface_material_override/0 = SubResource("StandardMaterial3D_y4q54")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_ivaat")

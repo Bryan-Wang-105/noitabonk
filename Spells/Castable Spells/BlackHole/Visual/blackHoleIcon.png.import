@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b78qudd2h5dy0"
-path.s3tc="res://.godot/imported/snowball_icon.png-c8938e065773c99595694e72398b58c2.s3tc.ctex"
+uid="uid://cdjim0p5p52sk"
+path.s3tc="res://.godot/imported/blackHoleIcon.png-e9595350a1594f4b8f6ce21ee5343214.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Spells/Castable Spells/Snowball/snowball_icon.png"
-dest_files=["res://.godot/imported/snowball_icon.png-c8938e065773c99595694e72398b58c2.s3tc.ctex"]
+source_file="res://Spells/Castable Spells/BlackHole/Visual/blackHoleIcon.png"
+dest_files=["res://.godot/imported/blackHoleIcon.png-e9595350a1594f4b8f6ce21ee5343214.s3tc.ctex"]
 
 [params]
 

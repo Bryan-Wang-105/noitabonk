@@ -3,7 +3,7 @@ extends Node
 var tieredSpells = {
 	"Common": ["Fireball"],
 	"Uncommon": ["Snowball"],
-	"Rare": []
+	"Rare": ["Planetary Devastation"]
 }
 
 var spellMappings = {
@@ -12,6 +12,10 @@ var spellMappings = {
 				},
 	"Snowball": {"path": "uid://baf2rbt0kyx55",
 				 "icon": "uid://b78qudd2h5dy0"
+				},
+	"Planetary Devastation": {
+				"path": "uid://crlvykbdehka7",
+				"icon": "uid://cdjim0p5p52sk"
 				}
 }
 
@@ -34,7 +38,6 @@ func create_empty_inventory():
 		array.append(null)
 	
 	return array
-	 
 
 
 func get_random_spell_of_tier(tier: String):

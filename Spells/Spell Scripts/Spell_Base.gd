@@ -2,6 +2,7 @@
 class_name Spell
 
 var name
+var rarity
 var cast_delay
 var damage
 var modifier

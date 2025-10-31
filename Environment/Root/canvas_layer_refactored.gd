@@ -24,7 +24,7 @@ func _ready():
 
 func show_item_preview(item_stats):
 	wand_preview.show_item_preview(item_stats)
-
+		
 func hide_item_preview():
 	wand_preview.hide_item_preview()
 	

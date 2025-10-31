@@ -27,9 +27,14 @@ func _process(delta: float) -> void:
 		prompt_label.text = collider.get_prompt()
 		
 	 # Check if it's an item and if it's DIFFERENT from what we were looking at
-		if collider.has_method("loot_preview") and collider != current_item:
+		if collider.has_method("loot_wand_preview") and collider != current_item:
 			current_item = collider
-			Global.canvas_layer.show_item_preview(collider.loot_preview())
+			Global.canvas_layer.show_item_preview(collider.loot_wand_preview())
+			 # Check if it's an item and if it's DIFFERENT from what we were looking at
+		elif collider.has_method("loot_spell_preview") and collider != current_item:
+			current_item = collider
+			
+			#Global.canvas_layer.show_item_preview(collider.loot_spell_preview())
 	else:
 		prompt_label.text = ""
 		

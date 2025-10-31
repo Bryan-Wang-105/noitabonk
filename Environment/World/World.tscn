@@ -24,13 +24,13 @@ glow_enabled = true
 [node name="World" type="Node3D"]
 script = ExtResource("1_k0juu")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-directional_shadow_max_distance = 1.0
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kmx2w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.32793313, -0.37691122, 0.866255, 0.8668554, 0.24444635, 0.43452018, -0.37552842, 0.8934114, 0.24656555, 0, 13.881844, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
 
 [node name="Sandbox" parent="." instance=ExtResource("2_4wyf3")]
 
@@ -41,10 +41,10 @@ enemyScene = ExtResource("4_5ukr8")
 [node name="Loot" parent="." instance=ExtResource("5_qfnet")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.3665113)
 
-[node name="Node3D" parent="." instance=ExtResource("6_o06y3")]
+[node name="spell_pickup" parent="." instance=ExtResource("6_o06y3")]
 transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 5.546789, 12.838291, 5.349789)
 
-[node name="Node3D2" parent="." instance=ExtResource("6_o06y3")]
+[node name="spell_pickup2" parent="." instance=ExtResource("6_o06y3")]
 transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 7.979191, 12.838291, 5.349789)
 
 [node name="Player" parent="." instance=ExtResource("1_rwgxs")]
