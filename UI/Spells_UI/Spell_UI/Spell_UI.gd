@@ -9,6 +9,8 @@ var spell_info
 
 signal dragging_toggle
 
+var stylebox: StyleBoxFlat
+
 func _ready() -> void:
 	#Global.canvas_layer
 	dragging_toggle.emit()
@@ -39,6 +41,20 @@ func setup(spell_in):
 	
 	# Load spell texture
 	loaded_texture = load(spell_info[1])
+	
+	stylebox = get_theme_stylebox("panel")
+	stylebox = stylebox.duplicate()
+	
+	# Change color based on condition
+	if spell_in.rarity == "Common":
+		stylebox.bg_color = SpellLibrary.rarity_color["Common"]
+	elif spell_in.rarity == "Uncommon":
+		stylebox.bg_color = SpellLibrary.rarity_color["Uncommon"]
+	elif spell_in.rarity == "Rare":
+		stylebox.bg_color = SpellLibrary.rarity_color["Rare"]
+	
+	# Apply the stylebox to the panel
+	add_theme_stylebox_override("panel", stylebox)
 
 # Godot calls this when drag starts on THIS node
 func _get_drag_data(at_position: Vector2):
@@ -51,10 +67,6 @@ func _get_drag_data(at_position: Vector2):
 	set_drag_preview(preview)
 	
 	return self
-
-	
-	# Return your data or null
-	pass
 
 # Godot calls this when something is dragged over THIS node
 func _can_drop_data(at_position: Vector2, data) -> bool:

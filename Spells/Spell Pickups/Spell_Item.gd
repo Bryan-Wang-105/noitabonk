@@ -20,11 +20,11 @@ func _ready() -> void:
 	
 	match spell.rarity:
 		"Common":
-			glow.light_color = Color.GRAY
+			glow.light_color = SpellLibrary.rarity_color["Common"]
 		"Uncommon":
-			glow.light_color = Color.GREEN
+			glow.light_color = SpellLibrary.rarity_color["Uncommon"]
 		"Rare":
-			glow.light_color = Color.BLUE
+			glow.light_color = SpellLibrary.rarity_color["Rare"]
 		"Legendary":
 			glow.light_color = Color.ORANGE
 	

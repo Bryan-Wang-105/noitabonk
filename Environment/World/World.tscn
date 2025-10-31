@@ -43,10 +43,28 @@ enemyScene = ExtResource("4_5ukr8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.254841, 28.562565, 7.1401186)
 
 [node name="spell_pickup" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 20.80163, 33.976242, 8.123396)
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 16.489775, 16.337618, 13.560127)
 
 [node name="spell_pickup2" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 23.234032, 33.976242, 8.123396)
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 18.922176, 16.337618, 13.560127)
+
+[node name="spell_pickup3" parent="." instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 20.80163, 15.52882, 8.123396)
+
+[node name="spell_pickup4" parent="." instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 23.234032, 15.52882, 8.123396)
+
+[node name="spell_pickup5" parent="." instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 13.150633, 15.325729, 8.123396)
+
+[node name="spell_pickup6" parent="." instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 15.5830345, 15.325729, 8.123396)
+
+[node name="spell_pickup7" parent="." instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 20.80163, 16.389334, 13.116916)
+
+[node name="spell_pickup8" parent="." instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 23.234032, 16.389334, 13.116916)
 
 [node name="Player" parent="." instance=ExtResource("1_rwgxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.136404, 27.151861, 12.47115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.136404, 19.120367, 12.47115)

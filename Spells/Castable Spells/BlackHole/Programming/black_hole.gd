@@ -33,10 +33,12 @@ func _deactivate_pull() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
+	print(body)
 	if body is RigidBody3D and body.is_in_group("physics") and body != self:
 		objects_in_range.append(body)
 
 func _on_body_exited(body: Node3D) -> void:
+	print(body)
 	if body in objects_in_range:
 		objects_in_range.erase(body)
 

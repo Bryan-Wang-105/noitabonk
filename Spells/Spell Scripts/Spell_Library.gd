@@ -2,7 +2,7 @@ extends Node
 
 var tieredSpells = {
 	"Common": ["Fireball"],
-	"Uncommon": ["Snowball"],
+	"Uncommon": ["Snowball", "Pickup Truck"],
 	"Rare": ["Planetary Devastation"]
 }
 
@@ -16,6 +16,10 @@ var spellMappings = {
 	"Planetary Devastation": {
 				"path": "uid://crlvykbdehka7",
 				"icon": "uid://cdjim0p5p52sk"
+				},
+	"Pickup Truck": {
+				"path": "uid://ci4djej1p31rs",
+				"icon": "uid://dv2n8cm2gks55"
 				}
 }
 
@@ -24,6 +28,12 @@ var tier_weights = {
 	"Uncommon": 75,
 	"Rare": 90,
 	"Legendary": 100
+}
+
+var rarity_color = {
+	"Common" : Color.GRAY,
+	"Uncommon": Color.WEB_GREEN,
+	"Rare": Color.REBECCA_PURPLE
 }
 
 var inventory_spells = create_empty_inventory()

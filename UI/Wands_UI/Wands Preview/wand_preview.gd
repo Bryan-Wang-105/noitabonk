@@ -20,11 +20,11 @@ func show_item_preview(stats):
 	rrty.text = stats[5]
 	match rrty.text:
 		"Common":
-			rrty.add_theme_color_override("font_color", Color.GRAY)
+			rrty.add_theme_color_override("font_color", SpellLibrary.rarity_color["Common"])
 		"Uncommon":
-			rrty.add_theme_color_override("font_color", Color.GREEN)
+			rrty.add_theme_color_override("font_color", SpellLibrary.rarity_color["Uncommon"])
 		"Rare":
-			rrty.add_theme_color_override("font_color", Color.SKY_BLUE)
+			rrty.add_theme_color_override("font_color", SpellLibrary.rarity_color["Rare"])
 	
 	# Damage
 	dmg.text = "%.2f" % stats[0]
