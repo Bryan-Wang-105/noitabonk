@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bcjef2wxyk0he" path="res://Wands/Wand Pickup/Loot_Wand.gd" id="1_h2cvd"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_joivg"]
-size = Vector3(0.2, 0.2, 0.2)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qwk5y"]
+radius = 0.025
+height = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gg2i2"]
-size = Vector3(0.58148193, 0.838501, 0.5453491)
+size = Vector3(0.58148193, 0.50357056, 0.5453491)
 
 [sub_resource type="Animation" id="Animation_l44s4"]
-length = 0.001
+length = 3.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,10 +19,22 @@ tracks/0/path = NodePath("MeshInstance3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.5333333, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0.8571608, 0)]
+"values": [Vector3(0, 0.2360475, 0), Vector3(0, 0.4759047, 0), Vector3(0, 0.2360475, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5233333, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.1415927, 1.5707964), Vector3(-5.551115e-17, 1.5916705, 1.5707964), Vector3(-8.3278824e-17, 0.00853467, 1.5707964)]
 }
 
 [sub_resource type="Animation" id="Animation_m0gsf"]
@@ -50,18 +64,18 @@ collision_layer = 32
 script = ExtResource("1_h2cvd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8571608, 0)
-mesh = SubResource("BoxMesh_joivg")
+transform = Transform3D(4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 0, -3.821371e-15, -8.742278e-08, -1, 0, 0.2360475, 0)
+mesh = SubResource("CapsuleMesh_qwk5y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0061950684, 0.42601848, -0.013519287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0061950684, 0.27076757, -0.013519287)
 shape = SubResource("BoxShape3D_gg2i2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_lfujy")
 }
-autoplay = "bobbing"
+autoplay = "RESET"
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.357576, -0.0015644729)

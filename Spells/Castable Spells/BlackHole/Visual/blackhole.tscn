@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvorc5cje7vhf"]
+[gd_scene load_steps=10 format=3 uid="uid://cvorc5cje7vhf"]
 
 [ext_resource type="Script" uid="uid://b7vsxplguukb5" path="res://Spells/Castable Spells/BlackHole/Programming/black_hole.gd" id="1_bjy8h"]
 
@@ -14,6 +14,43 @@ emission_energy_multiplier = 2.5
 [sub_resource type="SphereShape3D" id="SphereShape3D_ivaat"]
 radius = 25.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m1xqy"]
+emission_shape = 1
+emission_sphere_radius = 5.0
+initial_velocity_min = -5.0
+initial_velocity_max = 5.0
+orbit_velocity_min = 0.3000001
+orbit_velocity_max = 1.0000001
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -3.0000021
+radial_accel_max = -1.0000023
+tangential_accel_min = 0.49999776
+tangential_accel_max = 1.9999977
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1usl"]
+albedo_color = Color(0.12152407, 0.017504768, 0.3745218, 1)
+emission_enabled = true
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_qdbbk"]
+material = SubResource("StandardMaterial3D_d1usl")
+radius = 0.05
+height = 0.1
+radial_segments = 32
+rings = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35etn"]
+albedo_color = Color(0.74138194, 0.74904794, 0.99798673, 1)
+emission_enabled = true
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_o03yu"]
+material = SubResource("StandardMaterial3D_35etn")
+radius = 0.05
+height = 0.1
+radial_segments = 32
+rings = 16
+
 [node name="Blackhole" type="RigidBody3D"]
 gravity_scale = 0.0
 script = ExtResource("1_bjy8h")
@@ -26,3 +63,25 @@ surface_material_override/0 = SubResource("StandardMaterial3D_y4q54")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_ivaat")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+strength = 108.42
+radius = 7.287418
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 50
+lifetime = 10.0
+randomness = 0.15
+process_material = SubResource("ParticleProcessMaterial_m1xqy")
+draw_passes = 2
+draw_pass_1 = SubResource("SphereMesh_qdbbk")
+draw_pass_2 = null
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+amount = 50
+lifetime = 10.0
+randomness = 0.15
+process_material = SubResource("ParticleProcessMaterial_m1xqy")
+draw_passes = 2
+draw_pass_1 = SubResource("SphereMesh_o03yu")
+draw_pass_2 = null

@@ -29,23 +29,24 @@ environment = SubResource("Environment_kmx2w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.32793313, -0.37691122, 0.866255, 0.8668554, 0.24444635, 0.43452018, -0.37552842, 0.8934114, 0.24656555, 0, 13.881844, 0)
+light_color = Color(0.6823907, 0.5122561, 0.21704409, 1)
 shadow_enabled = true
 directional_shadow_max_distance = 1.0
 
 [node name="Sandbox" parent="." instance=ExtResource("2_4wyf3")]
 
 [node name="EnemyManager" parent="." instance=ExtResource("2_71j4m")]
-enemy_count = 10
+enemy_count = 150
 enemyScene = ExtResource("4_5ukr8")
 
 [node name="Loot" parent="." instance=ExtResource("5_qfnet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.3665113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.254841, 28.562565, 7.1401186)
 
 [node name="spell_pickup" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 5.546789, 12.838291, 5.349789)
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 20.80163, 33.976242, 8.123396)
 
 [node name="spell_pickup2" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 7.979191, 12.838291, 5.349789)
+transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 23.234032, 33.976242, 8.123396)
 
 [node name="Player" parent="." instance=ExtResource("1_rwgxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7532215, 10.157045, 6.3089905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.136404, 27.151861, 12.47115)

@@ -3,6 +3,8 @@ extends RigidBody3D
 @export var pull_force: float = 500000.0
 
 @onready var area: Area3D = $Area3D
+@onready var particles1: GPUParticles3D = $GPUParticles3D
+@onready var particles2: GPUParticles3D = $GPUParticles3D2
 
 var is_pulling: bool = false
 var objects_in_range: Array[RigidBody3D] = []
@@ -13,6 +15,9 @@ func _ready() -> void:
 	_activate_gravity_pull()
 
 func _activate_gravity_pull() -> void:
+	particles1.emitting = true
+	particles2.emitting = true
+	
 	# Stop the ball's movement
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
