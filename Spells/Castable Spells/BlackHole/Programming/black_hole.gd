@@ -7,7 +7,7 @@ extends RigidBody3D
 @onready var particles2: GPUParticles3D = $GPUParticles3D2
 
 var is_pulling: bool = false
-var objects_in_range: Array[RigidBody3D] = []
+var objects_in_range = []
 
 func _ready() -> void:
 	# Start timer for gravity pull
@@ -34,6 +34,10 @@ func _deactivate_pull() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D and body.is_in_group("physics") and body != self:
+		objects_in_range.append(body)
+	
+	elif body is CharacterBody3D and body.is_in_group("physics") and body != self:
+		print("AAA")
 		objects_in_range.append(body)
 
 func _on_body_exited(body: Node3D) -> void:

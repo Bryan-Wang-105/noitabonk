@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkewgxp4yf3ev"]
+[gd_scene load_steps=13 format=3 uid="uid://bkewgxp4yf3ev"]
 
 [ext_resource type="Script" uid="uid://dc1gdfkcwhg4r" path="res://Spells/Castable Spells/Turret/Programming/turret.gd" id="1_rcj50"]
 [ext_resource type="PackedScene" uid="uid://bftth62a0y0yi" path="res://Spells/Castable Spells/Turret/Visual/bottom_turret_mesh.tscn" id="2_0plsd"]
@@ -28,16 +28,54 @@ transparency = 1
 cull_mode = 2
 albedo_color = Color(0.27428678, 0.5220391, 0.81182253, 0.105882354)
 
-[node name="Turret" type="RigidBody3D"]
+[sub_resource type="Animation" id="Animation_0plsd"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopTurretMesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3.01, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0), Vector3(0, -2.0832772, 0), Vector3(0, -3.1415925, 0), Vector3(0, -4.1887903, 0), Vector3(0, -3.1415925, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_378nn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopTurretMesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8gwv"]
+_data = {
+&"RESET": SubResource("Animation_378nn"),
+&"idle": SubResource("Animation_0plsd")
+}
+
+[node name="Turret" type="RigidBody3D" groups=["physics"]]
 collision_layer = 512
-mass = 10.0
+mass = 50.0
 script = ExtResource("1_rcj50")
 
 [node name="BottomTurretMesh" parent="." instance=ExtResource("2_0plsd")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="TopTurretMesh" parent="." instance=ExtResource("3_378nn")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.90840495, 0)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0.90840495, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="TopTurretMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16557264, 0)
@@ -91,3 +129,7 @@ material = SubResource("StandardMaterial3D_q73ie")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k8gwv")
+}
+autoplay = "idle"

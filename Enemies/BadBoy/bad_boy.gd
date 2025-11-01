@@ -11,7 +11,7 @@ extends CharacterBody3D
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var speed = 3.0
-var health = 300
+var health = 30
 var locked = false
 var force = 50
 var alive = true

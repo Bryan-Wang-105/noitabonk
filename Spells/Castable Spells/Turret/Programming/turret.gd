@@ -5,6 +5,7 @@ extends RigidBody3D
 @onready var top_half: Node3D = $TopTurretMesh
 @onready var area: Area3D = $Area3D
 @onready var gpu: GPUParticles3D = $TopTurretMesh/GPUParticles3D
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 var dmg
 var enemies_in_range: Array = []
@@ -19,7 +20,6 @@ func _ready():
 	area.body_exited.connect(_on_body_exited)
 
 	activate_timer()
-	pass
 
 func activate_timer() -> void:
 	await get_tree().create_timer(10.0).timeout
@@ -35,6 +35,7 @@ func _process(delta):
 	
 	# Rotate towards target
 	if current_target:
+		anim_player.pause()
 		gpu.emitting = true
 		#_rotate_towards_target(delta)
 		top_half.look_at(current_target.to_aim.global_position)
@@ -44,7 +45,9 @@ func _process(delta):
 			_fire()
 			time_since_last_shot = 0.0
 	else:
-		gpu.emitting = true
+		if !anim_player.is_playing():
+			anim_player.play("idle")
+			gpu.emitting = false
 
 func _on_body_entered(body):
 	# Check if the body is an enemy (adjust this condition based on your game)

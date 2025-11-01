@@ -1,19 +1,19 @@
-[gd_scene load_steps=21 format=3 uid="uid://cobjs7lpwvbtv"]
+[gd_scene load_steps=21 format=3 uid="uid://cpvxmsvb8wx54"]
 
-[ext_resource type="Shader" uid="uid://rsjyv6jijvik" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/fireballShader.tres" id="1_hfn2d"]
-[ext_resource type="Script" uid="uid://blqdl6uwesepm" path="res://Spells/Castable Spells/Fireball/Programming/fire_ball.gd" id="1_srjya"]
-[ext_resource type="PackedScene" uid="uid://bfowhpu4mi31j" path="res://Spells/Castable Spells/Fireball/Programming/explosion.tscn" id="2_1bsi3"]
-[ext_resource type="ArrayMesh" uid="uid://bhytfad6jib4k" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/fireball.obj" id="2_srjya"]
-[ext_resource type="Shader" uid="uid://csexqbiv1bcwn" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/FireHeaderShader.tres" id="3_bt1xs"]
-[ext_resource type="Shader" uid="uid://dxc3ce3x6houq" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/Trail_Shader.tres" id="4_1s8ax"]
-[ext_resource type="Texture2D" uid="uid://s5t0er3yra7y" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/T_VFX_basic1.PNG" id="5_dkq5s"]
+[ext_resource type="Script" uid="uid://bbdkmsk8cads0" path="res://Spells/Castable Spells/Fireball/Visual/fireball_pixelated.gd" id="1_rf5em"]
+[ext_resource type="Shader" uid="uid://rsjyv6jijvik" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/fireballShader.tres" id="3_iwg6a"]
+[ext_resource type="ArrayMesh" uid="uid://bhytfad6jib4k" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/fireball.obj" id="4_4murs"]
+[ext_resource type="Shader" uid="uid://csexqbiv1bcwn" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/FireHeaderShader.tres" id="5_m0dqs"]
+[ext_resource type="Shader" uid="uid://dxc3ce3x6houq" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/Trail_Shader.tres" id="6_0s62q"]
+[ext_resource type="Texture2D" uid="uid://s5t0er3yra7y" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/T_VFX_basic1.PNG" id="7_k85mi"]
+[ext_resource type="Script" uid="uid://dc5hrrmqqtdb3" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/dynamicFlame.gd" id="8_ol06s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hfn2d"]
 radius = 0.25
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iuavw"]
 render_priority = 1
-shader = ExtResource("1_hfn2d")
+shader = ExtResource("3_iwg6a")
 shader_parameter/Fire_Color = Color(2.5, 1.3, 0.3, 1)
 shader_parameter/Speed = Vector2(1, 3)
 
@@ -22,7 +22,7 @@ radius = 0.7
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_corkq"]
 render_priority = 0
-shader = ExtResource("3_bt1xs")
+shader = ExtResource("5_m0dqs")
 shader_parameter/Ball_Color = Color(0.703215, 0.301637, 0.0233266, 1)
 shader_parameter/Fresnel_Power = 5.0
 
@@ -38,7 +38,7 @@ use_hdr = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q2ttc"]
 render_priority = 0
-shader = ExtResource("4_1s8ax")
+shader = ExtResource("6_0s62q")
 shader_parameter/Color_texture = SubResource("GradientTexture1D_7kqo6")
 shader_parameter/TrailSpeed = Vector2(3, 0)
 
@@ -50,7 +50,7 @@ disable_ambient_light = true
 disable_fog = true
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
-albedo_texture = ExtResource("5_dkq5s")
+albedo_texture = ExtResource("7_k85mi")
 
 [sub_resource type="Curve" id="Curve_tvu3y"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -77,11 +77,10 @@ color = Color(2, 1.3, 0.5, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_ai2lq"]
 size = Vector2(0.1, 0.5)
 
-[node name="Fireball" type="CharacterBody3D" groups=["physics"]]
+[node name="Fireball_Pixelated" type="CharacterBody3D" groups=["physics"]]
 collision_layer = 520
 collision_mask = 5
-script = ExtResource("1_srjya")
-hit_effect_scene = ExtResource("2_1bsi3")
+script = ExtResource("1_rf5em")
 
 [node name="HitboxCollider" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_hfn2d")
@@ -90,7 +89,7 @@ shape = SubResource("SphereShape3D_hfn2d")
 transform = Transform3D(0.25, 0, 0, 0, -0.25, 0.000170149, 0, -0.000170149, -0.25, 0, -5.96046e-08, -0.0162987)
 material_override = SubResource("ShaderMaterial_iuavw")
 cast_shadow = 0
-mesh = ExtResource("2_srjya")
+mesh = ExtResource("4_4murs")
 
 [node name="Head" type="MeshInstance3D" parent="Fireball"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.197182)
@@ -115,3 +114,7 @@ draw_pass_1 = SubResource("QuadMesh_ai2lq")
 light_color = Color(0.840227, 0.395364, 0.0233929, 1)
 light_energy = 3.705
 omni_range = 1.742
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 50
+script = ExtResource("8_ol06s")

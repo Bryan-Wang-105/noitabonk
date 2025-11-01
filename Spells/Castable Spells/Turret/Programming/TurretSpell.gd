@@ -39,7 +39,7 @@ func spawn_turret(sprd = 0):
 	
 	# Set up orientation using basis directly
 	var look_target = Global.player.camera.global_position + forward_direction * 10.0
-	var z_axis = (spawn_position - look_target).normalized()
+	var z_axis = (look_target - spawn_position).normalized()
 	var x_axis = Vector3.UP.cross(z_axis).normalized()
 	var y_axis = z_axis.cross(x_axis).normalized()
 	turret_instance.transform.basis = Basis(x_axis, y_axis, z_axis)
