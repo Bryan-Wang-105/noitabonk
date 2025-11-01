@@ -45,6 +45,7 @@ func equip_wand(slot: int) -> void:
 		return
 	
 	active_slot = slot
+	active_wand = wands[slot]
 	wand_equipped.emit(wands[slot], slot)
 	
 	emit_signal("inventory_changed")

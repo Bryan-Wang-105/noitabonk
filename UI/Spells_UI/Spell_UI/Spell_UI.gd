@@ -34,12 +34,32 @@ func _on_panel_clicked(event: InputEvent) -> void:
 			
 			# Remove spell object from parent
 			var parent_slot = get_parent()
-			parent_slot.remove_spell_object()
 			
-			# Add spell object to inventory
-			SpellLibrary.add_spell_auto(spell)
+			if parent_slot.is_wand:
+				print("Panel belongs to wand")
+				parent_slot.remove_spell_object()
 			
-			
+				# Add spell object to inventory
+				SpellLibrary.add_spell_auto(spell)
+				
+			elif parent_slot.is_inventory:
+				print("Panel belongs to inventory")
+				# remove spell object from inventory
+				parent_slot.remove_spell_object()
+				
+				# Check if there's a slot open on active wand
+				if Global.wandInventory.active_wand:
+					# Get first null instance
+					var open_slot = -1
+					
+					for i in range(len(Global.wandInventory.active_wand.spells)):
+						if not Global.wandInventory.active_wand.spells[i]:
+							Global.wandInventory.active_wand.spells[i] = spell
+							Global.canvas_layer.inventory.wands_panel.update_wand_slots()
+							return
+					
+				# Add spell object to inventory
+				SpellLibrary.add_spell_auto(spell)
 		else:
 			print("Panel clicked without Shift")
 			# Normal click behavior

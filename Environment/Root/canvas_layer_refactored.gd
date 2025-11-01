@@ -9,7 +9,6 @@ extends CanvasLayer
 # Preview wands in your inventory in the panels
 @onready var preview_wand_panel: PanelContainer = $Preview_Wand_Panel
 
-
 # Player inventory (Wands + Spells)
 @onready var inventory: PanelContainer = $Inventory
 
