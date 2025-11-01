@@ -1,6 +1,5 @@
 # Fireball.gd
 extends CharacterBody3D
-class_name Fireball
 
 var world
 
@@ -20,6 +19,9 @@ var time_alive: float = 0.0
 var direction: Vector3 = Vector3.FORWARD
 var accumulated_forces: Vector3 = Vector3.ZERO
 
+@onready var flame_trail: GPUParticles3D = $GPUParticles3D
+var trail_process_material: ParticleProcessMaterial
+
 func _ready():
 	# Initialize velocity with initial speed in the direction
 	velocity = direction * initial_speed
@@ -27,6 +29,10 @@ func _ready():
 	# Add a timer to destroy the fireball after lifetime
 	var timer = get_tree().create_timer(lifetime)
 	timer.timeout.connect(_on_lifetime_expired)
+	
+	# Get the process material created by FlameTrail script
+	if flame_trail:
+		trail_process_material = flame_trail.process_material as ParticleProcessMaterial
 	
 
 func apply_central_force(force: Vector3) -> void:
@@ -71,6 +77,9 @@ func _physics_process(delta):
 		if velocity.length() > max_speed:
 			velocity = velocity.normalized() * max_speed
 	
+	# Update trail based on velocity
+	_update_trail(delta)
+	
 	# Clear accumulated forces (they only apply for one frame)
 	accumulated_forces = Vector3.ZERO
 	
@@ -82,6 +91,29 @@ func _physics_process(delta):
 		var collision_obj = get_slide_collision(0).get_collider()
 		_handle_collision(collision_obj)
 
+func _update_trail(delta):
+	if not flame_trail or not trail_process_material:
+		return
+	
+	var speed = velocity.length()
+	var speed_ratio = speed / max_speed  # 0.0 to 1.0
+	
+	# Particles emit backwards relative to movement
+	if speed > 0.1:
+		var emit_direction = -velocity.normalized()
+		trail_process_material.direction = emit_direction
+		trail_process_material.initial_velocity_min = speed * 0.3
+		trail_process_material.initial_velocity_max = speed * 0.5
+		trail_process_material.spread = 15.0 + (speed_ratio * 30.0)  # More spread at high speed
+		
+		# Scale particle emission with speed
+		flame_trail.amount_ratio = 0.3 + (speed_ratio * 0.7)  # 30% to 100% particles
+		
+		# Adjust particle lifetime based on speed (faster = longer trail)
+		flame_trail.lifetime = 0.3 + (speed_ratio * 0.7)  # 0.3s to 1.0s
+	else:
+		# Minimal trail when slow/stopped
+		flame_trail.amount_ratio = 0.1
 
 func _handle_collision(body):
 	print("Fireball hit body: ", body)
