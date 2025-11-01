@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dng6nvqqy7qvd"]
+[gd_scene load_steps=9 format=3 uid="uid://dng6nvqqy7qvd"]
 
 [ext_resource type="Script" uid="uid://20p6gv237mxn" path="res://Spells/Castable Spells/Truck/Visual/truck.gd" id="1_6en7u"]
 [ext_resource type="PackedScene" uid="uid://dlu5e7wvp50rw" path="res://Spells/Castable Spells/Truck/Visual/truck.tscn" id="1_kwliw"]
@@ -16,7 +16,14 @@ radius = 0.26660156
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kwliw"]
 height = 2.397705
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_28oou"]
+size = Vector3(2.3144531, 1.616333, 5.006256)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jb8k"]
+size = Vector3(2.3680725, 0.7876587, 2.034523)
+
 [node name="Truck" type="RigidBody3D" groups=["physics"]]
+collision_layer = 512
 mass = 250.0
 script = ExtResource("1_6en7u")
 
@@ -46,3 +53,14 @@ shape = SubResource("CapsuleShape3D_kwliw")
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
 transform = Transform3D(4.371139e-08, 0.99999994, 8.742277e-08, 1, -4.3711385e-08, 2.220446e-16, 4.0434155e-15, 8.742277e-08, -0.99999994, 0.08059658, 0.5355426, 1.4350009)
 shape = SubResource("CapsuleShape3D_kwliw")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83882725, 0.010513306)
+shape = SubResource("BoxShape3D_28oou")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010726929, 2.0286422, -0.15079117)
+shape = SubResource("BoxShape3D_2jb8k")

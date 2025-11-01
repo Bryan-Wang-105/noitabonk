@@ -27,28 +27,16 @@ func take_dmg(amount):
 		die()
 
 func flash_white() -> void:
-	# Store the original material (either override or base material)
-	var original_material: Material
-	var og_sg_mat
-	
-	if mesh.get_surface_override_material(0) != null:
-		original_material = mesh.get_surface_override_material(0)
-	else:
-		original_material = mesh.mesh.surface_get_material(0)
-	
-	# Store sunglasses material separately
-	og_sg_mat = sunglass_mesh.material_override
-	
 	# Set white material as override (only affects THIS enemy)
 	mesh.set_surface_override_material(0, load("uid://dwt5nwlmv0bwq"))
 	sunglass_mesh.material_override = load("uid://6w0io6vltb80")
 	
-	# Wait 0.5 seconds
+	# Wait 0.15 seconds
 	await get_tree().create_timer(0.15).timeout
 	
 	# Restore original material
-	mesh.set_surface_override_material(0, original_material)
-	sunglass_mesh.material_override = og_sg_mat
+	mesh.set_surface_override_material(0, load("uid://da05kka4mhv1w"))
+	sunglass_mesh.material_override = load("uid://cpm6h6ptlfmpn")
 
 
 func die():

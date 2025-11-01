@@ -2,7 +2,7 @@
 extends Spell
 
 
-@export var launch_speed: float = 20.0
+@export var launch_speed: float = 30.0
 @export var spawn_distance: float = 3.5 # Distance from player to spawn the fireball
 
 func _init():
@@ -14,7 +14,7 @@ func _init():
 	cast_delay = 1.0
 	damage = 100
 	modifier = false
-	description = "This baby can haul all the groceries you can buy"
+	description = "Summons a pickup truck. This baby can haul all your groceries!"
 
 func activate(sprd = 0):
 	spawn_truck(sprd)
@@ -22,6 +22,7 @@ func activate(sprd = 0):
 func spawn_truck(sprd = 0):
 	# Instantiate the fireball
 	var truck_instance = projectile_scene.instantiate()
+	truck_instance.dmg = damage
 	
 	# Get the forward direction from the camera (facing direction)
 	var forward_direction = -Global.player.camera.global_transform.basis.z.normalized()

@@ -25,7 +25,7 @@ mesh = SubResource("CapsuleMesh_6t5aa")
 skeleton = NodePath("../..")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 0.6426673, 0.7661454, 0, -0.7661454, 0.6426673, 0.0048828125, 1.0255622, -0.32344347)
+transform = Transform3D(1, 0, 0, 0, -0.016230822, 0.9998683, 0, -0.9998683, -0.016230822, 0.004883051, -0.3765906, -0.4313845)
 size = Vector3(0.10070801, 0.34423828, 0.08544922)
 
 [node name="Head" type="Node3D" parent="."]
