@@ -30,15 +30,9 @@ func _ready():
 	
 
 func apply_central_force(force: Vector3) -> void:
-	"""
-	Apply a force to the fireball (like wind, explosions, etc.)
-	"""
 	accumulated_forces += force
 
 func apply_impulse(impulse: Vector3) -> void:
-	"""
-	Instantly change velocity (useful for deflection, bouncing, etc.)
-	"""
 	velocity += impulse / mass
 
 func _physics_process(delta):

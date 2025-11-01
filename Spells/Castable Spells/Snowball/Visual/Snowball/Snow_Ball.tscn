@@ -86,8 +86,8 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[node name="Snowball" type="CharacterBody3D"]
-collision_layer = 2
+[node name="Snowball" type="CharacterBody3D" groups=["physics"]]
+collision_layer = 514
 script = ExtResource("1_u2yvk")
 hit_effect_scene = ExtResource("2_xxeud")
 
