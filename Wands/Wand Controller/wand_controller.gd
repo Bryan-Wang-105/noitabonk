@@ -85,6 +85,11 @@ func shoot() -> void:
 	# Lock wand for cast delay
 	is_locked = true
 	cast_delay_timer = current_spell.cast_delay + current_wand.cast_delay
+
+	# If this is the last valid spell, start reload *now* alongside cast delay
+	if is_last_valid_spell():
+		start_reload()
+	
 	print("CAST DELAY FROM SPELL: ", current_spell.cast_delay)
 	print("CAST DELAY FROM WAND: ", current_wand.cast_delay)
 	
@@ -104,15 +109,23 @@ func start_reload() -> void:
 		return
 	
 	is_reloading = true
-	is_locked = true
+	# Don't override is_locked — it may already be true from cast delay
 	reload_timer = current_wand.reload_speed
 	reload_started.emit()
 
 func finish_reload() -> void:
 	is_reloading = false
-	is_locked = false
+
+	# Only unlock if cast delay is also done
+	if cast_delay_timer <= 0:
+		is_locked = false
+	else:
+		# If cast delay is still active, keep locked until it ends
+		is_locked = true
+
 	curr_idx = 0
 	reload_finished.emit()
+
 
 func can_shoot() -> bool:
 	return current_wand != null and not is_locked and not is_reloading
@@ -130,3 +143,17 @@ func load_wand(wand_data: WandData) -> void:
 	cast_delay_timer = 0.0
 	reload_timer = 0.0
 	shooting = false
+
+func is_last_valid_spell() -> bool:
+	if current_wand == null:
+		return false
+
+	# If we are already on the final slot
+	if curr_idx >= current_wand.capacity - 1:
+		return true
+
+	# Otherwise, check if all remaining slots are null
+	for i in range(curr_idx + 1, current_wand.capacity):
+		if current_wand.get_spell(i) != null:
+			return false
+	return true

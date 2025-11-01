@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkewgxp4yf3ev"]
+
+[ext_resource type="Script" uid="uid://dc1gdfkcwhg4r" path="res://Spells/Castable Spells/Turret/Programming/turret.gd" id="1_rcj50"]
+[ext_resource type="PackedScene" uid="uid://bftth62a0y0yi" path="res://Spells/Castable Spells/Turret/Visual/bottom_turret_mesh.tscn" id="2_0plsd"]
+[ext_resource type="PackedScene" uid="uid://bk7413k15onwc" path="res://Spells/Castable Spells/Turret/Visual/top_turret_mesh.tscn" id="3_378nn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q8lj2"]
+height = 1.4961548
+radius = 0.5932617
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_prlgl"]
+radius = 8.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q73ie"]
+transparency = 1
+albedo_color = Color(0.14216524, 0.33337292, 0.5542885, 0.105882354)
+
+[node name="Turret" type="RigidBody3D"]
+collision_layer = 512
+mass = 10.0
+script = ExtResource("1_rcj50")
+
+[node name="BottomTurretMesh" parent="." instance=ExtResource("2_0plsd")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="TopTurretMesh" parent="." instance=ExtResource("3_378nn")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.90840495, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71802247, 0)
+shape = SubResource("CylinderShape3D_q8lj2")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2806573, 0)
+shape = SubResource("SphereShape3D_prlgl")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
+radius = 8.0
+radial_segments = 24
+rings = 13
+material = SubResource("StandardMaterial3D_q73ie")
