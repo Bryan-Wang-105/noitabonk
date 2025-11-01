@@ -1,5 +1,6 @@
 extends Node
 
+var playerManager
 var player
 var world
 var wandInventory

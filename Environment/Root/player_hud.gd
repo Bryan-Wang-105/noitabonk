@@ -7,10 +7,19 @@ extends Control
 @onready var cast: Label = $Cast
 @onready var reload: Label = $Reload
 
-@onready var wand_1: Label = $HBoxContainer/Wand1
-@onready var wand_2: Label = $HBoxContainer/Wand2
-@onready var wand_3: Label = $HBoxContainer/Wand3
-@onready var wand_4: Label = $HBoxContainer/Wand4
+@onready var wand_1: Label = $WandsBar/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Label#$HBoxContainer/Wand1
+@onready var wand_2: Label = $WandsBar/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/Label#$HBoxContainer/Wand2
+@onready var wand_3: Label = $WandsBar/MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/Label#$HBoxContainer/Wand3
+@onready var wand_4: Label = $WandsBar/MarginContainer/HBoxContainer/PanelContainer4/MarginContainer/Label#$HBoxContainer/Wand4
+
+@onready var hp_bar: ProgressBar = $Health/ProgressBar
+@onready var hp_lbl: Label = $Health/Label
+
+
+@onready var xp_bar: ProgressBar = $Exp/ProgressBar
+@onready var xp_lbl: Label = $Exp/Label
+
+@onready var gold_lbl: Label = $PanelContainer/Control/Label
 
 var wand_controller
 var wand_inventory
@@ -20,7 +29,15 @@ var wand_labels
 func _ready() -> void:
 	wand_controller = Global.wandController
 	wand_inventory = Global.wandInventory
-
+	
+	update_health()
+	update_xp()
+	update_gold()
+	
+	Global.playerManager.connect("health_changed", update_health)
+	Global.playerManager.connect("experience_changed", update_xp)
+	Global.playerManager.connect("gold_changed", update_gold)
+	
 	wand_inventory.connect("inventory_changed", update_active_wand_bar)
 	
 	wand_labels = [wand_1, wand_2, wand_3, wand_4]
@@ -38,3 +55,15 @@ func update_active_wand_bar():
 			wand_labels[i].text = "ACTIVE\nWand " + str(i + 1)
 	
 	print("Updated active wand bar")
+
+func update_health():
+	hp_bar.value = 100 * Global.playerManager.health / Global.playerManager.max_health 
+	hp_lbl.text = str(Global.playerManager.health) + " / " + str(Global.playerManager.max_health) + " HP"
+
+func update_xp():
+	xp_bar.value = Global.playerManager.experience / Global.playerManager.max_experience
+	xp_lbl.text = str(Global.playerManager.experience) + " / " + str(Global.playerManager.max_experience) + " XP"
+
+
+func update_gold():
+	gold_lbl.text = "$ " + str(Global.playerManager.gold)

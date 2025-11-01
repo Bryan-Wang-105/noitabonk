@@ -11,6 +11,7 @@ class_name PlayerStats
 @export var max_health: float = 100.0
 @export var level: int = 1
 @export var experience: int = 0
+@export var max_experience: int = 100
 @export var gold: int = 0
 
 # Combat stats
@@ -23,6 +24,9 @@ signal health_changed(new_health, max_health)
 signal level_changed(new_level)
 signal experience_changed(new_exp)
 signal gold_changed(new_gold)
+
+func _ready():
+	Global.playerManager = self
 
 # Movement setters
 func set_walk_speed(value: float) -> void:
