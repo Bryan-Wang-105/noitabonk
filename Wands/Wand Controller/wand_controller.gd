@@ -74,7 +74,7 @@ func shoot() -> void:
 	
 	# Skip null slots
 	if current_spell == null:
-		print("BLANK")
+		print("BLANK SHOT")
 		increment()
 		return
 	

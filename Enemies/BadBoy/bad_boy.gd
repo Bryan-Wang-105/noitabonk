@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var ray: RayCast3D = $RayCast3D
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var sunglass_mesh: CSGBox3D = $CSGBox3D
+@onready var to_aim: Node3D = $toAim
 
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")

@@ -1,12 +1,15 @@
 extends RigidBody3D
 
+# Need to get line of sight to enemies not going through walls
+
 @onready var top_half: Node3D = $TopTurretMesh
 @onready var area: Area3D = $Area3D
+@onready var gpu: GPUParticles3D = $TopTurretMesh/GPUParticles3D
 
 var dmg
 var enemies_in_range: Array = []
 var current_target: Node3D = null
-var rotation_speed: float = 5.0  # Radians per second
+var rotation_speed: float = 30.0  # Radians per second
 var fire_rate: float = 0.5  # Seconds between shots
 var time_since_last_shot: float = 0.0
 
@@ -32,16 +35,20 @@ func _process(delta):
 	
 	# Rotate towards target
 	if current_target:
-		_rotate_towards_target(delta)
+		gpu.emitting = true
+		#_rotate_towards_target(delta)
+		top_half.look_at(current_target.to_aim.global_position)
 		
 		# Fire at target if enough time has passed
 		if time_since_last_shot >= fire_rate:
 			_fire()
 			time_since_last_shot = 0.0
+	else:
+		gpu.emitting = true
 
 func _on_body_entered(body):
 	# Check if the body is an enemy (adjust this condition based on your game)
-	if body.is_in_group("enemies"):
+	if body.is_in_group("enemy"):
 		enemies_in_range.append(body)
 
 func _on_body_exited(body):
@@ -74,41 +81,7 @@ func _update_target():
 	
 	current_target = nearest_enemy
 
-func _rotate_towards_target(delta):
-	if not current_target:
-		return
-	
-	# Get direction to target (only on XZ plane for turret rotation)
-	var target_position = current_target.global_position
-	var direction = Vector3(
-		target_position.x - global_position.x,
-		0,  # Keep Y at 0 for horizontal rotation only
-		target_position.z - global_position.z
-	).normalized()
-	
-	# Calculate target angle (turret faces -Z by default)
-	var target_angle = atan2(direction.x, -direction.z)
-	
-	# Get current angle
-	var current_angle = top_half.rotation.y
-	
-	# Smoothly rotate towards target
-	var angle_diff = _angle_difference(current_angle, target_angle)
-	var rotation_step = rotation_speed * delta
-	
-	if abs(angle_diff) < rotation_step:
-		top_half.rotation.y = target_angle
-	else:
-		top_half.rotation.y += sign(angle_diff) * rotation_step
-
-func _angle_difference(from_angle: float, to_angle: float) -> float:
-	# Get the shortest angle difference (handling wraparound)
-	var diff = fmod(to_angle - from_angle, TAU)
-	if diff > PI:
-		diff -= TAU
-	elif diff < -PI:
-		diff += TAU
-	return diff
-
 func _fire():
-	print("BANG! Firing at ", current_target.name)
+	print("BANG! Firing")
+	if current_target.has_method("take_dmg"):
+		current_target.take_dmg(10)

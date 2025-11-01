@@ -273,50 +273,50 @@ shadow_mesh = SubResource("ArrayMesh_enuc4")
 [node name="TopTurretMesh" type="Node3D"]
 
 [node name="cylinder_6" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.17722762, 0.5625)
+transform = Transform3D(-0.99999994, -8.742277e-08, 3.821371e-15, 0, -4.3711385e-08, -1, 8.742277e-08, -0.99999994, 4.371139e-08, 0.033978503, 0.17722762, -0.48422247)
 mesh = SubResource("ArrayMesh_whctl")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_j306j")
 
 [node name="cylinder_7" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.17722762, 0.4375)
+transform = Transform3D(-0.99999994, -8.742277e-08, 3.821371e-15, 0, -4.3711385e-08, -1, 8.742277e-08, -0.99999994, 4.371139e-08, 0.018876944, 0.17722762, -0.36013806)
 material_override = SubResource("StandardMaterial3D_1wb75")
 mesh = SubResource("ArrayMesh_5upg4")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_j306j")
 
 [node name="cylinder_8" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.17722762, 0.8125)
+transform = Transform3D(-0.99999994, -8.742277e-08, 3.821371e-15, 0, -4.3711385e-08, -1, 8.742277e-08, -0.99999994, 4.371139e-08, 0.06418161, 0.17722762, -0.7323913)
 mesh = SubResource("ArrayMesh_l6u3b")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_j306j")
 
 [node name="beveled_cuboid" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19777238, 0)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -0.033978503, -0.19777238, 0.07415742)
 mesh = SubResource("ArrayMesh_jg1du")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_j306j")
 
 [node name="beveled_cuboid_1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07277238, 0.375)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.011326168, -0.07277238, -0.29809585)
 mesh = SubResource("ArrayMesh_b0fny")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_j306j")
 
 [node name="beveled_cuboid_2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202015, 0, -0.34202015, 0.9396926, 0, 0.11472762, 0.0625)
+transform = Transform3D(-0.9999999, 2.7922418e-08, -8.215053e-08, -1.85864e-09, 0.9396925, 0.34202006, 8.674628e-08, 0.34202006, -0.9396925, -0.026427723, 0.11472762, 0.0121151805)
 mesh = SubResource("ArrayMesh_itqcc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_j306j")
 
 [node name="torus" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0.3125, 0.11472762, 0)
+transform = Transform3D(4.371139e-08, 0.99999994, -8.742277e-08, 1, -4.3711385e-08, -8.881784e-16, -4.7095494e-15, -8.742277e-08, -0.99999994, -0.34418955, 0.11472762, 0.036403537)
 mesh = SubResource("ArrayMesh_xu8w5")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_j306j")
 
 [node name="torus_1" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -0.3125, 0.11472762, 0)
+transform = Transform3D(4.371139e-08, 0.99999994, -8.742277e-08, 1, -4.3711385e-08, -8.881784e-16, -4.7095494e-15, -8.742277e-08, -0.99999994, 0.27623254, 0.11472762, 0.1119113)
 mesh = SubResource("ArrayMesh_bcdll")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_j306j")
