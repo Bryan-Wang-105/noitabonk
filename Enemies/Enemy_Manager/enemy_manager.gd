@@ -55,10 +55,13 @@ func update_enemy(enemy, delta: float):
 		enemy.die()     # Delete the node
 	
 	# Apply gravity
-	if not enemy.is_on_floor():
-		enemy.velocity.y -= gravity * delta
+	# Climbing logic
+	if enemy.is_on_wall():
+		enemy.velocity.y = enemy.speed  # Climb up at same speed as horizontal movement
+	elif not enemy.is_on_floor():
+		enemy.velocity.y -= gravity * delta  # Apply gravity when in air
 	else:
-		enemy.velocity.y = 0.0  # Reset vertical velocity when on ground
+		enemy.velocity.y = 0.0  # On ground
 	
 	# Horizontal movement toward player
 	var direction = (Global.player.global_position - enemy.global_position).normalized()

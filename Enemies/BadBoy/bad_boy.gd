@@ -2,11 +2,15 @@ extends CharacterBody3D
 
 @export var loot: PackedScene
 
+@onready var ray: RayCast3D = $RayCast3D
+@onready var mesh: MeshInstance3D = $MeshInstance3D
+@onready var sunglass_mesh: CSGBox3D = $CSGBox3D
+
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var speed = 3.0
-var health = 10
+var health = 300
 var locked = false
 var force = 50
 var alive = true
@@ -14,12 +18,37 @@ var level = 0
 
 func take_dmg(amount):
 	print("ENEMY TOOK DAMAGE")
+	flash_white()
 	health -= amount
 	
 	if health <= 0:
 		print("ENEMY IS DEAD")
 		alive = false
 		die()
+
+func flash_white() -> void:
+	# Store the original material (either override or base material)
+	var original_material: Material
+	var og_sg_mat
+	
+	if mesh.get_surface_override_material(0) != null:
+		original_material = mesh.get_surface_override_material(0)
+	else:
+		original_material = mesh.mesh.surface_get_material(0)
+	
+	# Store sunglasses material separately
+	og_sg_mat = sunglass_mesh.material_override
+	
+	# Set white material as override (only affects THIS enemy)
+	mesh.set_surface_override_material(0, load("uid://dwt5nwlmv0bwq"))
+	sunglass_mesh.material_override = load("uid://6w0io6vltb80")
+	
+	# Wait 0.5 seconds
+	await get_tree().create_timer(0.15).timeout
+	
+	# Restore original material
+	mesh.set_surface_override_material(0, original_material)
+	sunglass_mesh.material_override = og_sg_mat
 
 
 func die():
