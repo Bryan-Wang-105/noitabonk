@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dng6nvqqy7qvd"]
 
-[ext_resource type="Script" uid="uid://20p6gv237mxn" path="res://Spells/Castable Spells/Truck/truck.gd" id="1_6en7u"]
-[ext_resource type="PackedScene" uid="uid://dlu5e7wvp50rw" path="res://Spells/Castable Spells/Truck/truck.tscn" id="1_kwliw"]
+[ext_resource type="Script" uid="uid://20p6gv237mxn" path="res://Spells/Castable Spells/Truck/Visual/truck.gd" id="1_6en7u"]
+[ext_resource type="PackedScene" uid="uid://dlu5e7wvp50rw" path="res://Spells/Castable Spells/Truck/Visual/truck.tscn" id="1_kwliw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lmjbm"]
 size = Vector3(1.1760254, 0.84484863, 0.71206665)

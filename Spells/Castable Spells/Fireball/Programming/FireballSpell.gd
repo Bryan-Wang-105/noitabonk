@@ -25,6 +25,7 @@ func spawn_fireball(sprd = 0):
 	
 	# Get the forward direction from the camera (facing direction)
 	var forward_direction = -Global.player.camera.global_transform.basis.z.normalized()
+	#var forward_direction = -Global.player.global_transform.basis.z.normalized()
 	
 	if sprd != 0:
 		forward_direction = apply_spread(sprd * 100, forward_direction)

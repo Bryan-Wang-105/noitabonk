@@ -23,13 +23,16 @@ func take_dmg(amount):
 
 
 func die():
-	if randi_range(1,10) < 7:
-		if randi_range(1,10) < 3:
+	# Chance to drop loot (20%)
+	if randi_range(1,10) < 2:
+		# Chance to drop upgraded loot to Uncommon (4%)
+		if randi_range(1,10) < 2:
 			level = 1
 			print("Spawning loot at level 1")
+		
 		var spawn_loot = loot.instantiate()
 		spawn_loot.generate_random_wand(level)
-		print("DONE")
+		
 		Global.world.add_child(spawn_loot)
 		spawn_loot.global_position = global_position
 		spawn_loot.global_position.y += .25

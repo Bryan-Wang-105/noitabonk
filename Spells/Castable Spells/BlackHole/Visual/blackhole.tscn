@@ -71,6 +71,7 @@ strength = 108.42
 radius = 7.287418
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 50
 lifetime = 10.0
 randomness = 0.15
@@ -80,6 +81,7 @@ draw_pass_1 = SubResource("SphereMesh_qdbbk")
 draw_pass_2 = null
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 50
 lifetime = 10.0
 randomness = 0.15
@@ -90,3 +92,6 @@ draw_pass_2 = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_m1xqy")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_body_exited"]

@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var pull_force: float = 500000.0
+@export var pull_force: float = 50000.0
 
 @onready var area: Area3D = $Area3D
 @onready var particles1: GPUParticles3D = $GPUParticles3D
@@ -33,12 +33,10 @@ func _deactivate_pull() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
-	print(body)
 	if body is RigidBody3D and body.is_in_group("physics") and body != self:
 		objects_in_range.append(body)
 
 func _on_body_exited(body: Node3D) -> void:
-	print(body)
 	if body in objects_in_range:
 		objects_in_range.erase(body)
 

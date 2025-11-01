@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dk0lfoyaebb4n"
-path="res://.godot/imported/truck.fbx-09825310924f55e2f2b7faf0aeb1deb9.scn"
+path="res://.godot/imported/truck.fbx-4ab19285c45af7c8e572e8d2091da315.scn"
 
 [deps]
 
-source_file="res://Spells/Castable Spells/Truck/truck.fbx"
-dest_files=["res://.godot/imported/truck.fbx-09825310924f55e2f2b7faf0aeb1deb9.scn"]
+source_file="res://Spells/Castable Spells/Truck/Visual/truck.fbx"
+dest_files=["res://.godot/imported/truck.fbx-4ab19285c45af7c8e572e8d2091da315.scn"]
 
 [params]
 

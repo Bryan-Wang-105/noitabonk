@@ -12,8 +12,11 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 # References
 @onready var head := $Head
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var spawn_spell_pos: Node3D = $Head/spawnSpellPos
+
 #@onready var wand_inventory: WandInventory = $WandInventory
 #@onready var wand_controller: WandController = $WandController
+
 var wand_inventory
 var wand_controller
 
