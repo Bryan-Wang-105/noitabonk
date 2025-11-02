@@ -126,6 +126,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Extra Gold % Gain"
 
+[node name="Pickup_Range" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Pickup Radius"
+
 [node name="Luck2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -222,6 +227,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "0%"
 
+[node name="Gold_Gain2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = ".25"
+
 [node name="Luck2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -253,7 +263,7 @@ layout_mode = 2
 [node name="Title" type="Label" parent="PerksContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Perks Collected"
+text = "Perks"
 
 [node name="Panel" type="Panel" parent="PerksContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -264,3 +274,8 @@ layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="PerksContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
+
+[node name="Title" type="Label" parent="PerksContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "NOTHING TO SHOW HERE YET BUT IMAGINE"

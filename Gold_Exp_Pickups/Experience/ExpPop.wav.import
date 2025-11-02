@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c834tu2bowq1g"
-path="res://.godot/imported/ExpPop.wav-7ba6b835d7d4d66c600ec9dd194560a1.sample"
+path="res://.godot/imported/ExpPop.wav-6da82461b24edf74426817a319ed94e6.sample"
 
 [deps]
 
-source_file="res://Gold_Experience/Experience/ExpPop.wav"
-dest_files=["res://.godot/imported/ExpPop.wav-7ba6b835d7d4d66c600ec9dd194560a1.sample"]
+source_file="res://Gold_Exp_Pickups/Experience/ExpPop.wav"
+dest_files=["res://.godot/imported/ExpPop.wav-6da82461b24edf74426817a319ed94e6.sample"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du61d5bwtcpqe"
-path.s3tc="res://.godot/imported/CoinIcon.png-da40cc2e9185378bd575167bd9239bfc.s3tc.ctex"
+uid="uid://brxsteatndhtq"
+path.s3tc="res://.godot/imported/ExperienceIcon.png-c65ff4711960ae5b6a81b2dc502c7c32.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gold_Experience/Gold/CoinIcon.png"
-dest_files=["res://.godot/imported/CoinIcon.png-da40cc2e9185378bd575167bd9239bfc.s3tc.ctex"]
+source_file="res://Gold_Exp_Pickups/Experience/ExperienceIcon.png"
+dest_files=["res://.godot/imported/ExperienceIcon.png-c65ff4711960ae5b6a81b2dc502c7c32.s3tc.ctex"]
 
 [params]
 

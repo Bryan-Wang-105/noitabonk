@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7fyfw2mhsj5g"]
 
-[ext_resource type="Script" uid="uid://olv4548ff15k" path="res://Gold_Experience/Gold/gold_pickup.gd" id="1_hdxa2"]
-[ext_resource type="Texture2D" uid="uid://du61d5bwtcpqe" path="res://Gold_Experience/Gold/CoinIcon.png" id="2_rp82v"]
+[ext_resource type="Script" uid="uid://olv4548ff15k" path="res://Gold_Exp_Pickups/Gold/gold_pickup.gd" id="1_hdxa2"]
+[ext_resource type="Texture2D" uid="uid://du61d5bwtcpqe" path="res://Gold_Exp_Pickups/Gold/CoinIcon.png" id="2_rp82v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hdxa2"]
 height = 0.45502472

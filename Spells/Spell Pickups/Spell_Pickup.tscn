@@ -59,6 +59,7 @@ texture = ExtResource("2_avkny")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.006581962, 0)
+light_energy = 4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

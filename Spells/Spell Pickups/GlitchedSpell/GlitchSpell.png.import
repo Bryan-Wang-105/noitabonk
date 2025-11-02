@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brxsteatndhtq"
-path.s3tc="res://.godot/imported/ExperienceIcon.png-a33e18256bf53ec72ebb8b6f3495e3c4.s3tc.ctex"
+uid="uid://bh372edqpt1u3"
+path.s3tc="res://.godot/imported/GlitchSpell.png-be647b0af9d4ca24127d4139390f8b29.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gold_Experience/Experience/ExperienceIcon.png"
-dest_files=["res://.godot/imported/ExperienceIcon.png-a33e18256bf53ec72ebb8b6f3495e3c4.s3tc.ctex"]
+source_file="res://Spells/Spell Pickups/GlitchedSpell/GlitchSpell.png"
+dest_files=["res://.godot/imported/GlitchSpell.png-be647b0af9d4ca24127d4139390f8b29.s3tc.ctex"]
 
 [params]
 

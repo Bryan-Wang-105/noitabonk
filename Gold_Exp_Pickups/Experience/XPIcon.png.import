@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1jfpecbm3dsp"
-path.s3tc="res://.godot/imported/XPIcon.png-6ed5f30f5fe19ad8f51e237f7b8294ca.s3tc.ctex"
+path.s3tc="res://.godot/imported/XPIcon.png-c9dbd24b6c44ad2dc2eb5ec9233179ba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gold_Experience/Experience/XPIcon.png"
-dest_files=["res://.godot/imported/XPIcon.png-6ed5f30f5fe19ad8f51e237f7b8294ca.s3tc.ctex"]
+source_file="res://Gold_Exp_Pickups/Experience/XPIcon.png"
+dest_files=["res://.godot/imported/XPIcon.png-c9dbd24b6c44ad2dc2eb5ec9233179ba.s3tc.ctex"]
 
 [params]
 

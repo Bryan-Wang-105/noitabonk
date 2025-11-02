@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpi1yh7clswrh"]
 
-[ext_resource type="Script" uid="uid://dy4sog06egpps" path="res://Gold_Experience/Experience/exp_pickup.gd" id="1_bxxyu"]
-[ext_resource type="Texture2D" uid="uid://c1jfpecbm3dsp" path="res://Gold_Experience/Experience/XPIcon.png" id="2_bxxyu"]
+[ext_resource type="Script" uid="uid://dy4sog06egpps" path="res://Gold_Exp_Pickups/Experience/exp_pickup.gd" id="1_bxxyu"]
+[ext_resource type="Texture2D" uid="uid://c1jfpecbm3dsp" path="res://Gold_Exp_Pickups/Experience/XPIcon.png" id="2_bxxyu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hdxa2"]
 height = 0.45502472

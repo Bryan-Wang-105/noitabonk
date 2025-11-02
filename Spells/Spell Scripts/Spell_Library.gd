@@ -100,3 +100,11 @@ func remove_spell(indx):
 	inventory_spells[indx] = null
 	emit_signal("spell_inventory_changed")
 	
+func get_icon_list():
+	var res = []
+	
+	for spell in spellMappings:
+		var uid = str(spellMappings[spell]["icon"])
+		res.append(uid)
+	
+	return res

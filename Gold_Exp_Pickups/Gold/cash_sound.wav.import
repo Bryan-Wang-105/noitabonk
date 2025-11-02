@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d3g8ku4ywrc1t"
-path="res://.godot/imported/cash_sound.wav-757fe1a54bd4927b016f25b75f2695a3.sample"
+path="res://.godot/imported/cash_sound.wav-65e05ad613af7d5c6c135b02b2abc203.sample"
 
 [deps]
 
-source_file="res://Gold_Experience/Gold/cash_sound.wav"
-dest_files=["res://.godot/imported/cash_sound.wav-757fe1a54bd4927b016f25b75f2695a3.sample"]
+source_file="res://Gold_Exp_Pickups/Gold/cash_sound.wav"
+dest_files=["res://.godot/imported/cash_sound.wav-65e05ad613af7d5c6c135b02b2abc203.sample"]
 
 [params]
 
