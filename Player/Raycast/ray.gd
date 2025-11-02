@@ -20,7 +20,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		prompt_label.text = ""
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var collider = get_collider()
 	
 	if collider and collider.has_method("get_prompt"):

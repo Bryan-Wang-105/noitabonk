@@ -1,7 +1,5 @@
 extends RigidBody3D
 
-signal exp_collected
-
 var amount
 
 func _ready():
@@ -17,7 +15,7 @@ func set_amount(enemy_level = 0):
 	elif enemy_level == 2:
 		amount = randi_range(18, 48)
 
-func _on_body_entered(body: Node3D) -> void:
+func _on_body_entered(body) -> void:
 	# Send audio cmd
 	Global.audio_node.play_xp_pickup_fx()
 	

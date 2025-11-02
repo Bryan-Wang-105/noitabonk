@@ -27,20 +27,18 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3epgo")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
 
 [node name="Wands Panel" parent="MarginContainer/Panel/HBoxContainer" instance=ExtResource("2_drv3q")]
 layout_mode = 2
+size_flags_vertical = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
@@ -51,7 +49,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/MarginContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 75
+theme_override_constants/separation = 25
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/Panel/HBoxContainer/MarginContainer2/VBoxContainer2"]
 layout_mode = 2
@@ -62,3 +60,11 @@ columns = 6
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Panel/HBoxContainer/MarginContainer2/VBoxContainer2"]
 custom_minimum_size = Vector2(300, 330)
 layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Panel/HBoxContainer/MarginContainer2/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+
+[node name="ChangeMenusBtn" type="Button" parent="MarginContainer/Panel/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Perks and Stats"

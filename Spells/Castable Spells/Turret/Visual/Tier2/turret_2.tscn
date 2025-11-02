@@ -309,7 +309,7 @@ _data = {
 
 [node name="Turret2" type="RigidBody3D" groups=["physics"]]
 collision_layer = 512
-mass = 50.0
+mass = 150.0
 script = ExtResource("1_e21wb")
 
 [node name="topTurretMesh" parent="." instance=ExtResource("2_pu0xe")]
@@ -321,7 +321,7 @@ target_position = Vector3(0, 0, 8)
 collision_mask = 5
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="topTurretMesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49898517, 0.9348633, 0.2370224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49898535, 0.9348633, -1.679986)
 emitting = false
 amount = 1
 lifetime = 0.5
@@ -329,7 +329,7 @@ process_material = SubResource("ParticleProcessMaterial_rcj50")
 draw_pass_1 = SubResource("BoxMesh_378nn")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="topTurretMesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50062597, 0.92541957, 0.2370224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50062585, 0.92541957, -1.6799858)
 emitting = false
 amount = 1
 lifetime = 0.5
@@ -337,7 +337,7 @@ process_material = SubResource("ParticleProcessMaterial_rcj50")
 draw_pass_1 = SubResource("BoxMesh_378nn")
 
 [node name="GPUParticles3D3" type="GPUParticles3D" parent="topTurretMesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0029859543, 0.29062605, 0.2370224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0029857866, 0.29062605, -1.6799859)
 emitting = false
 amount = 1
 lifetime = 0.5

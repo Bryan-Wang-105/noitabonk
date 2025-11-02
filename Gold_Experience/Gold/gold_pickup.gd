@@ -1,6 +1,5 @@
 extends RigidBody3D
 
-signal gold_collected
 
 var amount
 
@@ -17,7 +16,7 @@ func set_amount(enemy_level = 0):
 	elif enemy_level == 2:
 		amount = randi_range(9, 24)
 
-func _on_body_entered(body: Node3D) -> void:
+func _on_body_entered(body) -> void:
 	# Send audio cmd
 	Global.audio_node.play_gold_pickup_fx()
 	
