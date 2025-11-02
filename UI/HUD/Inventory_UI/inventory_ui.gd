@@ -2,7 +2,10 @@ extends PanelContainer
 
 @onready var wands_panel: MarginContainer = $"MarginContainer/Panel/InventoryHbox/Wands Panel"
 @onready var inventory_grid: GridContainer = $MarginContainer/Panel/InventoryHbox/MarginContainer2/VBoxContainer2/GridContainer
-@onready var inventory_hbox: HBoxContainer = $MarginContainer/Panel/InventoryHbox
+
+@onready var inventory_page: HBoxContainer = $MarginContainer/Panel/InventoryHbox
+@onready var stats_page: HBoxContainer = $MarginContainer/Panel/StatsPage
+
 
 @onready var inventory_btn: Button = $Control/InventoryBtn
 @onready var perks_stats_btn: Button = $Control/PerksStatsBtn
@@ -12,8 +15,13 @@ var is_inventory = true
 
 func _ready():
 	visible = false
+	
 	inventory_btn.add_theme_font_size_override("font_size", 32)
 	perks_stats_btn.add_theme_font_size_override("font_size", 24)
+	
+	
+	stats_page.visible = false
+	inventory_page.visible = true
 	
 	generate_inventory_grid()
 	
@@ -66,7 +74,8 @@ func _change_menu_btn(change_to_menu) -> void:
 		inventory_btn.add_theme_font_size_override("font_size", 24)
 		perks_stats_btn.add_theme_font_size_override("font_size", 32)
 		
-		inventory_hbox.visible = false
+		inventory_page.visible = false
+		stats_page.visible = true
 		
 	else:
 		print("Changing to INVENTORY")
@@ -74,6 +83,7 @@ func _change_menu_btn(change_to_menu) -> void:
 		perks_stats_btn.add_theme_font_size_override("font_size", 24)
 		
 		
-		inventory_hbox.visible = true
+		inventory_page.visible = true
+		stats_page.visible = false
 
 	is_inventory = !is_inventory

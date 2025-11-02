@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://boqskgfeluso"]
+[gd_scene load_steps=5 format=3 uid="uid://boqskgfeluso"]
 
 [ext_resource type="Script" uid="uid://bpsoujbvnhab8" path="res://UI/HUD/Inventory_UI/inventory_ui.gd" id="1_be78o"]
 [ext_resource type="PackedScene" uid="uid://chuq7owxfvdux" path="res://UI/Wands_UI/Wands Panel/wands_panel.tscn" id="2_drv3q"]
+[ext_resource type="PackedScene" uid="uid://tqupg58otyte" path="res://UI/HUD/Inventory_UI/PlayerStatsPage.tscn" id="3_jscmd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3epgo"]
 bg_color = Color(0.088663064, 0.12913787, 0.17949438, 1)
@@ -62,6 +63,10 @@ custom_minimum_size = Vector2(300, 330)
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/Panel/InventoryHbox/MarginContainer2/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+
+[node name="StatsPage" parent="MarginContainer/Panel" instance=ExtResource("3_jscmd")]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="."]

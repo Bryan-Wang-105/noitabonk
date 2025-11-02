@@ -1,0 +1,266 @@
+[gd_scene format=3 uid="uid://tqupg58otyte"]
+
+[node name="StatsPage" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -279.0
+offset_right = 233.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Player Statistics"
+
+[node name="Panel" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Level" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Player Level                       "
+
+[node name="EnhancedXP" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Extra XP % Gain"
+
+[node name="space" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="MaxHP" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Max Health                               "
+
+[node name="HP_Regen" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Health Regen                       "
+
+[node name="EnhancedHP" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Extra HP % Gain"
+
+[node name="space2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="WalkSpeed" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Walk Speed"
+
+[node name="SprintSpeed" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Sprint Speed"
+
+[node name="JumpHeight" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Jump Height"
+
+[node name="space3" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="CritChance" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Critical Strike Chance"
+
+[node name="CritDmg" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Critical Strike Damage"
+
+[node name="space4" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="LifeSteal" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Vampirism"
+
+[node name="space5" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="Gold_Gain" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Extra Gold % Gain"
+
+[node name="Luck2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Luck"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+
+[node name="Panel" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Level" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[node name="EnhancedXP" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0%"
+
+[node name="space" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="MaxHP" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "100"
+
+[node name="HP_Regen" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="EnhancedHP" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0%"
+
+[node name="space2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="WalkSpeed" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "3"
+
+[node name="SprintSpeed" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "6"
+
+[node name="JumpHeight" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "4"
+
+[node name="space3" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="CritChance" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0%"
+
+[node name="CritDmg" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0%"
+
+[node name="space4" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="LifeSteal" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0%"
+
+[node name="space5" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="Gold_Gain" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0%"
+
+[node name="Luck2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[node name="PerksContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="PanelContainer" type="PanelContainer" parent="PerksContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PerksContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PerksContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PerksContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PerksContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Perks Collected"
+
+[node name="Panel" type="Panel" parent="PerksContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PerksContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PerksContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
