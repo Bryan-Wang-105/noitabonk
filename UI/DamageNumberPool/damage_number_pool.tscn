@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsittgqh26dir"]
+
+[ext_resource type="Script" uid="uid://c27suc6f8q0d5" path="res://UI/DamageNumberPool/damage_number_pool.gd" id="1_wsq7n"]
+
+[node name="DamageNumberPool" type="Node"]
+script = ExtResource("1_wsq7n")

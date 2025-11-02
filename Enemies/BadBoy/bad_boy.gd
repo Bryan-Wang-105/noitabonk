@@ -17,9 +17,15 @@ var force = 50
 var alive = true
 var level = 0
 
+var loot_ref = "uid://c7fyfw2mhsj5g"
+
 func take_dmg(amount):
 	print("ENEMY TOOK DAMAGE")
 	flash_white()
+	
+	# Show damage number
+	Global.dmg_num_pool.show_damage(amount, global_position)
+	
 	health -= amount
 	
 	if health <= 0:
@@ -41,9 +47,20 @@ func flash_white() -> void:
 
 
 func die():
-	# Chance to drop loot (20%)
+	# Always drop gold
+	var gold_drop = load("uid://c7fyfw2mhsj5g")
+	
+	gold_drop = gold_drop.instantiate()
+	
+	gold_drop.set_amount(level)
+	
+	Global.world.add_child(gold_drop)
+	gold_drop.global_position = global_position
+	gold_drop.global_position.y += .25
+	
+	# Chance to drop special loot (10%)
 	if randi_range(1,10) < 2:
-		# Chance to drop upgraded loot to Uncommon (4%)
+		# Chance to drop upgraded loot to Uncommon (2%)
 		if randi_range(1,10) < 2:
 			level = 1
 			print("Spawning loot at level 1")

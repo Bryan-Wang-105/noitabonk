@@ -69,10 +69,12 @@ func add_experience(amount: int) -> void:
 # Gold setters
 func set_gold(value: int) -> void:
 	gold = max(0, value)
-	gold_changed.emit(gold)
+	gold_changed.emit()
 
 func add_gold(amount: int) -> void:
 	set_gold(gold + amount)
+	gold_changed.emit(amount)
+	
 
 func remove_gold(amount: int) -> bool:
 	if gold >= amount:

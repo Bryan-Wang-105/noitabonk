@@ -20,6 +20,7 @@ extends Control
 @onready var xp_lbl: Label = $Exp/Label
 
 @onready var gold_lbl: Label = $PanelContainer/Control/Label
+@onready var gold_added: Label = $PanelContainer/Control/GoldAdded
 
 var wand_controller
 var wand_inventory
@@ -65,5 +66,11 @@ func update_xp():
 	xp_lbl.text = str(Global.playerManager.experience) + " / " + str(Global.playerManager.max_experience) + " XP"
 
 
-func update_gold():
+func update_gold(amount = 0):
+	
+	if amount:
+		# Show the +amount label
+		gold_added.show_gold_added(amount)
+	
 	gold_lbl.text = "$ " + str(Global.playerManager.gold)
+	

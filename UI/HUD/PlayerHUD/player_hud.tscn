@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cb0x38fi6a75c"]
+[gd_scene load_steps=10 format=3 uid="uid://cb0x38fi6a75c"]
 
 [ext_resource type="Script" uid="uid://b40wvld7onf1x" path="res://Environment/Root/player_hud.gd" id="1_3vyh1"]
 [ext_resource type="Texture2D" uid="uid://cncsrsp5wa8gx" path="res://Assets/Gold.png" id="2_d3cog"]
+[ext_resource type="Script" uid="uid://bv50syc7bemk4" path="res://UI/HUD/PlayerHUD/gold_added.gd" id="3_u0nfb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vyh1"]
 
@@ -288,12 +289,25 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/Control"]
 layout_mode = 1
-offset_left = -4.0
-offset_top = 120.0
-offset_right = 134.0
-offset_bottom = 160.0
+offset_left = -15.0
+offset_top = 116.00001
+offset_right = 149.0
+offset_bottom = 160.66667
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "$ 10000"
 horizontal_alignment = 1
+
+[node name="GoldAdded" type="Label" parent="PanelContainer/Control"]
+layout_mode = 1
+offset_left = 124.0
+offset_top = 74.00001
+offset_right = 210.0
+offset_bottom = 118.66667
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "+ 10"
+horizontal_alignment = 1
+script = ExtResource("3_u0nfb")

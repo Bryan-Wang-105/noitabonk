@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtncas7j2bcxp"]
+[gd_scene load_steps=12 format=3 uid="uid://dtncas7j2bcxp"]
 
 [ext_resource type="Script" uid="uid://jghl5ybncuby" path="res://Environment/World/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://b8245vgq3eije" path="res://Player/player.tscn" id="1_rwgxs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://q4y1siqkv8x7" path="res://Enemies/BadBoy/bad_boy.tscn" id="4_5ukr8"]
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="5_qfnet"]
 [ext_resource type="PackedScene" uid="uid://cjiuy2fi1v5cs" path="res://Spells/Spell Pickups/Spell_Pickup.tscn" id="6_o06y3"]
+[ext_resource type="PackedScene" uid="uid://c7fyfw2mhsj5g" path="res://Gold_Experience/Gold/gold_pickup.tscn" id="7_okmk0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2y6q8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,35 +37,39 @@ directional_shadow_max_distance = 1.0
 [node name="Sandbox" parent="." instance=ExtResource("2_4wyf3")]
 
 [node name="EnemyManager" parent="." instance=ExtResource("2_71j4m")]
-enemy_count = 1
+enemy_count = 20
 enemyScene = ExtResource("4_5ukr8")
 
 [node name="Loot" parent="." instance=ExtResource("5_qfnet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.254841, 28.562565, 7.1401186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.54801, 20.76449, -5.7768774)
 
 [node name="spell_pickup" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 16.489775, 16.337618, 13.560127)
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 19.875751, 21.82834, -12.85421)
 
 [node name="spell_pickup2" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 18.922176, 16.337618, 13.560127)
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 20.723259, 21.82834, -10.57423)
 
 [node name="spell_pickup3" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 20.80163, 15.52882, 8.123396)
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 26.474155, 21.019543, -10.706841)
 
 [node name="spell_pickup4" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 23.234032, 15.52882, 8.123396)
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 27.321665, 21.019543, -8.426863)
 
 [node name="spell_pickup5" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 13.150633, 15.325729, 8.123396)
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 23.80836, 20.816452, -17.878403)
 
 [node name="spell_pickup6" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 15.5830345, 15.325729, 8.123396)
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 24.655869, 20.816452, -15.598423)
 
 [node name="spell_pickup7" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 20.80163, 16.389334, 13.116916)
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 21.793547, 21.880056, -8.966975)
 
 [node name="spell_pickup8" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.9460345, 0, -0.324066, 0, 1, 0, 0.324066, 0, 0.9460345, 23.234032, 16.389334, 13.116916)
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 22.641056, 21.880056, -6.686996)
+
+[node name="Gold_Pickup" parent="." instance=ExtResource("7_okmk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.289526, 22.653708, -9.621967)
+collision_layer = 32
 
 [node name="Player" parent="." instance=ExtResource("1_rwgxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.136404, 19.120367, 12.47115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.523638, 19.120367, -7.3698645)
