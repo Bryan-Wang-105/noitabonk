@@ -16,7 +16,6 @@ extends CanvasLayer
 @onready var spell_preview: PanelContainer = $SpellPreview
 
 func _ready():
-	#pass
 	Global.canvas_layer = self
 
 
@@ -28,4 +27,5 @@ func hide_item_preview():
 	wand_preview.hide_item_preview()
 	
 func show_hide_inventory():
+	player_hud.show_hide_wands_bar()
 	inventory.show_hide()

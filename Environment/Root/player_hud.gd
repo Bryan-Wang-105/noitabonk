@@ -7,6 +7,7 @@ extends Control
 @onready var cast: Label = $Cast
 @onready var reload: Label = $Reload
 
+@onready var wands_bar: PanelContainer = $WandsBar
 @onready var wand_1: Label = $WandsBar/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Label#$HBoxContainer/Wand1
 @onready var wand_2: Label = $WandsBar/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/Label#$HBoxContainer/Wand2
 @onready var wand_3: Label = $WandsBar/MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/Label#$HBoxContainer/Wand3
@@ -80,4 +81,6 @@ func update_gold(amount = 0):
 		gold_added.show_gold_added(amount)
 	
 	gold_lbl.text = "$ " + str(Global.playerManager.gold)
-	
+
+func show_hide_wands_bar():
+	wands_bar.visible = !wands_bar.visible
