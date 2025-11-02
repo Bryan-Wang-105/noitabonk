@@ -25,7 +25,8 @@ func _on_body_entered(body: Node3D) -> void:
 	Global.playerManager.add_gold(amount)
 	
 	# Delete current reference
+	# Hide immediately but delete next frame
+	visible = false
+	collision_layer = 0
+	call_deferred("queue_free")
 	queue_free()
-
-func _on_body_exited(body: Node3D) -> void:
-	print("Player Exited!")

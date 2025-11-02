@@ -7,6 +7,9 @@ var idle_duration: float = 2.0
 var fade_duration: float = 0.5
 var is_fading: bool = false
 
+# gold_added_label.gd
+var active_tween: Tween = null
+
 func _ready():
 	modulate.a = 0.0  # Start invisible
 
@@ -31,15 +34,24 @@ func show_gold_added(value: int):
 	pulse()
 
 func pulse():
-	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.1).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_IN_OUT)
+	# Kill previous tween if still running
+	if active_tween:
+		active_tween.kill()
+		
+	active_tween = create_tween()
+	active_tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.1).set_ease(Tween.EASE_OUT)
+	active_tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_IN_OUT)
+
 
 func fade_out():
 	is_fading = true
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, fade_duration)
-	tween.tween_callback(reset_label)
+	
+	if active_tween:
+		active_tween.kill()
+	
+	active_tween = create_tween()
+	active_tween.tween_property(self, "modulate:a", 0.0, fade_duration)
+	active_tween.tween_callback(reset_label)
 
 func reset_label():
 	current_amount = 0

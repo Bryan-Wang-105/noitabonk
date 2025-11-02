@@ -54,7 +54,7 @@ _data = {
 }
 
 [node name="Gold_Pickup" type="RigidBody3D"]
-collision_layer = 49
+collision_layer = 32
 script = ExtResource("1_hdxa2")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
