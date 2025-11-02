@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7o0cili8xiay"
-path="res://.godot/imported/TurretIcon.png-4a27889ed7634ede6e4fe4bf7214dbcf.ctex"
+uid="uid://b3bjkc8upu0fl"
+path="res://.godot/imported/Turret2Icon.png-10ce27c15efb50ee35a1ea154597c5a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spells/Castable Spells/Turret/Visual/TurretIcon.png"
-dest_files=["res://.godot/imported/TurretIcon.png-4a27889ed7634ede6e4fe4bf7214dbcf.ctex"]
+source_file="res://Spells/Castable Spells/Turret/Visual/Tier2/Turret2Icon.png"
+dest_files=["res://.godot/imported/Turret2Icon.png-10ce27c15efb50ee35a1ea154597c5a7.ctex"]
 
 [params]
 

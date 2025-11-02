@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://bkewgxp4yf3ev"]
 
-[ext_resource type="Script" uid="uid://dc1gdfkcwhg4r" path="res://Spells/Castable Spells/Turret/Programming/turret.gd" id="1_rcj50"]
-[ext_resource type="PackedScene" uid="uid://bftth62a0y0yi" path="res://Spells/Castable Spells/Turret/Visual/bottom_turret_mesh.tscn" id="2_0plsd"]
-[ext_resource type="PackedScene" uid="uid://bk7413k15onwc" path="res://Spells/Castable Spells/Turret/Visual/top_turret_mesh.tscn" id="3_378nn"]
-[ext_resource type="Material" uid="uid://b8ed2y3s62taf" path="res://Spells/Castable Spells/Turret/Visual/glowing.tres" id="4_0plsd"]
+[ext_resource type="Script" uid="uid://dc1gdfkcwhg4r" path="res://Spells/Castable Spells/Turret/Programming/Tier1/turret.gd" id="1_rcj50"]
+[ext_resource type="PackedScene" uid="uid://bftth62a0y0yi" path="res://Spells/Castable Spells/Turret/Visual/Tier1/bottom_turret_mesh.tscn" id="2_0plsd"]
+[ext_resource type="PackedScene" uid="uid://bk7413k15onwc" path="res://Spells/Castable Spells/Turret/Visual/Tier1/top_turret_mesh.tscn" id="3_378nn"]
+[ext_resource type="Material" uid="uid://b8ed2y3s62taf" path="res://Spells/Castable Spells/Turret/Visual/Tier1/glowing.tres" id="4_0plsd"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rcj50"]
 direction = Vector3(0, 0, -10)
@@ -16,9 +16,9 @@ gravity = Vector3(0, 0, 0)
 material = ExtResource("4_0plsd")
 size = Vector3(0.1, 0.1, 2)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_q8lj2"]
-height = 1.4961548
-radius = 0.5932617
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k7e6r"]
+height = 1.7582436
+radius = 0.9057617
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_prlgl"]
 radius = 16.033966
@@ -28,6 +28,21 @@ transparency = 1
 cull_mode = 2
 albedo_color = Color(0.27428678, 0.5220391, 0.81182253, 0.105882354)
 
+[sub_resource type="Animation" id="Animation_378nn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("turretTop:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_0plsd"]
 resource_name = "idle"
 length = 4.0
@@ -35,29 +50,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TopTurretMesh:rotation")
+tracks/0/path = NodePath("turretTop:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3.01, 4),
+"times": PackedFloat32Array(0, 1, 1.99, 2.99, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -3.1415925, 0), Vector3(0, -2.0832772, 0), Vector3(0, -3.1415925, 0), Vector3(0, -4.1887903, 0), Vector3(0, -3.1415925, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_378nn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TopTurretMesh:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.1415925, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 1.0471976, 0), Vector3(0, 0, 0), Vector3(0, -1.0471976, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k8gwv"]
@@ -78,7 +78,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0.90840495, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="TopTurretMesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16557264, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.16557264, 0)
 target_position = Vector3(0, 0, 8)
 collision_mask = 5
 
@@ -91,8 +91,8 @@ process_material = SubResource("ParticleProcessMaterial_rcj50")
 draw_pass_1 = SubResource("BoxMesh_378nn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71802247, 0)
-shape = SubResource("CylinderShape3D_q8lj2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90134346, 0)
+shape = SubResource("CylinderShape3D_k7e6r")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0588176, 0)

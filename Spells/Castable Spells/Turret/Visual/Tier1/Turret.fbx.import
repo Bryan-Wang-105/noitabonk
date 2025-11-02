@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dltsbw68vqjru"
-path="res://.godot/imported/Turret.fbx-0a4746e5736a8255cf18905701c7a0eb.scn"
+path="res://.godot/imported/Turret.fbx-a7aeafcbe534ea40360e64a417d20526.scn"
 
 [deps]
 
-source_file="res://Spells/Castable Spells/Turret/Visual/Turret.fbx"
-dest_files=["res://.godot/imported/Turret.fbx-0a4746e5736a8255cf18905701c7a0eb.scn"]
+source_file="res://Spells/Castable Spells/Turret/Visual/Tier1/Turret.fbx"
+dest_files=["res://.godot/imported/Turret.fbx-a7aeafcbe534ea40360e64a417d20526.scn"]
 
 [params]
 
