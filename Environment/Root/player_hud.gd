@@ -18,6 +18,7 @@ extends Control
 
 @onready var xp_bar: ProgressBar = $Exp/ProgressBar
 @onready var xp_lbl: Label = $Exp/Label
+@onready var lvl_lbl: Label = $Level
 
 @onready var gold_lbl: Label = $PanelContainer/Control/Label
 @onready var gold_added: Label = $PanelContainer/Control/GoldAdded
@@ -38,6 +39,7 @@ func _ready() -> void:
 	Global.playerManager.connect("health_changed", update_health)
 	Global.playerManager.connect("experience_changed", update_xp)
 	Global.playerManager.connect("gold_changed", update_gold)
+	Global.playerManager.connect("level_changed", update_level)
 	
 	wand_inventory.connect("inventory_changed", update_active_wand_bar)
 	
@@ -69,9 +71,10 @@ func update_xp(amount = 0):
 	xp_bar.value = Global.playerManager.get_xp_progress() * 100
 	xp_lbl.text = str(Global.playerManager.curr_xp) + " / " + str(Global.playerManager.next_xp_req) + " XP"
 
+func update_level(level):
+	lvl_lbl.text = "LEVEL " + str(level)
 
 func update_gold(amount = 0):
-	
 	if amount:
 		# Show the +amount label
 		gold_added.show_gold_added(amount)

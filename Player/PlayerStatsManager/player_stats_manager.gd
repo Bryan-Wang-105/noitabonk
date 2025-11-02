@@ -93,9 +93,11 @@ func level_up():
 	print("XP: ", curr_xp, "/", next_xp_req)
 	
 	experience_changed.emit()
+	
 	# Emit signal or trigger level up effects here
-	# level_up_signal.emit(curr_level)
-
+	level_changed.emit(curr_level)
+	Global.audio_node.play_lvl_up_fx()
+	
 # Get total XP earned across all levels
 func get_total_xp() -> int:
 	var total = curr_xp

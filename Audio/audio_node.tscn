@@ -5,4 +5,8 @@
 [node name="AudioNode" type="Node"]
 script = ExtResource("1_q7vr7")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="GoldAudio" type="AudioStreamPlayer" parent="."]
+
+[node name="XPAudio" type="AudioStreamPlayer" parent="."]
+
+[node name="LevelUpAudio" type="AudioStreamPlayer" parent="."]

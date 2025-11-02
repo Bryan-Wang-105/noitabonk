@@ -11,7 +11,7 @@ func _ready():
 func set_amount(enemy_level = 0):
 	# Is 0 by default
 	if enemy_level == 0:
-		amount = randi_range(2, 8)
+		amount = randi_range(20, 80)
 	elif enemy_level == 1:
 		amount = randi_range(8, 18)
 	elif enemy_level == 2:
