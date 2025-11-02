@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtncas7j2bcxp"]
+[gd_scene load_steps=13 format=3 uid="uid://dtncas7j2bcxp"]
 
 [ext_resource type="Script" uid="uid://jghl5ybncuby" path="res://Environment/World/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://b8245vgq3eije" path="res://Player/player.tscn" id="1_rwgxs"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="5_qfnet"]
 [ext_resource type="PackedScene" uid="uid://cjiuy2fi1v5cs" path="res://Spells/Spell Pickups/Spell_Pickup.tscn" id="6_o06y3"]
 [ext_resource type="PackedScene" uid="uid://c7fyfw2mhsj5g" path="res://Gold_Experience/Gold/gold_pickup.tscn" id="7_okmk0"]
+[ext_resource type="PackedScene" uid="uid://dpi1yh7clswrh" path="res://Gold_Experience/Experience/exp_pickup.tscn" id="8_kmx2w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2y6q8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -69,7 +70,9 @@ transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.0
 
 [node name="Gold_Pickup" parent="." instance=ExtResource("7_okmk0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.289526, 22.653708, -9.621967)
-collision_layer = 32
+
+[node name="XP_Pickup" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -4.8338337)
 
 [node name="Player" parent="." instance=ExtResource("1_rwgxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.523638, 19.120367, -7.3698645)

@@ -9,9 +9,14 @@ class_name PlayerStats
 # Core stats
 @export var health: float = 100.0
 @export var max_health: float = 100.0
-@export var level: int = 1
-@export var experience: int = 0
-@export var max_experience: int = 100
+
+var curr_level: int = 1
+var curr_xp: int = 0
+var next_xp_req: int = 100
+
+const BASE_XP: int = 100
+const MULTIPLIER: float = 1.5  # 50% increase per level
+
 @export var gold: int = 0
 
 # Combat stats
@@ -27,6 +32,8 @@ signal gold_changed(new_gold)
 
 func _ready():
 	Global.playerManager = self
+	
+	next_xp_req = calculate_xp_for_level(curr_level + 1)
 
 # Movement setters
 func set_walk_speed(value: float) -> void:
@@ -54,17 +61,52 @@ func add_health(amount: float) -> void:
 func take_damage(amount: float) -> void:
 	set_health(health - amount)
 
-# Level and experience setters
-func set_level(value: int) -> void:
-	level = max(1, value)
-	level_changed.emit(level)
+# Calculate XP required to reach a specific level
+func calculate_xp_for_level(level: int) -> int:
+	if level <= 1:
+		return 0
+	
+	var xp = BASE_XP * pow(MULTIPLIER, level - 2)
+	return round_to_nearest(xp, 5)  # Round to nearest 5
 
-func set_experience(value: int) -> void:
-	experience = max(0, value)
-	experience_changed.emit(experience)
+# Round to nearest increment (5, 10, etc.)
+func round_to_nearest(value: float, increment: int) -> int:
+	return int(round(value / increment) * increment)
 
-func add_experience(amount: int) -> void:
-	set_experience(experience + amount)
+# Add XP and handle level ups
+func add_xp(amount: int):
+	curr_xp += amount
+	
+	
+	experience_changed.emit(amount)
+	
+	# Check for level up(s)
+	while curr_xp >= next_xp_req:
+		level_up()
+
+func level_up():
+	curr_xp -= next_xp_req  # Carry over excess XP
+	curr_level += 1
+	next_xp_req = calculate_xp_for_level(curr_level + 1)
+	
+	print("Level Up! Now level ", curr_level)
+	print("XP: ", curr_xp, "/", next_xp_req)
+	
+	experience_changed.emit()
+	# Emit signal or trigger level up effects here
+	# level_up_signal.emit(curr_level)
+
+# Get total XP earned across all levels
+func get_total_xp() -> int:
+	var total = curr_xp
+	for level in range(2, curr_level + 1):
+		total += calculate_xp_for_level(level)
+	return total
+
+# Get progress as percentage (for UI bars)
+func get_xp_progress() -> float:
+	return float(curr_xp) / float(next_xp_req)
+
 
 # Gold setters
 func set_gold(value: int) -> void:

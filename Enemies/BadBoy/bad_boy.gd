@@ -48,15 +48,26 @@ func flash_white() -> void:
 
 func die():
 	# Always drop gold
-	var gold_drop = load("uid://c7fyfw2mhsj5g")
+	var gold_drop = load("uid://c7fyfw2mhsj5g") 
+	
+	# Always drop xp
+	var xp_drop = load("uid://dpi1yh7clswrh") 
 	
 	gold_drop = gold_drop.instantiate()
+	xp_drop = xp_drop.instantiate()
 	
 	gold_drop.set_amount(level)
+	xp_drop.set_amount(level)
 	
 	Global.world.add_child(gold_drop)
 	gold_drop.global_position = global_position
 	gold_drop.global_position.y += .25
+	
+	Global.world.add_child(xp_drop)
+	xp_drop.global_position = global_position
+	xp_drop.global_position.y += .25
+	xp_drop.global_position.x += randf_range(-.25, .25)
+	xp_drop.global_position.z += randf_range(-.25, .25)
 	
 	# Chance to drop special loot (10%)
 	if randi_range(1,10) < 2:

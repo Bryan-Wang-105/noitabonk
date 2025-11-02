@@ -260,6 +260,7 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_fsuxq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wfmc4")
+value = 7.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Exp"]

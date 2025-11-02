@@ -61,9 +61,13 @@ func update_health():
 	hp_bar.value = 100 * Global.playerManager.health / Global.playerManager.max_health 
 	hp_lbl.text = str(Global.playerManager.health) + " / " + str(Global.playerManager.max_health) + " HP"
 
-func update_xp():
-	xp_bar.value = Global.playerManager.experience / Global.playerManager.max_experience
-	xp_lbl.text = str(Global.playerManager.experience) + " / " + str(Global.playerManager.max_experience) + " XP"
+func update_xp(amount = 0):
+	if amount:
+		pass
+	
+	print(Global.playerManager.get_xp_progress())
+	xp_bar.value = Global.playerManager.get_xp_progress() * 100
+	xp_lbl.text = str(Global.playerManager.curr_xp) + " / " + str(Global.playerManager.next_xp_req) + " XP"
 
 
 func update_gold(amount = 0):
