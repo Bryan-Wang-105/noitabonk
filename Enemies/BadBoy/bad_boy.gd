@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 @export var loot: PackedScene
-
 @onready var ray: RayCast3D = $RayCast3D
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var sunglass_mesh: CSGBox3D = $CSGBox3D
@@ -10,18 +9,30 @@ extends CharacterBody3D
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var speed = 3.0
+var speed = 6.0
 var health = 30
-var locked = false
-var force = 50
-var alive = true
-var level = 0
-var mass = 100
-var being_pulled = false
 
 var accumulated_forces: Vector3 = Vector3.ZERO
+var level = 0
+var alive = true
 
-var loot_ref = "uid://c7fyfw2mhsj5g"
+var being_pulled = false
+var mass = 100
+
+var attack_timer: Timer
+var attack_radius = 1
+var can_attack = true
+var attack_dmg = 5
+var attack_cooldown: float = 2.0
+const ATTACK_INTERVAL: float = 2.0  # Time between attacks in seconds
+
+func _ready():
+	# Create and setup the timer
+	attack_timer = Timer.new()
+	attack_timer.wait_time = ATTACK_INTERVAL
+	attack_timer.one_shot = true
+	attack_timer.timeout.connect(_on_attack_timer_timeout)
+	add_child(attack_timer)
 
 func take_dmg(amount):
 	print("ENEMY TOOK DAMAGE")
@@ -77,7 +88,7 @@ func die():
 		xp_drop.global_position.z += randf_range(-.25, .25)
 	
 	# Chance to drop special loot (10%)
-	if randi_range(1,10) < 2:
+	if randi_range(1,10) < 5:
 		# Chance to drop upgraded loot to Uncommon (2%)
 		if randi_range(1,10) < 2:
 			level = 1
@@ -103,6 +114,17 @@ func apply_impulse(impulse: Vector3) -> void:
 func stop_pull():
 	being_pulled = false
 
+func attack_player():
+	if can_attack:
+		Global.playerManager.take_damage(attack_dmg)
+	
+		# Start cooldown
+		can_attack = false
+		attack_timer.start()
+
+func _on_attack_timer_timeout():
+	can_attack = true
+	
 func _physics_process(delta):
 	if being_pulled:
 		# Apply accumulated forces using F = ma

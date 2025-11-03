@@ -33,7 +33,7 @@ func _ready() -> void:
 	wand_controller = Global.wandController
 	wand_inventory = Global.wandInventory
 	
-	update_health()
+	update_health(Global.playerManager.health, Global.playerManager.max_health)
 	update_xp()
 	update_gold()
 	
@@ -60,9 +60,9 @@ func update_active_wand_bar():
 	
 	print("Updated active wand bar")
 
-func update_health():
-	hp_bar.value = 100 * Global.playerManager.health / Global.playerManager.max_health 
-	hp_lbl.text = str(Global.playerManager.health) + " / " + str(Global.playerManager.max_health) + " HP"
+func update_health(curr_hp, max_hp):
+	hp_bar.value = 100 * curr_hp / max_hp
+	hp_lbl.text = str(curr_hp) + " / " + str(max_hp) + " HP"
 
 func update_xp(amount = 0):
 	if amount:

@@ -60,6 +60,7 @@ func add_health(amount: float) -> void:
 
 func take_damage(amount: float) -> void:
 	set_health(health - amount)
+	health_changed.emit(health, max_health)
 
 # Calculate XP required to reach a specific level
 func calculate_xp_for_level(level: int) -> int:
@@ -76,7 +77,6 @@ func round_to_nearest(value: float, increment: int) -> int:
 # Add XP and handle level ups
 func add_xp(amount: int):
 	curr_xp += amount
-	
 	
 	experience_changed.emit(amount)
 	
