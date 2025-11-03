@@ -20,23 +20,28 @@ func _ready():
 
 func toggle_pause():
 	var is_paused = get_tree().paused
+	var is_leveling = Global.canvas_layer.level_up_ui.is_leveling_up
 	
-	if Global.canvas_layer.level_up_ui.is_leveling_up:
-		if is_paused:
-			pass # Keep mouse visible
+	# Case 1: Currently leveling up
+	if is_leveling:
+		# Don't allow manual pause/unpause during level up
+		# Just toggle pause menu visibility for viewing options
+		visible = !visible
+		if visible:
+			resume_btn.grab_focus()
+		# Mouse stays visible, game stays paused
+		return
 	
-	else:
-		if !is_paused:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
+	# Case 2: Normal pause toggle (not leveling up)
 	get_tree().paused = !is_paused
 	visible = !is_paused
 	
-	# Grab focus when opening menu
-	if visible:
+	# Handle mouse mode
+	if get_tree().paused:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		resume_btn.grab_focus()
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_resume_pressed():
 	toggle_pause()

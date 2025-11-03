@@ -25,7 +25,10 @@ func open_lvlup_menu(level):
 
 func close_lvlup_menu():
 	visible = false
+	# Pause the game
+	is_leveling_up = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	get_tree().paused = !get_tree().paused
 	return
 
 
