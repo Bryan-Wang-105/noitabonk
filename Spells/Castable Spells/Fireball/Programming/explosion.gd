@@ -51,7 +51,7 @@ func _check_ray_hit(target: Node3D) -> bool:
 
 # Helper function to handle damage application
 func _apply_damage(target: Node3D) -> void:
-	if target.has_method("take_dmg"):
+	if target.has_method("take_dmg") or target == Global.player:
 		# Get the explosion collider radius
 		var max_distance = explosion_collider.shape.radius
 		
@@ -67,10 +67,11 @@ func _apply_damage(target: Node3D) -> void:
 		var final_damage = lerp(25.0, float(damage), damage_ratio)
 		final_damage = int(final_damage)  # Convert back to int if needed
 		
-		target.take_dmg(final_damage)
-	else:
-		print("\nENEMY Hit with damage: ", damage)
-		target.get_node("Damageable").take_dmg(damage, type, false)
+		if target == Global.player:
+			Global.playerManager.take_damage(final_damage)
+		else:
+			target.take_dmg(final_damage)
+			
 
 # Helper function to handle physics force
 func _apply_physics_force(target: Node3D) -> void:
@@ -88,7 +89,7 @@ func explode(bodies) -> void:
 			continue
 
 		# Handle damageable targets (enemies or player)
-		if obj.is_in_group("enemy"):
+		if obj.is_in_group("enemy") or obj == Global.player:
 			if _check_ray_hit(obj):
 				_apply_damage(obj)
 
