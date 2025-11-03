@@ -21,10 +21,15 @@ func _ready():
 func toggle_pause():
 	var is_paused = get_tree().paused
 	
-	if !is_paused:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if Global.canvas_layer.level_up_ui.is_leveling_up:
+		if is_paused:
+			pass # Keep mouse visible
+	
 	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if !is_paused:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	get_tree().paused = !is_paused
 	visible = !is_paused

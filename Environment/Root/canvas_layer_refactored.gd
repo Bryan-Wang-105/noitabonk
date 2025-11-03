@@ -2,29 +2,24 @@ extends CanvasLayer
 
 # Player HUD
 @onready var player_hud: Control = $Player_HUD
-
 # Preview wands on floor to pick up
 @onready var wand_preview: PanelContainer = $Wand_Preview
-
 # Preview wands in your inventory in the panels
 @onready var preview_wand_panel: PanelContainer = $Preview_Wand_Panel
-
 # Player inventory (Wands + Spells)
 @onready var inventory: PanelContainer = $Inventory
-
 # Spell Preview Panel
 @onready var spell_preview: PanelContainer = $SpellPreview
-
 # Pause Menu
 @onready var pause_menu: Control = $PauseMenu
+# LvlUp UI
+@onready var level_up_ui: Control = $LevelUp_UI
 
 func _ready():
 	# This menu should work when game is paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
+
 	Global.canvas_layer = self
-
-
 
 func show_item_preview(item_stats):
 	wand_preview.show_item_preview(item_stats)

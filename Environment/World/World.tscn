@@ -39,7 +39,7 @@ directional_shadow_max_distance = 1.0
 [node name="Sandbox" parent="." instance=ExtResource("2_4wyf3")]
 
 [node name="EnemyManager" parent="." instance=ExtResource("2_71j4m")]
-enemy_count = 50
+enemy_count = 2
 enemyScene = ExtResource("4_5ukr8")
 
 [node name="Loot" parent="." instance=ExtResource("5_qfnet")]
@@ -89,6 +89,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.289526, 22.653708, -9.6219
 
 [node name="XP_Pickup" parent="." instance=ExtResource("8_kmx2w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -4.8338337)
+
+[node name="XP_Pickup2" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -4.8338337)
+
+[node name="XP_Pickup3" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -4.8338337)
+
+[node name="XP_Pickup4" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -4.8338337)
 
 [node name="Player" parent="." instance=ExtResource("1_rwgxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.523638, 19.120367, -7.3698645)
