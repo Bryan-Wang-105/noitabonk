@@ -1,9 +1,6 @@
 extends CharacterBody3D
 
 # Movement variables
-@export var speed := 5.0
-@export var sprint_speed := 8.0
-@export var jump_velocity := 4.5
 @export var sensitivity := 0.003
 
 # Get the gravity from the project settings
@@ -59,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and !player_locked:
-		velocity.y = jump_velocity
+		velocity.y = Global.playerManager.jump_height
 
 	# Get input direction
 	if !player_locked:
@@ -69,7 +66,10 @@ func _physics_process(delta: float) -> void:
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		# Apply sprint
-		var current_speed := sprint_speed if Input.is_action_pressed("ui_shift") else speed
+		var sprint = Global.playerManager.sprint_speed
+		var walk = Global.playerManager.walk_speed
+		
+		var current_speed =  sprint if Input.is_action_pressed("ui_shift") else walk
 		
 		# Move the player
 		if direction:

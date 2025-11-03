@@ -75,6 +75,7 @@ func _change_menu_btn(change_to_menu) -> void:
 		perks_stats_btn.add_theme_font_size_override("font_size", 32)
 		
 		inventory_page.visible = false
+		stats_page._update_stats()
 		stats_page.visible = true
 		
 	else:

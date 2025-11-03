@@ -16,6 +16,10 @@ var locked = false
 var force = 50
 var alive = true
 var level = 0
+var mass = 100
+var being_pulled = false
+
+var accumulated_forces: Vector3 = Vector3.ZERO
 
 var loot_ref = "uid://c7fyfw2mhsj5g"
 
@@ -47,27 +51,30 @@ func flash_white() -> void:
 
 
 func die():
-	# Always drop gold
-	var gold_drop = load("uid://c7fyfw2mhsj5g") 
-	
-	# Always drop xp
-	var xp_drop = load("uid://dpi1yh7clswrh") 
-	
-	gold_drop = gold_drop.instantiate()
-	xp_drop = xp_drop.instantiate()
-	
-	gold_drop.set_amount(level)
-	xp_drop.set_amount(level)
-	
-	Global.world.add_child(gold_drop)
-	gold_drop.global_position = global_position
-	gold_drop.global_position.y += .25
-	
-	Global.world.add_child(xp_drop)
-	xp_drop.global_position = global_position
-	xp_drop.global_position.y += .25
-	xp_drop.global_position.x += randf_range(-.25, .25)
-	xp_drop.global_position.z += randf_range(-.25, .25)
+	# 30% to drop gold and xp
+	if randi_range(1, 10) < 3:
+		var gold_drop = load("uid://c7fyfw2mhsj5g") 
+		gold_drop = gold_drop.instantiate()
+		gold_drop.set_amount(level)
+		Global.world.add_child(gold_drop)
+		gold_drop.global_position = global_position
+		gold_drop.global_position.y += .25
+		gold_drop.global_position.x += randf_range(-.25, .25)
+		gold_drop.global_position.z += randf_range(-.25, .25)
+		
+	# 30% to drop gold and xp
+	if randi_range(1, 10) < 3:
+		# Always drop xp
+		var xp_drop = load("uid://dpi1yh7clswrh") 
+		
+		xp_drop = xp_drop.instantiate()
+		xp_drop.set_amount(level)
+		
+		Global.world.add_child(xp_drop)
+		xp_drop.global_position = global_position
+		xp_drop.global_position.y += .25
+		xp_drop.global_position.x += randf_range(-.25, .25)
+		xp_drop.global_position.z += randf_range(-.25, .25)
 	
 	# Chance to drop special loot (10%)
 	if randi_range(1,10) < 2:
@@ -84,3 +91,27 @@ func die():
 		spawn_loot.global_position.y += .25
 		
 	queue_free()
+
+
+func apply_central_force(force: Vector3) -> void:
+	being_pulled = true
+	accumulated_forces += force
+
+func apply_impulse(impulse: Vector3) -> void:
+	velocity += impulse / mass
+
+func stop_pull():
+	being_pulled = false
+
+func _physics_process(delta):
+	if being_pulled:
+		# Apply accumulated forces using F = ma
+		var force_acceleration = accumulated_forces / mass
+		velocity += force_acceleration * delta
+		
+		# Accelerate the fireball in its travel direction over time
+		var current_speed = velocity.length()
+		
+		# Clear accumulated forces (they only apply for one frame)
+		accumulated_forces = Vector3.ZERO
+	

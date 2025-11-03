@@ -39,7 +39,7 @@ directional_shadow_max_distance = 1.0
 [node name="Sandbox" parent="." instance=ExtResource("2_4wyf3")]
 
 [node name="EnemyManager" parent="." instance=ExtResource("2_71j4m")]
-enemy_count = 30
+enemy_count = 50
 enemyScene = ExtResource("4_5ukr8")
 
 [node name="Loot" parent="." instance=ExtResource("5_qfnet")]

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://tqupg58otyte"]
+[gd_scene load_steps=2 format=3 uid="uid://tqupg58otyte"]
+
+[ext_resource type="Script" uid="uid://dxjxmedi1rb40" path="res://UI/HUD/Inventory_UI/player_stats_page.gd" id="1_56qej"]
 
 [node name="StatsPage" type="HBoxContainer"]
 anchors_preset = 8
@@ -13,6 +15,7 @@ offset_bottom = 289.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+script = ExtResource("1_56qej")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -227,7 +230,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "0%"
 
-[node name="Gold_Gain2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Pickup_Radius" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = ".25"

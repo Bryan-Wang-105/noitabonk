@@ -32,7 +32,7 @@ var spellMappings = {
 }
 
 var tier_weights = {
-	"Common": 50,
+	"Common": 60,
 	"Uncommon": 75,
 	"Rare": 90,
 	"Legendary": 100

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dtquw8l245126"]
 
 [ext_resource type="Script" uid="uid://cwojjc87fcs1y" path="res://Spells/Spell Pickups/GlitchedSpell/glitch_spell.gd" id="1_s6ilh"]
-[ext_resource type="Texture2D" uid="uid://bh372edqpt1u3" path="res://Spells/Spell Pickups/GlitchedSpell/GlitchSpell.png" id="2_ssxf8"]
+[ext_resource type="Texture2D" uid="uid://bh372edqpt1u3" path="res://Spells/Spell Pickups/GlitchedSpell/GlitchSpell.png" id="2_s6ilh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_75b01"]
 height = 0.8691406
@@ -62,22 +62,6 @@ tracks/1/keys = {
 "values": [true, true, false, true, true, false, true, false, true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_s6ilh"]
-resource_name = "roll_spell"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.45, 0), Vector3(0, 0.886956, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_ssxf8"]
 resource_name = "bounce_finish"
 length = 1.8
@@ -93,6 +77,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0.887, 0), Vector3(0, 0.47471505, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s6ilh"]
+resource_name = "roll_spell"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.45, 0), Vector3(0, 0.886956, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vifrb"]
@@ -114,7 +114,7 @@ shape = SubResource("CylinderShape3D_75b01")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 billboard = 1
-texture = ExtResource("2_ssxf8")
+texture = ExtResource("2_s6ilh")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.006581962, 0)

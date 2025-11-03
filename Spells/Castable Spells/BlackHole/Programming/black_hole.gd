@@ -30,6 +30,11 @@ func _activate_gravity_pull() -> void:
 	
 func _deactivate_pull() -> void:
 	is_pulling = false
+	
+	for body in objects_in_range:
+		if has_method("stop_pull"):
+			body.stop_pull()
+	
 	queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
@@ -37,11 +42,14 @@ func _on_body_entered(body: Node3D) -> void:
 		objects_in_range.append(body)
 	
 	elif body is CharacterBody3D and body.is_in_group("physics") and body != self:
-		print("AAA")
+		#print(body)
 		objects_in_range.append(body)
 
 func _on_body_exited(body: Node3D) -> void:
 	if body in objects_in_range:
+		if body.has_method("stop_pull"):
+			body.stop_pull()
+	
 		objects_in_range.erase(body)
 
 func _physics_process(delta: float) -> void:
@@ -51,6 +59,7 @@ func _physics_process(delta: float) -> void:
 	# Apply pull force to all objects in range
 	for body in objects_in_range:
 		if is_instance_valid(body):
+			#print("Pulling ", body)
 			var direction = (global_position - body.global_position).normalized()
 			var distance = global_position.distance_to(body.global_position)
 			

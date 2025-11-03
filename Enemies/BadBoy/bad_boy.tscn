@@ -10,7 +10,7 @@ material = ExtResource("3_76sh5")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3mxyf"]
 
-[node name="BadBoy" type="CharacterBody3D" groups=["enemy"]]
+[node name="BadBoy" type="CharacterBody3D" groups=["enemy", "physics"]]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_rm27s")

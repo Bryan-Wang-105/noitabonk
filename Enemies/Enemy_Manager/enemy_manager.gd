@@ -54,9 +54,10 @@ func update_enemy(enemy, delta: float):
 		enemies.erase(enemy)  # Remove from array
 		enemy.die()     # Delete the node
 	
+	
 	# Apply gravity
 	# Climbing logic
-	if enemy.is_on_wall():
+	if enemy.is_on_wall() and !enemy.being_pulled:
 		enemy.velocity.y = enemy.speed  # Climb up at same speed as horizontal movement
 	elif not enemy.is_on_floor():
 		enemy.velocity.y -= gravity * delta  # Apply gravity when in air
@@ -67,12 +68,15 @@ func update_enemy(enemy, delta: float):
 	var direction = (Global.player.global_position - enemy.global_position).normalized()
 	direction.y = 0.0  # Keep movement horizontal only
 	
-		# Make enemy face the direction (instant)
+	# Make enemy face the direction (instant)
 	if direction.length() > 0.01:
 		enemy.rotation.y = atan2(-direction.x, -direction.z)
 	
-	enemy.velocity.x = direction.x * enemy.speed
-	enemy.velocity.z = direction.z * enemy.speed
+	if enemy.being_pulled:
+		pass
+	else:
+		enemy.velocity.x = direction.x * enemy.speed
+		enemy.velocity.z = direction.z * enemy.speed
 	
 	# Apply movement
 	enemy.move_and_slide()

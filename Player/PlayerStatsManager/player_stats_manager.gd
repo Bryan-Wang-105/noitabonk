@@ -2,9 +2,9 @@ extends Node
 class_name PlayerStats
 
 # Movement stats
-@export var walk_speed: float = 5.0
-@export var run_speed: float = 10.0
-@export var jump_height: float = 5.0
+@export var walk_speed: float = 6.0
+@export var sprint_speed: float = 8.0
+@export var jump_height: float = 4.5
 
 # Core stats
 @export var health: float = 100.0
@@ -40,7 +40,7 @@ func set_walk_speed(value: float) -> void:
 	walk_speed = max(0.0, value)
 
 func set_run_speed(value: float) -> void:
-	run_speed = max(0.0, value)
+	sprint_speed = max(0.0, value)
 
 func set_jump_height(value: float) -> void:
 	jump_height = max(0.0, value)
