@@ -84,20 +84,3 @@ func _physics_process(delta: float) -> void:
 			velocity.z = 0
 	
 	move_and_slide()
-
-func _unhandled_input(event: InputEvent) -> void:
-	# Toggle mouse capture with Escape key
-	if event.is_action_pressed("ui_cancel"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			
-	if event.is_action_pressed("tab"):
-		player_locked = !player_locked
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			
-		Global.canvas_layer.show_hide_inventory()

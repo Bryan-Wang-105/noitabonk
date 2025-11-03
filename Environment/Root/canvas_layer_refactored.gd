@@ -15,7 +15,13 @@ extends CanvasLayer
 # Spell Preview Panel
 @onready var spell_preview: PanelContainer = $SpellPreview
 
+# Pause Menu
+@onready var pause_menu: Control = $PauseMenu
+
 func _ready():
+	# This menu should work when game is paused
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	Global.canvas_layer = self
 
 
@@ -29,3 +35,9 @@ func hide_item_preview():
 func show_hide_inventory():
 	player_hud.show_hide_wands_bar()
 	inventory.show_hide()
+
+func _unhandled_input(event: InputEvent) -> void:
+	# Toggle mouse capture with Escape key
+	if event.is_action_pressed("ui_cancel"):
+		print("HIT ESC")
+		pause_menu.toggle_pause()

@@ -88,3 +88,13 @@ func _change_menu_btn(change_to_menu) -> void:
 		stats_page.visible = false
 
 	is_inventory = !is_inventory
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("tab"):
+		Global.player.player_locked = !Global.player.player_locked
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
+		Global.canvas_layer.show_hide_inventory()

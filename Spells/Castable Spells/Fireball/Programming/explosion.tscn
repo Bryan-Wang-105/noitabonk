@@ -662,7 +662,7 @@ scale_curve = SubResource("CurveTexture_3mklu")
 [sub_resource type="QuadMesh" id="QuadMesh_m6565"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3mklu"]
-radius = 4.21306
+radius = 3.5064585
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_vn5rs"]
 properties/0/path = NodePath(".:position")
