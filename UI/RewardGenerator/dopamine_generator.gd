@@ -8,7 +8,6 @@ var tier_weights = {
 }
 
 var base_stats = [
-	"health",
 	"max_health",
 	"hp_regen",
 	"enhanced_xp_gain",
@@ -35,7 +34,7 @@ func generate_rewards():
 	var rewards = []
 	
 	for i in range(3):
-		var rng = randi_range(0, 100)
+		var rng = randi_range(0, 94)
 		
 		if rng < tier_weights["BaseStat"]:
 			print("adding stat to rewards")
@@ -53,7 +52,7 @@ func generate_rewards():
 	return rewards
 
 func generate_stat():
-	var rng = randi_range(0, len(base_stats))
+	var rng = randi_range(0, len(base_stats) - 1)
 	print(base_stats[rng])
 	
 	var curr_stat_amt = Global.playerManager.return_stat(base_stats[rng])
