@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfharhy0jvelk"]
+
+[ext_resource type="Script" uid="uid://ctpsc6easqy67" path="res://UI/RewardGenerator/dopamine_generator.gd" id="1_nyda5"]
+
+[node name="DopamineGenerator" type="Node"]
+script = ExtResource("1_nyda5")

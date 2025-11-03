@@ -1,28 +1,39 @@
 extends Node
 class_name PlayerStats
 
-# Movement stats
-@export var walk_speed: float = 6.0
-@export var sprint_speed: float = 8.0
-@export var jump_height: float = 4.5
-
-# Core stats
-@export var health: float = 100.0
-@export var max_health: float = 100.0
-
+# EXP STATS
 var curr_level: int = 1
 var curr_xp: int = 0
 var next_xp_req: int = 100
+@export var enhanced_xp_gain: float = 0.0
 
 const BASE_XP: int = 100
 const MULTIPLIER: float = 1.5  # 50% increase per level
 
-@export var gold: int = 0
+# HEALTH STATS
+@export var health: float = 100.0
+@export var max_health: float = 100.0
+@export var hp_regen: float = 0.0
+@export var enhanced_hp_gain: float = 0.0
 
-# Combat stats
-@export var critical_strike_chance: float = 0.05  # 5%
-@export var critical_strike_dmg: float = 2.0  # 2x damage multiplier
-@export var luck: float = 1.0
+
+# MVMT STATS
+@export var walk_speed: float = 6.0
+@export var sprint_speed: float = 8.0
+@export var jump_height: float = 4.5
+
+# CRIT STATS
+@export var critical_strike_chance: float = 0.0  # 5%
+@export var critical_strike_dmg: float = 30  # 30% dmg
+
+# MISC STATS
+@export var life_steal: float = 0.0
+@export var luck: float = 0
+@export var gold: int = 0
+@export var gold_gain: float = 0.0
+@export var pickup_range: float = .5
+
+
 
 # Signals for UI updates
 signal health_changed(new_health, max_health)
@@ -139,3 +150,42 @@ func set_luck(value: float) -> void:
 # Utility function to check if attack is critical
 func is_critical_hit() -> bool:
 	return randf() < critical_strike_chance
+
+func return_stat(stat_name: String):
+	match stat_name:
+		# XP STATS
+		"enhanced_xp_gain":
+			return enhanced_xp_gain
+
+		# HEALTH STATS
+		"max_health":
+			return max_health
+		"hp_regen":
+			return hp_regen
+		"enhanced_hp_gain":
+			return enhanced_hp_gain
+
+		# MOVEMENT STATS
+		"walk_speed":
+			return walk_speed
+		"sprint_speed":
+			return sprint_speed
+		"jump_height":
+			return jump_height
+
+		# CRIT STATS
+		"critical_strike_chance":
+			return critical_strike_chance
+		"critical_strike_dmg":
+			return critical_strike_dmg
+
+		# MISC STATS
+		"life_steal":
+			return life_steal
+		"luck":
+			return luck
+		"gold_gain":
+			return gold_gain
+		"pickup_range":
+			return pickup_range
+	

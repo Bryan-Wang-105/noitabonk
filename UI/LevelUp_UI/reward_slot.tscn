@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3cj3p5eet27k"]
+
+[ext_resource type="Script" uid="uid://2jdjwwrwtlx7" path="res://UI/LevelUp_UI/reward_slot.gd" id="1_edbh3"]
+[ext_resource type="Texture2D" uid="uid://di76pdwtr65wh" path="res://UI/LevelUp_UI/BaseStatIcons/critical_strike_dmg.png" id="1_esnys"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edbh3"]
+bg_color = Color(0.43904907, 0.43904915, 0.43904895, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrxt5"]
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aoy1p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5205"]
+bg_color = Color(0.40018785, 0.40018785, 0.40018785, 0.453)
+
+[node name="RewardSlot" type="PanelContainer"]
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_edbh3")
+script = ExtResource("1_edbh3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(440, 110)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vrxt5")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 106.0
+offset_bottom = 48.0
+grow_vertical = 2
+texture = ExtResource("1_esnys")
+
+[node name="StatName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.272
+anchor_top = 0.1
+anchor_right = 0.272
+anchor_bottom = 0.1
+offset_left = 0.039993286
+offset_top = -0.25
+offset_right = 240.04
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 24
+text = "Max Health"
+
+[node name="Amt" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.272
+anchor_top = 0.1
+anchor_right = 0.272
+anchor_bottom = 0.1
+offset_left = 2.0399933
+offset_top = 59.0
+offset_right = 69.03999
+offset_bottom = 81.333336
+theme_override_font_sizes/font_size = 16
+text = "Amount:"
+
+[node name="Amounts" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.272
+anchor_top = 0.1
+anchor_right = 0.272
+anchor_bottom = 0.1
+offset_left = 71.03999
+offset_top = 59.0
+offset_right = 163.04
+offset_bottom = 81.333336
+theme_override_font_sizes/font_size = 16
+text = "100 → 105"
+horizontal_alignment = 1
+
+[node name="Amounts2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 4.0
+offset_right = -5.0
+offset_bottom = 26.333336
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 16
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_aoy1p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c5205")

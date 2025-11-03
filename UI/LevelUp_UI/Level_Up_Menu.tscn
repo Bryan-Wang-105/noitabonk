@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://btqc1hlh3igp4"]
+[gd_scene load_steps=2 format=3 uid="uid://btqc1hlh3igp4"]
 
 [ext_resource type="Script" uid="uid://cpyt0ieo7c17d" path="res://UI/LevelUp_UI/level_up_menu.gd" id="1_rhd38"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhd38"]
 
 [node name="LevelUp_UI" type="Control"]
 layout_mode = 3
@@ -59,8 +57,8 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 122.0
-offset_top = -152.0
+offset_left = 94.0
+offset_top = -194.0
 offset_right = 634.0
 offset_bottom = 479.0
 grow_vertical = 2
@@ -72,48 +70,168 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="CurrentStatsVbox" type="VBoxContainer" parent="PanelContainer/Control/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Control/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/CurrentStatsVbox"]
+[node name="CurrentStatsVbox" type="VBoxContainer" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Current Stats:"
 
-[node name="Label2" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/CurrentStatsVbox"]
+[node name="EnhancedXP" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "-                 -"
+theme_override_font_sizes/font_size = 32
+text = "Extra XP % Gain"
 
-[node name="Label3" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/CurrentStatsVbox"]
+[node name="MaxHP" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Blah                         10"
+theme_override_font_sizes/font_size = 32
+text = "Max Health                               "
 
-[node name="Label4" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/CurrentStatsVbox"]
+[node name="HP_Regen" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Blah                         10"
+theme_override_font_sizes/font_size = 32
+text = "Health Regen                       "
 
-[node name="Label5" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/CurrentStatsVbox"]
+[node name="EnhancedHP" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Blah                         10"
+theme_override_font_sizes/font_size = 32
+text = "Extra HP % Gain"
 
-[node name="Label6" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/CurrentStatsVbox"]
+[node name="WalkSpeed" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Blah                         10"
+theme_override_font_sizes/font_size = 32
+text = "Walk Speed"
 
-[node name="Label7" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/CurrentStatsVbox"]
+[node name="SprintSpeed" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Blah                         10"
+theme_override_font_sizes/font_size = 32
+text = "Sprint Speed"
 
-[node name="Label8" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/CurrentStatsVbox"]
+[node name="JumpHeight" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Jump Height"
+
+[node name="CritChance" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Critical Strike Chance"
+
+[node name="CritDmg" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Critical DMG Multiplier"
+
+[node name="LifeSteal" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Vampirism"
+
+[node name="Gold_Gain" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Extra Gold % Gain"
+
+[node name="Pickup_Range" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Pickup Radius"
+
+[node name="Luck2" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsVbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Luck"
+
+[node name="CurrentStatsLbl" type="VBoxContainer" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Blah                         10"
+
+[node name="EnhancedXP" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="MaxHP" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="HP_Regen" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="EnhancedHP" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="WalkSpeed" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="SprintSpeed" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="JumpHeight" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="CritChance" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="CritDmg" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="LifeSteal" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="Gold_Gain" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="Pickup_Range" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
+
+[node name="Luck2" type="Label" parent="PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/Control"]
 layout_mode = 1
@@ -157,52 +275,3 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 72
 alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "REWARD 1"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/PanelContainer"]
-layout_mode = 2
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rhd38")
-
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/PanelContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "REWARD 2"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/PanelContainer2"]
-layout_mode = 2
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rhd38")
-
-[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/PanelContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "REWARD 3"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/PanelContainer3"]
-layout_mode = 2
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rhd38")
-
-[connection signal="pressed" from="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/PanelContainer/Button" to="." method="choose_reward" binds= [0]]
-[connection signal="pressed" from="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/PanelContainer2/Button" to="." method="choose_reward" binds= [1]]
-[connection signal="pressed" from="PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/PanelContainer3/Button" to="." method="choose_reward" binds= [2]]

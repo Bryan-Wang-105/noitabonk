@@ -2,17 +2,63 @@ extends Control
 
 @onready var lvl_num: Label = $PanelContainer/Control/LvlNum
 
+@onready var rewards_vbox: VBoxContainer = $PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox
+
+@onready var enhanced_xp: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/EnhancedXP
+@onready var max_hp: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/MaxHP
+@onready var hp_regen: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/HP_Regen
+@onready var enhanced_hp: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/EnhancedHP
+@onready var walk_speed: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/WalkSpeed
+@onready var sprint_speed: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/SprintSpeed
+@onready var jump_height: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/JumpHeight
+@onready var crit_chance: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/CritChance
+@onready var crit_dmg: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/CritDmg
+@onready var life_steal: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/LifeSteal
+@onready var gold_gain: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/Gold_Gain
+@onready var pickup_range: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/Pickup_Range
+@onready var luck: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/Luck2
+
+var rewards
+var reward_slot = load("uid://d3cj3p5eet27k")
+var reward_slots = []
+
 var is_leveling_up = false
 
 func _ready():
 	visible = false
 	
 	Global.playerManager.connect("level_changed", open_lvlup_menu)
+	fill_labels()
+	
 	
 	# This menu should work when game is paused
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 
+func fill_labels():
+	enhanced_xp.text = str(Global.playerManager.enhanced_xp_gain) + "%"
+	max_hp.text = str(Global.playerManager.max_health)
+	hp_regen.text = str(Global.playerManager.hp_regen)
+	enhanced_hp.text = str(Global.playerManager.enhanced_hp_gain) + "%"
+	walk_speed.text = str(Global.playerManager.walk_speed)
+	sprint_speed.text = str(Global.playerManager.sprint_speed)
+	jump_height.text = str(Global.playerManager.jump_height)
+	crit_chance.text = str(Global.playerManager.critical_strike_chance) + "%"
+	crit_dmg.text = str(Global.playerManager.critical_strike_dmg)
+	life_steal.text = str(Global.playerManager.life_steal) + "%"
+	gold_gain.text = str(Global.playerManager.gold_gain) + "%"
+	pickup_range.text = str(Global.playerManager.pickup_range)
+	luck.text = str(Global.playerManager.luck)
+
+
 func open_lvlup_menu(level):
+	print(Global.world.elapsed_time)
+	rewards = Global.rewardGenerator.generate_rewards()
+	print(rewards)
+	
+	fill_labels()
+	fill_reward_slots()
+	
+	
 	lvl_num.text = str(level)
 	
 	# Pause the game
@@ -31,6 +77,15 @@ func close_lvlup_menu():
 	get_tree().paused = !get_tree().paused
 	return
 
+
+func fill_reward_slots():
+	for i in range(3):
+		var curr_slot = reward_slot.instantiate()
+		curr_slot.setup(rewards[i])
+		reward_slots.append(curr_slot)
+		
+		rewards_vbox.add_child(curr_slot)
+		
 
 func choose_reward(slot: int) -> void:
 	print("Choose reward " + str(slot + 1))

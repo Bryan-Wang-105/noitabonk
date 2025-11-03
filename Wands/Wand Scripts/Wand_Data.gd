@@ -9,9 +9,9 @@ const TIER_STATS = {
 	0: {
 		"rarity": "Common",
 		"dmg_mult": [1.0, 1.15],
-		"cast_delay": [0.15, .35],
-		"reload_speed": [.7, 1.3],
-		"capacity": [6, 10],
+		"cast_delay": [0.5, 1.2],
+		"reload_speed": [.5, 1.3],
+		"capacity": [1, 3],
 		"spread": [.1, .2]
 	},
 	1: {
@@ -27,7 +27,7 @@ const TIER_STATS = {
 		"dmg_mult": [1.4, 2],
 		"cast_delay": [0.03, .1],
 		"reload_speed": [.1, .3],
-		"capacity": [5, 12],
+		"capacity": [5, 18],
 		"spread": [0, 0.07]
 	}
 }

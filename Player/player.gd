@@ -17,7 +17,6 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var wand_inventory
 var wand_controller
 
-
 var player_locked = false
 
 func _ready() -> void:
