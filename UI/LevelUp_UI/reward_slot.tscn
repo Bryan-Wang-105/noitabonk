@@ -114,3 +114,5 @@ layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_aoy1p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c5205")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -81,7 +81,7 @@ func close_lvlup_menu():
 func fill_reward_slots():
 	for i in range(3):
 		var curr_slot = reward_slot.instantiate()
-		curr_slot.setup(rewards[i])
+		curr_slot.setup(i, rewards[i])
 		reward_slots.append(curr_slot)
 		
 		rewards_vbox.add_child(curr_slot)
@@ -89,5 +89,14 @@ func fill_reward_slots():
 
 func choose_reward(slot: int) -> void:
 	print("Choose reward " + str(slot + 1))
+	
+	if rewards[slot] is Spell:
+		print("ADD SPELL")
+		SpellLibrary.add_spell_auto(rewards[slot])
+	elif rewards[slot] is Resource:
+		print("ADD WAND")
+	else:
+		print("ADD STAT")
+		
 	
 	close_lvlup_menu()

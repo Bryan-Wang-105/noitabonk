@@ -7,6 +7,7 @@ extends PanelContainer
 var load_texture
 var load_stat_name
 var load_amounts
+var indx = -1
 
 func _ready():
 	stat_icon.texture = load_texture
@@ -15,7 +16,8 @@ func _ready():
 	if load_amounts:
 		amounts.text = load_amounts
 
-func setup(obj):
+func setup(indx_in, obj):
+	indx = indx
 	print("CURRENT")
 	print(obj)
 	if obj is Array:
@@ -73,3 +75,7 @@ func clean_name(stat: String):
 			return "Gold Gain"
 		"pickup_range":
 			return "Pickup Range"
+
+
+func _on_button_pressed() -> void:
+	Global.canvas_layer.level_up_ui.choose_reward(indx)
