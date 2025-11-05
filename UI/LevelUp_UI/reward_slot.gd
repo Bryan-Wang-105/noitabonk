@@ -1,27 +1,41 @@
 extends PanelContainer
 
-@onready var stat_icon: TextureRect = $MarginContainer/PanelContainer/MarginContainer/Control/TextureRect
-@onready var stat_name: Label = $MarginContainer/PanelContainer/MarginContainer/Control/StatName
-@onready var amounts: Label = $MarginContainer/PanelContainer/MarginContainer/Control/Amounts
+@onready var stat_icon: TextureRect = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect
+@onready var stat_name: Label = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/StatName
+@onready var amt: Label = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Amt
+@onready var amounts: Label = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Amounts
 
+
+var is_what = -1
 var load_texture
 var load_stat_name
 var load_amounts
+var load_desc
 var indx = -1
 
 func _ready():
 	stat_icon.texture = load_texture
 	stat_name.text = load_stat_name
 	
-	if load_amounts:
+	# Stat
+	if is_what == 0:
 		amounts.text = load_amounts
+	# wand
+	elif is_what == 1:
+		amt.visible = false
+		amounts.visible = false
+	else:
+		amt.text = load_desc
+		amounts.visible = false
+	
 
 func setup(indx_in, obj):
-	indx = indx
+	indx = indx_in
 	print("CURRENT")
 	print(obj)
 	if obj is Array:
 		print("STAT")
+		is_what = 0
 		# if array stat_name -> curr amt -> amt increase
 		load_texture = load("res://UI/LevelUp_UI/BaseStatIcons/" + obj[0] + ".png")
 		load_stat_name = clean_name(obj[0])
@@ -29,13 +43,16 @@ func setup(indx_in, obj):
 	
 	elif obj is Resource:
 		print("WAND")
+		is_what = 1
 		load_texture = load("uid://v2nhjxlojfki")
 		load_stat_name= "New RNG Wand"
 		
 	elif obj is Spell:
 		print("SPELL")
+		is_what = 2
 		load_stat_name = obj.name + " Spell"
 		load_texture = load(obj.icon_path)
+		load_desc = obj.description
 	else:
 		print(obj.get_class())
 		print("ERROR HAPPENING EITHER PERK OR WAND OR SPELL?")
@@ -68,7 +85,7 @@ func clean_name(stat: String):
 		
 		# Misc stats
 		"life_steal":
-			return "Life Steal"
+			return "Vampirism"
 		"luck":
 			return "Luck"
 		"gold_gain":

@@ -33,81 +33,58 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vrxt5")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="Control" type="Control" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -50.0
-offset_right = 106.0
-offset_bottom = 48.0
-grow_vertical = 2
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
 texture = ExtResource("1_esnys")
 
-[node name="StatName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.272
-anchor_top = 0.1
-anchor_right = 0.272
-anchor_bottom = 0.1
-offset_left = 0.039993286
-offset_top = -0.25
-offset_right = 240.04
-offset_bottom = 50.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="StatName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Max Health"
 
-[node name="Amt" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.272
-anchor_top = 0.1
-anchor_right = 0.272
-anchor_bottom = 0.1
-offset_left = 2.0399933
-offset_top = 59.0
-offset_right = 69.03999
-offset_bottom = 81.333336
+[node name="space" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Amt" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Amount:"
 
-[node name="Amounts" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.272
-anchor_top = 0.1
-anchor_right = 0.272
-anchor_bottom = 0.1
-offset_left = 71.03999
-offset_top = 59.0
-offset_right = 163.04
-offset_bottom = 81.333336
+[node name="Amounts" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "100 → 105"
 horizontal_alignment = 1
 
-[node name="Amounts2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -90.0
-offset_top = 4.0
-offset_right = -5.0
-offset_bottom = 26.333336
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 16
-text = "Level 1"
-horizontal_alignment = 1
+[node name="Level" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "          Level 1"
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2

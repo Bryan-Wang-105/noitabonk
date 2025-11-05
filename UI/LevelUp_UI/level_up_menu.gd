@@ -71,6 +71,9 @@ func open_lvlup_menu(level):
 
 func close_lvlup_menu():
 	visible = false
+
+	
+
 	# Pause the game
 	is_leveling_up = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -79,6 +82,11 @@ func close_lvlup_menu():
 
 
 func fill_reward_slots():
+	for i in reward_slots:
+		i.queue_free()
+	
+	reward_slots = []
+	
 	for i in range(3):
 		var curr_slot = reward_slot.instantiate()
 		curr_slot.setup(i, rewards[i])
@@ -95,8 +103,10 @@ func choose_reward(slot: int) -> void:
 		SpellLibrary.add_spell_auto(rewards[slot])
 	elif rewards[slot] is Resource:
 		print("ADD WAND")
+		print(rewards[slot])
 	else:
 		print("ADD STAT")
+		Global.playerManager.upgrade_stat(rewards[slot])
 		
 	
 	close_lvlup_menu()

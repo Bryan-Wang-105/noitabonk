@@ -40,6 +40,7 @@ signal health_changed(new_health, max_health)
 signal level_changed(new_level)
 signal experience_changed(new_exp)
 signal gold_changed(new_gold)
+signal stats_changed
 
 func _ready():
 	Global.playerManager = self
@@ -189,3 +190,38 @@ func return_stat(stat_name: String):
 		"pickup_range":
 			return pickup_range
 	
+
+func upgrade_stat(load):
+	var stat_name = load[0]
+	var increase_amount = load[2]
+	
+	# Check if property exists
+	if stat_name in self:
+		var current_value = get(stat_name)
+		var new_value = current_value + increase_amount
+		
+		# Use setter if it exists, otherwise set directly
+		match stat_name:
+			"max_health":
+				set_max_health(new_value)
+			"walk_speed":
+				set_walk_speed(new_value)
+			"sprint_speed":
+				set_run_speed(new_value)
+			"jump_height":
+				set_jump_height(new_value)
+			"critical_strike_chance":
+				set_critical_strike_chance(new_value)
+			"critical_strike_dmg":
+				set_critical_strike_dmg(new_value)
+			"luck":
+				set_luck(new_value)
+			_:
+				set(stat_name, new_value)
+		
+		print("Upgraded %s: %s -> %s (+%s)" % [stat_name, current_value, new_value, increase_amount])
+		
+		stats_changed.emit()
+	
+	else:
+		push_warning("Unknown stat: " + stat_name)

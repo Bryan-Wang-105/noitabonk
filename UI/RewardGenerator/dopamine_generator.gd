@@ -2,8 +2,8 @@ extends Node
 
 var tier_weights = {
 	"BaseStat": 65,
-	"Spell": 85, #20%
-	"Wand": 95,  #10%
+	"Spell": 90, #25%
+	"Wand": 95,  #5%
 	"Perk": 100  #5%
 }
 
