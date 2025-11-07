@@ -115,10 +115,10 @@ func generate_stat():
 		rng += int(Global.playerManager.luck)
 	
 		if rng2 > 90:
-			upgrade_amt = curr_stat_amt * .1
+			upgrade_amt = curr_stat_amt * .15
 			tier = 3
 		elif rng > 60:
-			upgrade_amt = curr_stat_amt * .15
+			upgrade_amt = curr_stat_amt * .1
 			tier = 2
 	
 	print("GENERATED STAT OF RARITY TIER")
