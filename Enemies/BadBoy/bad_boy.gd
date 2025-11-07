@@ -49,6 +49,16 @@ func take_dmg(amount):
 	# Show damage number
 	Global.dmg_num_pool.show_damage(amount, global_position, critted)
 	
+	# Apply lifesteal if exists
+	if Global.playerManager.life_steal > 0:
+		var heal_amt = amount * (Global.playerManager.life_steal / 100)
+		Global.playerManager.add_health(heal_amt)
+		
+		# Show damage number
+		Global.dmg_num_pool.show_heal(heal_amt, Global.player.heal_num.global_position)
+	
+	
+	# Subtract health
 	health -= amount
 	
 	if health <= 0:

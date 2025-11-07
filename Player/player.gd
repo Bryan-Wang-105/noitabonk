@@ -11,6 +11,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var spawn_spell_pos: Node3D = $Head/spawnSpellPos
 @onready var pick_up_collider: CollisionShape3D = $Area3D/CollisionShape3D
+@onready var heal_num: Node3D = $Head/heal_num
 
 # At the top of your script
 var regen_timer: float = 0.0

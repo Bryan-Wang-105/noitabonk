@@ -112,7 +112,7 @@ func generate_stat():
 		
 		# Potentially upgrade it below by 33%, 50%, or 100%
 		var rng2 = randi_range(0, 100)
-		rng += int(Global.playerManager.luck)
+		rng2 += int(Global.playerManager.luck)
 	
 		if rng2 > 90:
 			upgrade_amt = curr_stat_amt * .15

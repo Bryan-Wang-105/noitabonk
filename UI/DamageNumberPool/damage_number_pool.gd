@@ -27,6 +27,39 @@ func _ready():
 	for i in range(INITIAL_POOL_SIZE):
 		_create_damage_number()
 
+
+func show_heal(amount: int, position: Vector3, is_critical: bool = false) -> void:
+	var label = _get_available_label()
+	
+	if label == null:
+		# Pool exhausted, try to grow it
+		if pool.size() < MAX_POOL_SIZE:
+			for i in range(POOL_GROWTH_SIZE):
+				_create_damage_number()
+			label = _get_available_label()
+		else:
+			push_warning("Damage number pool at max capacity!")
+			return
+	
+	# Configure the label
+	label.text = str(amount)
+	label.visible = true
+	label.modulate = Color.WEB_GREEN
+	label.font_size = CRITICAL_FONT_SIZE if is_critical else BASE_FONT_SIZE
+	
+	# Set color based on damage type
+	if is_critical:
+		label.modulate = Color.GREEN
+	
+	# Position above the hit location
+	label.global_position = position
+	label.scale = Vector3(0.5, 0.5, 0.5)
+	
+	active_count += 1
+	
+	# Animate
+	_animate_damage_number(label)
+
 func show_damage(amount: int, position: Vector3, is_critical: bool = false) -> void:
 	var label = _get_available_label()
 	

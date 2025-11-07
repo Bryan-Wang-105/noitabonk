@@ -44,6 +44,9 @@ script = ExtResource("2_g2els")
 [node name="spawnSpellPos" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015672922, -0.8879113)
 
+[node name="heal_num" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041007876, -1.3146195, -1.599709)
+
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 128
