@@ -43,9 +43,8 @@ const TIER_STATS = {
 # Spells in this wand (can contain nulls for empty slots)
 var spells = []
 
-func _init(level: int = 0):
-	print("LEVEL")
-	print(level)
+func _init(level: int = 0, empty = false):
+	print("IN INIT OF WAND")
 	var stats = TIER_STATS.get(level)
 	
 	rarity = stats.rarity
@@ -58,8 +57,9 @@ func _init(level: int = 0):
 	# Initialize empty spell array
 	spells.resize(capacity)
 	
-	fill_spells()
-	
+	if !empty:
+		fill_spells()
+
 #
 func fill_spells():
 	## Add guaranteed spell matching wand rarity in first slot

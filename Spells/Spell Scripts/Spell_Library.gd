@@ -95,7 +95,8 @@ func add_spell_auto(spell):
 		if not inventory_spells[i]:
 			inventory_spells[i] = spell
 			emit_signal("spell_inventory_changed")
-			return
+			return true
+	return false
 
 func add_spell(indx, spell):
 	inventory_spells[indx] = spell

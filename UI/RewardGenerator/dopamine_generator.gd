@@ -1,9 +1,9 @@
 extends Node
 
 var tier_weights = {
-	"BaseStat": 65,
+	"Wand": 65,
 	"Spell": 90, #25%
-	"Wand": 95,  #5%
+	"BaseStat": 95,  #5%
 	"Perk": 100  #5%
 }
 
@@ -132,14 +132,15 @@ func generate_wand():
 	var rng = randi_range(0, 100)
 	rng += Global.playerManager.luck
 	
+	print("ADDING WAND")
 	if rng > 90:
-		wand = WandData.new(2)
+		wand = WandData.new(2, true)
 		tier = 3
 	elif rng > 60:
-		wand = WandData.new(1)
+		wand = WandData.new(1, true)
 		tier = 2
-	elif rng > 40:
-		wand = WandData.new(0)
+	else:
+		wand = WandData.new(0, true)
 	
 	print("WAND ADDED")
 	print(wand)

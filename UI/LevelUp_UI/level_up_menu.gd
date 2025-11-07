@@ -110,11 +110,17 @@ func choose_reward(slot: int) -> void:
 	print("Choose reward " + str(slot + 1))
 	
 	if rewards[slot][0] is Spell:
-		print("ADD SPELL")
-		SpellLibrary.add_spell_auto(rewards[slot][0])
+		if SpellLibrary.add_spell_auto(rewards[slot][0]):
+			print("ADDED SPELL SUCCESSFULLY")
+		else:
+			print("SPELL INV FULL")
+
 	elif rewards[slot][0] is Resource:
-		print("ADD WAND")
-		print(rewards[slot][0])
+		if Global.wandInventory.add_wand_auto(rewards[slot][0]):
+			print("ADDED WAND SUCCESSFULLY")
+		else:
+			print("WANDS ARE FULL")
+		
 	else:
 		print("ADD STAT")
 		Global.playerManager.upgrade_stat(rewards[slot][0])

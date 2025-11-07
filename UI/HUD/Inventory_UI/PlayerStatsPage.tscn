@@ -233,7 +233,7 @@ text = "0%"
 [node name="Pickup_Radius" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = ".25"
+text = ".5"
 
 [node name="Luck2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2

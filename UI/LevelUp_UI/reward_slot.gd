@@ -29,7 +29,7 @@ func _ready():
 	# wand
 	elif is_what == 1:
 		amt.visible = false
-		amounts.visible = false
+		amounts.text = load_amounts
 	else:
 		amt.text = load_desc
 		amounts.visible = false
@@ -56,7 +56,10 @@ func setup(indx_in, obj, tier):
 		print("WAND")
 		is_what = 1
 		load_texture = load("uid://v2nhjxlojfki")
-		load_stat_name= "New RNG Wand"
+		load_stat_name= "Random Wand"
+
+		load_amounts = "DMG_MLT: %.2f  C_DLY: %.2fs  RLD: %.2fs\nCAP: %.0f  SPRD: %.2f" % \
+			[obj.dmg_mult, obj.cast_delay, obj.reload_speed, obj.capacity, obj.spread]
 		
 	elif obj is Spell:
 		print("SPELL")
