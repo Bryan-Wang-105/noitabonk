@@ -71,7 +71,7 @@ func flash_white() -> void:
 
 func die():
 	# 30% to drop gold and xp
-	if randi_range(1, 10) < 3:
+	if randi_range(0, 100) + Global.playerManager.luck > 70:
 		var gold_drop = load("uid://c7fyfw2mhsj5g") 
 		gold_drop = gold_drop.instantiate()
 		gold_drop.set_amount(level)
@@ -82,7 +82,7 @@ func die():
 		gold_drop.global_position.z += randf_range(-.25, .25)
 		
 	# 30% to drop gold and xp
-	if randi_range(1, 10) < 3:
+	if randi_range(0, 100) + Global.playerManager.luck > 70:
 		# Always drop xp
 		var xp_drop = load("uid://dpi1yh7clswrh") 
 		
@@ -96,9 +96,9 @@ func die():
 		xp_drop.global_position.z += randf_range(-.25, .25)
 	
 	# Chance to drop special loot (10%)
-	if randi_range(1,10) < 5:
+	if randi_range(0,100) + Global.playerManager.luck > 50:
 		# Chance to drop upgraded loot to Uncommon (2%)
-		if randi_range(1,10) < 2:
+		if randi_range(0,100) + Global.playerManager.luck > 80:
 			level = 1
 			print("Spawning loot at level 1")
 		

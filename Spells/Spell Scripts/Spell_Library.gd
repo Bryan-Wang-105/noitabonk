@@ -70,6 +70,7 @@ func get_random_spell_of_tier(tier: String):
 func get_random_spell_up_to_tier(tier):
 	#print("TIER IS " + tier)
 	var rng = randi_range(0, tier_weights[tier])
+	rng += Global.playerManager.luck
 	#print(rng)
 	var spell
 	

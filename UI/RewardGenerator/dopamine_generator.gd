@@ -32,13 +32,24 @@ func _ready():
 func generate_rewards():
 	
 	var rewards = []
+	var stats_generated = []
 	
 	for i in range(3):
 		var rng = randi_range(0, 94)
 		
 		if rng < tier_weights["BaseStat"]:
 			print("adding stat to rewards")
-			rewards.append(generate_stat())
+			
+			var new_stat = generate_stat()
+			
+			# Keep generating until we get a unique stat
+			while new_stat[0] in stats_generated:
+				print("PREVENTED DUPLICATE STAT\n\n\n\n")
+				new_stat = generate_stat()
+			
+			rewards.append(new_stat)
+			stats_generated.append(new_stat[0])
+		
 		elif rng < tier_weights["Spell"]:
 			print("adding spell to rewards")
 			rewards.append(SpellLibrary.get_random_spell_up_to_tier("Rare"))
@@ -66,13 +77,14 @@ func generate_stat():
 		upgrade_amt = curr_stat_amt * .03
 		
 		# Potentially upgrade it below by 33%, 50%, or 100%
-		var rng2 = randi_range(0, 10)
+		var rng2 = randi_range(0, 100)
+		rng += Global.playerManager.luck
 	
-		if rng2 > 9:
+		if rng2 > 90:
 			upgrade_amt *= 2
-		elif rng > 6:
+		elif rng > 60:
 			upgrade_amt *= 1.5
-		elif rng > 4:
+		elif rng > 40:
 			upgrade_amt *= 1.33
 	
 	
@@ -81,13 +93,14 @@ func generate_stat():
 	
 func generate_wand():
 	var wand
-	var rng = randi_range(0, 10)
+	var rng = randi_range(0, 100)
+	rng += Global.playerManager.luck
 	
-	if rng > 9:
+	if rng > 90:
 		wand = WandData.new(2)
-	elif rng > 6:
+	elif rng > 60:
 		wand = WandData.new(1)
-	elif rng > 4:
+	elif rng > 40:
 		wand = WandData.new(0)
 	
 	print("WAND ADDED")
