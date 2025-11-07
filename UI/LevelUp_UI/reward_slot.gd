@@ -5,6 +5,9 @@ extends PanelContainer
 @onready var amt: Label = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Amt
 @onready var amounts: Label = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Amounts
 
+@onready var level: Label = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Level
+
+@onready var bg_container: PanelContainer = $MarginContainer/PanelContainer
 
 var is_what = -1
 var load_texture
@@ -12,10 +15,13 @@ var load_stat_name
 var load_amounts
 var load_desc
 var indx = -1
+var bg_style_box
+var lvl 
 
 func _ready():
 	stat_icon.texture = load_texture
 	stat_name.text = load_stat_name
+	level.text = lvl
 	
 	# Stat
 	if is_what == 0:
@@ -27,12 +33,17 @@ func _ready():
 	else:
 		amt.text = load_desc
 		amounts.visible = false
+		
+	bg_container.add_theme_stylebox_override("panel", bg_style_box)
 	
 
-func setup(indx_in, obj):
+func setup(indx_in, obj, tier):
 	indx = indx_in
 	print("CURRENT")
 	print(obj)
+	
+	setup_rarity_color(tier)
+	
 	if obj is Array:
 		print("STAT")
 		is_what = 0
@@ -56,6 +67,31 @@ func setup(indx_in, obj):
 	else:
 		print("ERROR HAPPENING EITHER PERK OR WAND OR SPELL?")
 		#print(obj.get_class())
+
+func setup_rarity_color(tier):
+	
+	# Get the stylebox from the PanelContainer
+	var stylebox = get_theme_stylebox("panel").duplicate()
+	
+	bg_style_box = get_theme_stylebox("panel").duplicate()
+
+	# Set color based on tier
+	if tier == 1:
+		lvl = "Common Reward"
+		stylebox.bg_color = SpellLibrary.rarity_color["Common"]
+		bg_style_box.bg_color = SpellLibrary.rarity_color["Common"].darkened(0.6)
+	elif tier == 2:
+		lvl = "Uncommon Reward"
+		stylebox.bg_color = SpellLibrary.rarity_color["Uncommon"]
+		bg_style_box.bg_color = SpellLibrary.rarity_color["Uncommon"].darkened(0.6)
+	elif tier == 3:
+		lvl = "Rare Reward"
+		stylebox.bg_color = SpellLibrary.rarity_color["Rare"]
+		bg_style_box.bg_color = SpellLibrary.rarity_color["Rare"].darkened(0.6)
+	
+	# Apply the modified stylebox back to the panel
+	add_theme_stylebox_override("panel", stylebox)
+
 
 func clean_name(stat: String):
 	match stat:

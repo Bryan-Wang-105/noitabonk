@@ -81,7 +81,8 @@ horizontal_alignment = 1
 [node name="Level" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "          Level 1"
+text = "Reward
+Level 1"
 horizontal_alignment = 2
 
 [node name="Control" type="Control" parent="MarginContainer/PanelContainer/MarginContainer"]

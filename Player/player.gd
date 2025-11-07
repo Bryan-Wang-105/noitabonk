@@ -54,7 +54,7 @@ func _input(event: InputEvent) -> void:
 # In your _process or _physics_process function
 func _process(delta):
 	# HP Regen logic
-	if Global.playerManager.hp_regen > 0:
+	if Global.playerManager.hp_regen > 0 and Global.playerManager.health < Global.playerManager.max_health:
 		regen_timer += delta
 		
 		if regen_timer >= regen_interval:

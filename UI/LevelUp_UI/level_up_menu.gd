@@ -100,7 +100,7 @@ func fill_reward_slots():
 	
 	for i in range(3):
 		var curr_slot = reward_slot.instantiate()
-		curr_slot.setup(i, rewards[i])
+		curr_slot.setup(i, rewards[i][0], rewards[i][1])
 		reward_slots.append(curr_slot)
 		
 		rewards_vbox.add_child(curr_slot)
@@ -109,15 +109,15 @@ func fill_reward_slots():
 func choose_reward(slot: int) -> void:
 	print("Choose reward " + str(slot + 1))
 	
-	if rewards[slot] is Spell:
+	if rewards[slot][0] is Spell:
 		print("ADD SPELL")
-		SpellLibrary.add_spell_auto(rewards[slot])
-	elif rewards[slot] is Resource:
+		SpellLibrary.add_spell_auto(rewards[slot][0])
+	elif rewards[slot][0] is Resource:
 		print("ADD WAND")
-		print(rewards[slot])
+		print(rewards[slot][0])
 	else:
 		print("ADD STAT")
-		Global.playerManager.upgrade_stat(rewards[slot])
+		Global.playerManager.upgrade_stat(rewards[slot][0])
 		
 	
 	close_lvlup_menu()

@@ -58,13 +58,17 @@ func create_empty_inventory():
 
 
 func get_random_spell_of_tier(tier: String):
+	print("GET RANDOM SPELL")
+	print(tier)
 	var spells_in_tier = tieredSpells[tier]
+	
 	if spells_in_tier.is_empty():
 		return null
 	
 	var random_spell_name = spells_in_tier[randi() % spells_in_tier.size()]
-	#print("GENERATING SPELL " + random_spell_name)
+	print("GENERATING SPELL " + random_spell_name)
 	var spell_path = spellMappings[random_spell_name]["path"]
+	
 	return load(spell_path).new()
 
 func get_random_spell_up_to_tier(tier):
