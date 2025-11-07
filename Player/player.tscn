@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8245vgq3eije"]
+[gd_scene load_steps=7 format=3 uid="uid://b8245vgq3eije"]
 
 [ext_resource type="Script" uid="uid://cew2k734kvc70" path="res://Player/player.gd" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://c1opy0wff4x1t" path="res://Player/Raycast/ray.gd" id="2_g2els"]
@@ -10,6 +10,9 @@ albedo_color = Color(0, 0.456822, 0.0942921, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6t5aa"]
 material = SubResource("StandardMaterial3D_g2els")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4ntmi"]
+height = 0.45
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -40,3 +43,13 @@ script = ExtResource("2_g2els")
 
 [node name="spawnSpellPos" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015672922, -0.8879113)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23887777, 0)
+shape = SubResource("CylinderShape3D_4ntmi")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]

@@ -10,9 +10,12 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head := $Head
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var spawn_spell_pos: Node3D = $Head/spawnSpellPos
+@onready var pick_up_collider: CollisionShape3D = $Area3D/CollisionShape3D
 
-#@onready var wand_inventory: WandInventory = $WandInventory
-#@onready var wand_controller: WandController = $WandController
+# At the top of your script
+var regen_timer: float = 0.0
+var regen_interval: float = 2  # Seconds between regen ticks
+
 
 var wand_inventory
 var wand_controller
@@ -48,17 +51,29 @@ func _input(event: InputEvent) -> void:
 		# Clamp vertical rotation to prevent over-rotation
 		head.rotation.x = clamp(head.rotation.x, -PI/2, PI/2)
 
+# In your _process or _physics_process function
+func _process(delta):
+	# HP Regen logic
+	if Global.playerManager.hp_regen > 0:
+		regen_timer += delta
+		
+		if regen_timer >= regen_interval:
+			regen_timer = 0.0  # Reset timer
+			Global.playerManager.set_health(
+				Global.playerManager.health + Global.playerManager.hp_regen * .33
+			)
+
 func _physics_process(delta: float) -> void:
 	# Add gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	# Handle jump
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and !player_locked:
-		velocity.y = Global.playerManager.jump_height
-
 	# Get input direction
 	if !player_locked:
+		# Handle jump
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			velocity.y = Global.playerManager.jump_height
+		
 		var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		
 		# Calculate movement direction relative to where the player is looking
@@ -83,3 +98,23 @@ func _physics_process(delta: float) -> void:
 			velocity.z = 0
 	
 	move_and_slide()
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.pick_up_type == "xp":
+		# Send audio cmd
+		Global.audio_node.play_xp_pickup_fx()
+		
+		# Update player gold count
+		Global.playerManager.add_xp(body.amount * (1 + (Global.playerManager.enhanced_xp_gain/100)))
+		
+		body.delete()
+	elif body.pick_up_type == "gold":
+		# Send audio cmd
+		Global.audio_node.play_gold_pickup_fx()
+		
+		# Update player gold count
+		print(1 + (Global.playerManager.enhanced_gold_gain/100))
+		Global.playerManager.add_gold(body.amount * (1 + (Global.playerManager.enhanced_gold_gain/100)))
+		
+		body.delete()

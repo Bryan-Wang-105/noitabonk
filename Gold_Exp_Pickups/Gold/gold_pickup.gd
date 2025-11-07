@@ -2,6 +2,7 @@ extends RigidBody3D
 
 
 var amount
+var pick_up_type = "gold"
 
 func _ready():
 	if amount == null:
@@ -16,14 +17,7 @@ func set_amount(enemy_level = 0):
 	elif enemy_level == 2:
 		amount = randi_range(9, 24)
 
-func _on_body_entered(body) -> void:
-	# Send audio cmd
-	Global.audio_node.play_gold_pickup_fx()
-	
-	# Update player gold count
-	Global.playerManager.add_gold(amount)
-	
-	# Delete current reference
+func delete():
 	# Hide immediately but delete next frame
 	visible = false
 	collision_layer = 0

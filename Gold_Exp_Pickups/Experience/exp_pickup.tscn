@@ -1,11 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpi1yh7clswrh"]
+[gd_scene load_steps=8 format=3 uid="uid://dpi1yh7clswrh"]
 
 [ext_resource type="Script" uid="uid://dy4sog06egpps" path="res://Gold_Exp_Pickups/Experience/exp_pickup.gd" id="1_bxxyu"]
 [ext_resource type="Texture2D" uid="uid://c1jfpecbm3dsp" path="res://Gold_Exp_Pickups/Experience/XPIcon.png" id="2_bxxyu"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_hdxa2"]
-height = 0.45502472
-radius = 0.34423828
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_hdxa2"]
 top_radius = 0.25
@@ -54,7 +50,7 @@ _data = {
 }
 
 [node name="XP_Pickup" type="RigidBody3D"]
-collision_layer = 32
+collision_layer = 128
 script = ExtResource("1_bxxyu")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -64,14 +60,6 @@ texture = ExtResource("2_bxxyu")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D"]
 light_color = Color(0.36625025, 0.4437642, 0.79744154, 1)
-
-[node name="Area3D" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23887777, 0)
-shape = SubResource("CylinderShape3D_hdxa2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13594568, 0)
@@ -87,6 +75,3 @@ libraries = {
 &"": SubResource("AnimationLibrary_5rwpj")
 }
 autoplay = "idle"
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_body_exited"]

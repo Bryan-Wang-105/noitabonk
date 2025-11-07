@@ -35,19 +35,30 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 
 func fill_labels():
-	enhanced_xp.text = str(Global.playerManager.enhanced_xp_gain) + "%"
-	max_hp.text = str(Global.playerManager.max_health)
-	hp_regen.text = str(Global.playerManager.hp_regen)
-	enhanced_hp.text = str(Global.playerManager.enhanced_hp_gain) + "%"
-	walk_speed.text = str(Global.playerManager.walk_speed)
-	sprint_speed.text = str(Global.playerManager.sprint_speed)
-	jump_height.text = str(Global.playerManager.jump_height)
-	crit_chance.text = str(Global.playerManager.critical_strike_chance) + "%"
-	crit_dmg.text = str(Global.playerManager.critical_strike_dmg)
-	life_steal.text = str(Global.playerManager.life_steal) + "%"
-	gold_gain.text = str(Global.playerManager.gold_gain) + "%"
-	pickup_range.text = str(Global.playerManager.pickup_range)
-	luck.text = str(Global.playerManager.luck)
+	var pm = Global.playerManager
+	
+	# XP Stats
+	enhanced_xp.text = "%.1f%%" % pm.enhanced_xp_gain
+	
+	# Health Stats
+	max_hp.text = "%.0f" % pm.max_health
+	hp_regen.text = "%.1f/s" % pm.hp_regen
+	enhanced_hp.text = "%.1f%%" % pm.enhanced_hp_gain
+	
+	# Movement Stats
+	walk_speed.text = "%.1f" % pm.walk_speed
+	sprint_speed.text = "%.1f" % pm.sprint_speed
+	jump_height.text = "%.1f" % pm.jump_height
+	
+	# Crit Stats (assuming critical_strike_chance is 0.0-1.0, convert to %)
+	crit_chance.text = "%.0f%%" % (pm.critical_strike_chance)
+	crit_dmg.text = "%.0f%%" % pm.critical_strike_dmg
+	
+	# Misc Stats
+	life_steal.text = "%.1f%%" % pm.life_steal
+	gold_gain.text = "%.1f%%" % pm.enhanced_gold_gain
+	pickup_range.text = "%.2fm" % pm.pickup_range
+	luck.text = "%.0f" % pm.luck
 
 
 func open_lvlup_menu(level):

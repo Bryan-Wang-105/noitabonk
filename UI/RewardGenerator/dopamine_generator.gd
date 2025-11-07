@@ -22,7 +22,7 @@ var base_stats = [
 	# Misc stats
 	"life_steal",
 	"luck",
-	"gold_gain",
+	"enhanced_gold_gain",
     "pickup_range"
 ]
 
@@ -58,21 +58,26 @@ func generate_stat():
 	var curr_stat_amt = Global.playerManager.return_stat(base_stats[rng])
 	var upgrade_amt
 	
+	# If starting amt was 0, most likely percentage so give 3% base
 	if curr_stat_amt == 0:
-		upgrade_amt = 3
+		upgrade_amt = 3 
 	else:
+		# Else, upgrade state by 3% 
 		upgrade_amt = curr_stat_amt * .03
+		
+		# Potentially upgrade it below by 33%, 50%, or 100%
+		var rng2 = randi_range(0, 10)
 	
-	var rng2 = randi_range(0, 10)
+		if rng2 > 9:
+			upgrade_amt *= 2
+		elif rng > 6:
+			upgrade_amt *= 1.5
+		elif rng > 4:
+			upgrade_amt *= 1.33
 	
-	if rng2 > 9:
-		upgrade_amt *= 2
-	elif rng > 6:
-		upgrade_amt *= 1.5
-	elif rng > 4:
-		upgrade_amt *= 1.33
 	
-	return [base_stats[rng], curr_stat_amt, upgrade_amt]
+	
+	return [base_stats[rng], curr_stat_amt, snapped(upgrade_amt, 0.01)]
 	
 func generate_wand():
 	var wand
@@ -85,4 +90,6 @@ func generate_wand():
 	elif rng > 4:
 		wand = WandData.new(0)
 	
+	print("WAND ADDED")
+	print(wand)
 	return wand

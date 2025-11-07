@@ -48,7 +48,7 @@ func show_damage(amount: int, position: Vector3, is_critical: bool = false) -> v
 	
 	# Set color based on damage type
 	if is_critical:
-		label.modulate = Color.YELLOW
+		label.modulate = Color.ORANGE
 	
 	# Position above the hit location
 	label.global_position = position + Vector3(0, Y_OFFSET, 0)

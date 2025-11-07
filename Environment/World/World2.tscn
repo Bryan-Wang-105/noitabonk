@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=3 uid="uid://dx4etmy2llwmf"]
+
+[ext_resource type="Script" uid="uid://jghl5ybncuby" path="res://Environment/World/world.gd" id="1_845ei"]
+[ext_resource type="PackedScene" uid="uid://ba6ggmup51a3y" path="res://Environment/Sandbox.tscn" id="2_6r21w"]
+[ext_resource type="PackedScene" uid="uid://dac2ydve0lbjs" path="res://Enemies/Enemy_Manager/enemy_manager.tscn" id="3_gnxpe"]
+[ext_resource type="PackedScene" uid="uid://q4y1siqkv8x7" path="res://Enemies/BadBoy/bad_boy.tscn" id="4_2mxyq"]
+[ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="5_wvmo0"]
+[ext_resource type="PackedScene" uid="uid://dtquw8l245126" path="res://Spells/Spell Pickups/GlitchedSpell/glitch_spell.tscn" id="6_eu5sn"]
+[ext_resource type="PackedScene" uid="uid://cjiuy2fi1v5cs" path="res://Spells/Spell Pickups/Spell_Pickup.tscn" id="7_x2lpt"]
+[ext_resource type="PackedScene" uid="uid://c7fyfw2mhsj5g" path="res://Gold_Exp_Pickups/Gold/gold_pickup.tscn" id="8_ebm2j"]
+[ext_resource type="PackedScene" uid="uid://dpi1yh7clswrh" path="res://Gold_Exp_Pickups/Experience/exp_pickup.tscn" id="9_332t3"]
+[ext_resource type="PackedScene" uid="uid://b8245vgq3eije" path="res://Player/player.tscn" id="10_p60u4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2y6q8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_okmk0"]
+sky_material = SubResource("ProceduralSkyMaterial_2y6q8")
+
+[sub_resource type="Environment" id="Environment_kmx2w"]
+background_mode = 2
+sky = SubResource("Sky_okmk0")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_845ei")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kmx2w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.32793313, -0.37691122, 0.866255, 0.8668554, 0.24444635, 0.43452018, -0.37552842, 0.8934114, 0.24656555, 0, 13.881844, 0)
+light_color = Color(0.6823907, 0.5122561, 0.21704409, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="Sandbox" parent="." instance=ExtResource("2_6r21w")]
+
+[node name="EnemyManager" parent="." instance=ExtResource("3_gnxpe")]
+enemy_count = 20
+enemyScene = ExtResource("4_2mxyq")
+
+[node name="Loot" parent="." instance=ExtResource("5_wvmo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.54801, 20.76449, -5.7768774)
+
+[node name="Glitch_Spell" parent="." instance=ExtResource("6_eu5sn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6771545, 21.572926, -6.2230043)
+
+[node name="Glitch_Spell2" parent="." instance=ExtResource("6_eu5sn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1149025, 21.572926, 23.127281)
+
+[node name="spell_pickup" parent="." instance=ExtResource("7_x2lpt")]
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 22.847935, 21.82834, -17.684004)
+
+[node name="spell_pickup2" parent="." instance=ExtResource("7_x2lpt")]
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, -27.574684, 21.82834, -4.2583456)
+
+[node name="Gold_Pickup" parent="." instance=ExtResource("8_ebm2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.289526, 22.653708, -9.621967)
+
+[node name="XP_Pickup" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.695152, 20.628292, 28.603205)
+
+[node name="XP_Pickup2" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.352259, 20.628292, -1.6758895)
+
+[node name="XP_Pickup3" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -4.8338337)
+
+[node name="XP_Pickup4" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.012758, 20.628292, 0.08884287)
+
+[node name="XP_Pickup5" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.943211, 20.628292, 10.166588)
+
+[node name="XP_Pickup6" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.68543, 20.628292, 24.284449)
+
+[node name="XP_Pickup7" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.693377, 20.628292, -25.685345)
+
+[node name="XP_Pickup8" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.73741, 20.628292, -25.778225)
+
+[node name="XP_Pickup9" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.057777, 20.628292, -25.351828)
+
+[node name="XP_Pickup10" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.615351, 20.628292, 16.258709)
+
+[node name="XP_Pickup11" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.883211, 20.628292, 10.500107)
+
+[node name="XP_Pickup12" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.520454, 20.628292, 16.44447)
+
+[node name="XP_Pickup13" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.243542, 20.628292, -9.81469)
+
+[node name="XP_Pickup14" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.287195, 20.628292, -24.489836)
+
+[node name="XP_Pickup15" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15215874, 20.628292, -14.364465)
+
+[node name="XP_Pickup16" parent="." instance=ExtResource("9_332t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.989346, 20.628292, 11.085882)
+
+[node name="Player" parent="." instance=ExtResource("10_p60u4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2680526, 19.120367, 7.676817)

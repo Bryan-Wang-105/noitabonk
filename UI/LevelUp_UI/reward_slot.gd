@@ -54,8 +54,8 @@ func setup(indx_in, obj):
 		load_texture = load(obj.icon_path)
 		load_desc = obj.description
 	else:
-		print(obj.get_class())
 		print("ERROR HAPPENING EITHER PERK OR WAND OR SPELL?")
+		#print(obj.get_class())
 
 func clean_name(stat: String):
 	match stat:
@@ -88,7 +88,7 @@ func clean_name(stat: String):
 			return "Vampirism"
 		"luck":
 			return "Luck"
-		"gold_gain":
+		"enhanced_gold_gain":
 			return "Gold Gain"
 		"pickup_range":
 			return "Pickup Range"

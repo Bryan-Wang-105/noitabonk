@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c28em2u0djwr"
-path="res://.godot/imported/gold_gain.png-ac5432e389c2e0fec2e7f0d97033c305.ctex"
+path="res://.godot/imported/enhanced_gold_gain.png-495b2205fe0c1acb99e3634f9d2c513b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/LevelUp_UI/BaseStatIcons/gold_gain.png"
-dest_files=["res://.godot/imported/gold_gain.png-ac5432e389c2e0fec2e7f0d97033c305.ctex"]
+source_file="res://UI/LevelUp_UI/BaseStatIcons/enhanced_gold_gain.png"
+dest_files=["res://.godot/imported/enhanced_gold_gain.png-495b2205fe0c1acb99e3634f9d2c513b.ctex"]
 
 [params]
 

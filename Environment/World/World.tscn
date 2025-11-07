@@ -135,5 +135,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -0.8981
 [node name="XP_Pickup16" parent="." instance=ExtResource("8_kmx2w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -0.8981478)
 
+[node name="XP_Pickup17" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -10.660105)
+
+[node name="XP_Pickup18" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -10.660105)
+
+[node name="XP_Pickup19" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -10.660105)
+
+[node name="XP_Pickup20" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -10.660105)
+
+[node name="XP_Pickup21" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -9.220258)
+
+[node name="XP_Pickup22" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -9.220258)
+
+[node name="XP_Pickup23" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -9.220258)
+
+[node name="XP_Pickup24" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -9.220258)
+
+[node name="XP_Pickup25" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -8.050812)
+
+[node name="XP_Pickup26" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -8.050812)
+
+[node name="XP_Pickup27" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -8.050812)
+
+[node name="XP_Pickup28" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -8.050812)
+
+[node name="XP_Pickup29" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -6.7244186)
+
+[node name="XP_Pickup30" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -6.7244186)
+
+[node name="XP_Pickup31" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -6.7244186)
+
+[node name="XP_Pickup32" parent="." instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -6.7244186)
+
 [node name="Player" parent="." instance=ExtResource("1_rwgxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.523638, 19.120367, -7.3698645)

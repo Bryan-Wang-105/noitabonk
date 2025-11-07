@@ -16,7 +16,6 @@ const MULTIPLIER: float = 1.5  # 50% increase per level
 @export var hp_regen: float = 0.0
 @export var enhanced_hp_gain: float = 0.0
 
-
 # MVMT STATS
 @export var walk_speed: float = 6.0
 @export var sprint_speed: float = 8.0
@@ -30,7 +29,7 @@ const MULTIPLIER: float = 1.5  # 50% increase per level
 @export var life_steal: float = 0.0
 @export var luck: float = 0
 @export var gold: int = 0
-@export var gold_gain: float = 0.0
+@export var enhanced_gold_gain: float = 0.0
 @export var pickup_range: float = .5
 
 
@@ -49,21 +48,56 @@ func _ready():
 
 # Movement setters
 func set_walk_speed(value: float) -> void:
+	
+	print("OLD WALK SPEED: ")
+	print(walk_speed)
 	walk_speed = max(0.0, value)
+	
+	print("NEW WALK SPEED: ")
+	print(walk_speed)
 
 func set_run_speed(value: float) -> void:
+	print("OLD sprint_speed: ")
+	print(sprint_speed)
 	sprint_speed = max(0.0, value)
+	
+	print("NEW sprint_speed: ")
+	print(sprint_speed)
 
 func set_jump_height(value: float) -> void:
+	print("OLD jump_height: ")
+	print(jump_height)
 	jump_height = max(0.0, value)
+	
+	print("NEW jump_height: ")
+	print(jump_height)
+
 
 # Health setters
 func set_health(value: float) -> void:
+	# Add more HP
+	print("HP GAIN IS: ")
+	value *= (1 + (enhanced_hp_gain / 100)) 
+	print(value)
+	
 	health = clamp(value, 0.0, max_health)
 	health_changed.emit(health, max_health)
 
 func set_max_health(value: float) -> void:
+	print("OLD max_health: ")
+	print(max_health)
+	
+	
+	# Add more HP
+	print("HP GAIN IS: ")
+	value *= (1 + (enhanced_hp_gain / 100)) 
+	print(value)
+	
 	max_health = max(1.0, value)
+	
+	print("NEW max_health: ")
+	print(max_health)
+	
 	health = min(health, max_health)  # Adjust current health if needed
 	health_changed.emit(health, max_health)
 
@@ -130,7 +164,6 @@ func set_gold(value: int) -> void:
 func add_gold(amount: int) -> void:
 	set_gold(gold + amount)
 	gold_changed.emit(amount)
-	
 
 func remove_gold(amount: int) -> bool:
 	if gold >= amount:
@@ -138,15 +171,40 @@ func remove_gold(amount: int) -> bool:
 		return true
 	return false
 
+func set_enhanced_gold_gain(amount):
+	enhanced_gold_gain = amount
+
+func set_pickup_range(amount: float):
+	print("OLD PICK UP RANGE: ")
+	print(Global.player.pick_up_collider.shape.radius)
+	pickup_range = amount
+	Global.player.pick_up_collider.shape.radius = amount
+	print("NEW RANGE:")
+	print(Global.player.pick_up_collider.shape.radius)
+
 # Combat stat setters
 func set_critical_strike_chance(value: float) -> void:
-	critical_strike_chance = clamp(value, 0.0, 1.0)  # Keep between 0-100%
+	print("OLD CRIT: ")
+	print(critical_strike_chance)
+	critical_strike_chance = clamp(value, 0, 100)  # Keep between 0-100%
+	print("NEW CRIT: ")
+	print(critical_strike_chance)
 
 func set_critical_strike_dmg(value: float) -> void:
+	print("OLD CRIT DMG: ")
+	print(critical_strike_dmg)
 	critical_strike_dmg = max(1.0, value)
+	print("NEW CRIT DMG: ")
+	print(critical_strike_dmg)
 
 func set_luck(value: float) -> void:
+	print("OLD LUCK: ")
+	print(luck)
+	
 	luck = max(0.0, value)
+	
+	print("NEW LUCK: ")
+	print(luck)
 
 # Utility function to check if attack is critical
 func is_critical_hit() -> bool:
@@ -185,13 +243,14 @@ func return_stat(stat_name: String):
 			return life_steal
 		"luck":
 			return luck
-		"gold_gain":
-			return gold_gain
+		"enhanced_gold_gain":
+			return enhanced_gold_gain
 		"pickup_range":
 			return pickup_range
 	
 
 func upgrade_stat(load):
+	print(load)
 	var stat_name = load[0]
 	var increase_amount = load[2]
 	
@@ -210,6 +269,10 @@ func upgrade_stat(load):
 				set_run_speed(new_value)
 			"jump_height":
 				set_jump_height(new_value)
+			"pickup_range":
+				set_pickup_range(new_value)
+			"enhanced_gold_gain":
+				set_enhanced_gold_gain(new_value)
 			"critical_strike_chance":
 				set_critical_strike_chance(new_value)
 			"critical_strike_dmg":

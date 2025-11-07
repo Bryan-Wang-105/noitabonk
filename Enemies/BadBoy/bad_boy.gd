@@ -38,8 +38,16 @@ func take_dmg(amount):
 	print("ENEMY TOOK DAMAGE")
 	flash_white()
 	
+	# Calculate crit opportunity
+	var crit = randi_range(0, 100)
+	var critted = false
+	
+	if crit <= Global.playerManager.critical_strike_chance:
+		critted = true
+		amount *= ((100 +  Global.playerManager.critical_strike_dmg)/100)
+		
 	# Show damage number
-	Global.dmg_num_pool.show_damage(amount, global_position)
+	Global.dmg_num_pool.show_damage(amount, global_position, critted)
 	
 	health -= amount
 	

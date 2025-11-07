@@ -62,7 +62,7 @@ func update_active_wand_bar():
 
 func update_health(curr_hp, max_hp):
 	hp_bar.value = 100 * curr_hp / max_hp
-	hp_lbl.text = str(curr_hp) + " / " + str(max_hp) + " HP"
+	hp_lbl.text = "%.0f / %.0f HP" % [curr_hp, max_hp]
 
 func update_xp(amount = 0):
 	if amount:

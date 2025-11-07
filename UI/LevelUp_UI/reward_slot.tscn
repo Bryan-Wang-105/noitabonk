@@ -56,30 +56,31 @@ layout_mode = 2
 
 [node name="StatName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Max Health"
 
 [node name="space" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Amt" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "Amount:"
+theme_override_font_sizes/font_size = 24
+text = "Amount:   "
 
 [node name="Amounts" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 text = "100 → 105"
 horizontal_alignment = 1
 
 [node name="Level" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "          Level 1"
 horizontal_alignment = 2
 

@@ -35,7 +35,7 @@ func _update_stats():
 	
 	# Health Stats
 	max_hp.text = "%.0f" % pm.max_health
-	hp_regen.text = "%.1f/s" % pm.hp_regen
+	hp_regen.text = "%.1f" % pm.hp_regen
 	enhanced_hp.text = "%.1f%%" % pm.enhanced_hp_gain
 	
 	# Movement Stats
@@ -44,11 +44,11 @@ func _update_stats():
 	jump_height.text = "%.1f" % pm.jump_height
 	
 	# Crit Stats (assuming critical_strike_chance is 0.0-1.0, convert to %)
-	crit_chance.text = "%.1f%%" % (pm.critical_strike_chance * 100)
+	crit_chance.text = "%.1f%%" % (pm.critical_strike_chance)
 	crit_dmg.text = "%.0f%%" % pm.critical_strike_dmg
 	
 	# Misc Stats
 	life_steal.text = "%.1f%%" % pm.life_steal
-	gold_gain.text = "%.1f%%" % pm.gold_gain
-	pickup_radius.text = "%.1fm" % pm.pickup_range
+	gold_gain.text = "%.1f%%" % pm.enhanced_gold_gain
+	pickup_radius.text = "%.2fm" % pm.pickup_range
 	luck.text = "%.0f" % pm.luck
