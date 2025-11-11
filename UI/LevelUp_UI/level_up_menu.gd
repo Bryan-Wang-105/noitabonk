@@ -3,6 +3,8 @@ extends Control
 @onready var lvl_num: Label = $PanelContainer/Control/LvlNum
 
 @onready var rewards_vbox: VBoxContainer = $PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox
+@onready var reroll_box: PanelContainer = $PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/RerollBox
+@onready var reroll_btn: Button = $PanelContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/RewardsVbox/RerollBox/MarginContainer/PanelContainer/Button
 
 @onready var enhanced_xp: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/EnhancedXP
 @onready var max_hp: Label = $PanelContainer/Control/PanelContainer/MarginContainer/HBoxContainer/CurrentStatsLbl/MaxHP
@@ -23,6 +25,11 @@ var reward_slot = load("uid://d3cj3p5eet27k")
 var reward_slots = []
 
 var is_leveling_up = false
+var pending_levels: int = 0
+var next_level_to_show: int = 0
+
+var rerolls
+var curr_reroll_amt
 
 func _ready():
 	visible = false
@@ -62,34 +69,53 @@ func fill_labels():
 
 
 func open_lvlup_menu(level):
-	print(Global.world.elapsed_time)
+	# If we're not already showing menus, start from current level
+	if pending_levels == 0:
+		next_level_to_show = level - 1  # start from previous level
+	
+	pending_levels += 1
+	
+	# If already leveling up, don't open another one yet
+	if is_leveling_up:
+		return
+
+	_show_next_levelup()
+	
+func _show_next_levelup():
+	next_level_to_show += 1  # increment one level at a time
+	is_leveling_up = true
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	visible = true
+	
+	setup_reroll()
+	setup_rewards()
+	fill_labels()
+
+	lvl_num.text = str(next_level_to_show)
+
+
+
+func setup_rewards():
 	rewards = Global.rewardGenerator.generate_rewards()
 	print(rewards)
-	
 	fill_labels()
 	fill_reward_slots()
+
+func setup_reroll():
+	curr_reroll_amt = Global.playerManager.reroll_amt
+	reroll_btn.text = "REROLL - $%.0f" % curr_reroll_amt
 	
-	
-	lvl_num.text = str(level)
-	
-	# Pause the game
-	is_leveling_up = true
-	get_tree().paused = !get_tree().paused
-	
-	visible = true
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	return
+	if Global.playerManager.gold < curr_reroll_amt:
+		reroll_btn.disabled = true
+	else:
+		reroll_btn.disabled = false
 
 func close_lvlup_menu():
-	visible = false
-
-	
-
-	# Pause the game
 	is_leveling_up = false
+	visible = false
+	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	get_tree().paused = !get_tree().paused
-	return
 
 
 func fill_reward_slots():
@@ -104,7 +130,7 @@ func fill_reward_slots():
 		reward_slots.append(curr_slot)
 		
 		rewards_vbox.add_child(curr_slot)
-		
+		rewards_vbox.move_child(curr_slot, 0)
 
 func choose_reward(slot: int) -> void:
 	print("Choose reward " + str(slot + 1))
@@ -120,10 +146,24 @@ func choose_reward(slot: int) -> void:
 			print("ADDED WAND SUCCESSFULLY")
 		else:
 			print("WANDS ARE FULL")
-		
 	else:
 		print("ADD STAT")
 		Global.playerManager.upgrade_stat(rewards[slot][0])
-		
 	
-	close_lvlup_menu()
+	# Handle next level-up
+	pending_levels -= 1
+	if pending_levels > 0:
+		_show_next_levelup()
+	else:
+		close_lvlup_menu()
+
+
+func _on_reroll() -> void:
+	Global.playerManager.remove_gold(curr_reroll_amt)
+	curr_reroll_amt *= 2
+	reroll_btn.text = "REROLL - $%.0f" % curr_reroll_amt
+	
+	setup_rewards()
+	
+	if Global.playerManager.gold < curr_reroll_amt:
+		reroll_btn.disabled = true

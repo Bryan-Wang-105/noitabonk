@@ -30,7 +30,6 @@ func _ready():
 	Global.rewardGenerator = self
 
 func generate_rewards():
-	
 	var rewards = []
 	var stats_generated = []
 	var spells_generated = []
@@ -44,12 +43,12 @@ func generate_rewards():
 			var new_stat = generate_stat()
 			
 			# Keep generating until we get a unique stat
-			while new_stat[0] in stats_generated:
+			while new_stat[0][0] in stats_generated:
 				print("PREVENTED DUPLICATE STAT\n\n\n\n")
 				new_stat = generate_stat()
 			
 			rewards.append(new_stat)
-			stats_generated.append(new_stat[0])
+			stats_generated.append(new_stat[0][0])
 		
 		elif rng < tier_weights["Spell"]:
 			print("adding spell to rewards")
@@ -103,22 +102,31 @@ func generate_stat():
 	var curr_stat_amt = Global.playerManager.return_stat(base_stats[rng])
 	var upgrade_amt
 	
-	# If starting amt was 0, most likely percentage so give 3% base
+	var rng2 = randi_range(0, 100) + int(Global.playerManager.luck)
+	print("STAT GENERATED RNG2: ", rng2)
+
 	if curr_stat_amt == 0:
-		upgrade_amt = 5 
-	else:
-		# Else, upgrade state by 5% 
-		upgrade_amt = curr_stat_amt * .05
-		
-		# Potentially upgrade it below by 33%, 50%, or 100%
-		var rng2 = randi_range(0, 100)
-		rng2 += int(Global.playerManager.luck)
-	
+		# Base 3% value if starting from zero
+		upgrade_amt = 3
+
+		# Still allow RNG-based boosts
 		if rng2 > 90:
-			upgrade_amt = curr_stat_amt * .15
+			upgrade_amt *= 2  # 15%
 			tier = 3
-		elif rng > 60:
-			upgrade_amt = curr_stat_amt * .1
+		elif rng2 > 80:
+			upgrade_amt *= 1.5 # ~10%
+			tier = 2
+
+	else:
+		# Base 5% upgrade from current amount
+		upgrade_amt = curr_stat_amt * 0.05
+
+		# RNG boosts on top of that
+		if rng2 > 90:
+			upgrade_amt = curr_stat_amt * 0.15
+			tier = 3
+		elif rng2 > 80:
+			upgrade_amt = curr_stat_amt * 0.10
 			tier = 2
 	
 	print("GENERATED STAT OF RARITY TIER")
