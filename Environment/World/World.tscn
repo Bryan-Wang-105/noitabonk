@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtncas7j2bcxp"]
+[gd_scene load_steps=13 format=3 uid="uid://dtncas7j2bcxp"]
 
 [ext_resource type="Script" uid="uid://jghl5ybncuby" path="res://Environment/World/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://b8245vgq3eije" path="res://Player/player.tscn" id="1_rwgxs"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="5_qfnet"]
 [ext_resource type="PackedScene" uid="uid://dtquw8l245126" path="res://Spells/Spell Pickups/GlitchedSpell/glitch_spell.tscn" id="6_74n4s"]
 [ext_resource type="PackedScene" uid="uid://cjiuy2fi1v5cs" path="res://Spells/Spell Pickups/Spell_Pickup.tscn" id="6_o06y3"]
-[ext_resource type="PackedScene" uid="uid://c7fyfw2mhsj5g" path="res://Gold_Exp_Pickups/Gold/gold_pickup.tscn" id="7_okmk0"]
 [ext_resource type="PackedScene" uid="uid://dpi1yh7clswrh" path="res://Gold_Exp_Pickups/Experience/exp_pickup.tscn" id="8_kmx2w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2y6q8"]
@@ -24,164 +23,113 @@ sky = SubResource("Sky_okmk0")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" unique_id=750923300]
 script = ExtResource("1_k0juu")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1696847615]
 environment = SubResource("Environment_kmx2w")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=421425359]
 transform = Transform3D(-0.32793313, -0.37691122, 0.866255, 0.8668554, 0.24444635, 0.43452018, -0.37552842, 0.8934114, 0.24656555, 0, 13.881844, 0)
 light_color = Color(0.6823907, 0.5122561, 0.21704409, 1)
 shadow_enabled = true
 directional_shadow_max_distance = 1.0
 
-[node name="Sandbox" parent="." instance=ExtResource("2_4wyf3")]
+[node name="Sandbox" parent="." unique_id=1419241562 instance=ExtResource("2_4wyf3")]
 
-[node name="EnemyManager" parent="." instance=ExtResource("2_71j4m")]
-enemy_count = 20
+[node name="EnemyManager" parent="." unique_id=1150220047 instance=ExtResource("2_71j4m")]
+enemy_count = 40
 enemyScene = ExtResource("4_5ukr8")
 
-[node name="Loot" parent="." instance=ExtResource("5_qfnet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.54801, 20.76449, -5.7768774)
+[node name="Loot" parent="." unique_id=1401542438 instance=ExtResource("5_qfnet")]
+transform = Transform3D(-0.011449084, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449084, 28.62066, 20.76449, -3.3995957)
 
-[node name="Glitch_Spell" parent="." instance=ExtResource("6_74n4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.86007, 21.572926, 0)
+[node name="Loot2" parent="." unique_id=684162589 instance=ExtResource("5_qfnet")]
+transform = Transform3D(-0.011449084, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449084, 28.642746, 20.76449, -5.328479)
 
-[node name="Glitch_Spell2" parent="." instance=ExtResource("6_74n4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.000118, 21.572926, 0)
+[node name="Loot3" parent="." unique_id=1387823178 instance=ExtResource("5_qfnet")]
+transform = Transform3D(-0.011449084, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449084, 28.664371, 20.76449, -7.217262)
 
-[node name="Glitch_Spell3" parent="." instance=ExtResource("6_74n4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.78629, 21.572926, 0)
+[node name="Loot4" parent="." unique_id=2135832896 instance=ExtResource("5_qfnet")]
+transform = Transform3D(-0.011449084, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449084, 28.685467, 20.76449, -9.059516)
 
-[node name="Glitch_Spell4" parent="." instance=ExtResource("6_74n4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.325022, 21.572926, 0)
+[node name="Loot5" parent="." unique_id=70208055 instance=ExtResource("5_qfnet")]
+transform = Transform3D(-0.011449084, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449084, 28.706741, 20.76449, -10.917644)
 
-[node name="Glitch_Spell5" parent="." instance=ExtResource("6_74n4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.060566, 21.572926, 0)
+[node name="Loot6" parent="." unique_id=633382967 instance=ExtResource("5_qfnet")]
+transform = Transform3D(-0.011449084, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449084, 28.728455, 20.76449, -12.814053)
 
-[node name="spell_pickup" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 19.875751, 21.82834, -12.85421)
+[node name="Glitch_Spell" parent="." unique_id=967313754 instance=ExtResource("6_74n4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.339746, 19.821228, -17.53498)
 
-[node name="spell_pickup2" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 20.723259, 21.82834, -10.57423)
+[node name="Glitch_Spell2" parent="." unique_id=908499176 instance=ExtResource("6_74n4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.339746, 19.821228, -15.574933)
 
-[node name="spell_pickup3" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 26.474155, 21.019543, -10.706841)
+[node name="Glitch_Spell3" parent="." unique_id=1346115071 instance=ExtResource("6_74n4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.28194, 19.821228, -15.574933)
 
-[node name="spell_pickup4" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 27.321665, 21.019543, -8.426863)
+[node name="Glitch_Spell4" parent="." unique_id=2127329138 instance=ExtResource("6_74n4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.28194, 19.821228, -16.917145)
 
-[node name="spell_pickup5" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 23.80836, 20.816452, -17.878403)
+[node name="Glitch_Spell5" parent="." unique_id=277830451 instance=ExtResource("6_74n4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.08631, 19.821228, -16.917145)
 
-[node name="spell_pickup6" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 24.655869, 20.816452, -15.598423)
+[node name="spell_pickup" parent="." unique_id=1025854895 instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 19.206017, 20.07966, -19.240686)
 
-[node name="spell_pickup7" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 21.793547, 21.880056, -8.966975)
+[node name="spell_pickup2" parent="." unique_id=516156280 instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 20.699888, 20.07966, -19.240686)
 
-[node name="spell_pickup8" parent="." instance=ExtResource("6_o06y3")]
-transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 22.641056, 21.880056, -6.686996)
+[node name="spell_pickup3" parent="." unique_id=1837637414 instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 22.413626, 20.07966, -19.240686)
 
-[node name="Gold_Pickup" parent="." instance=ExtResource("7_okmk0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.289526, 22.653708, -9.621967)
+[node name="spell_pickup4" parent="." unique_id=471433207 instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 24.199306, 20.07966, -19.240686)
 
-[node name="XP_Pickup" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -4.8338337)
+[node name="spell_pickup5" parent="." unique_id=1543111543 instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 26.30842, 20.07966, -19.240686)
 
-[node name="XP_Pickup2" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -4.8338337)
+[node name="spell_pickup6" parent="." unique_id=1092362255 instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 27.395906, 20.07966, -19.240686)
 
-[node name="XP_Pickup3" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -4.8338337)
+[node name="spell_pickup7" parent="." unique_id=1555310754 instance=ExtResource("6_o06y3")]
+transform = Transform3D(0.025862962, 0, -0.99966556, 0, 1, 0, 0.99966556, 0, 0.025862962, 17.442287, 20.07966, -19.240686)
 
-[node name="XP_Pickup4" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -4.8338337)
+[node name="XP_Pickup" parent="." unique_id=1109735143 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.139706, 20.628292, -1.8533378)
 
-[node name="XP_Pickup5" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -3.3939865)
+[node name="XP_Pickup2" parent="." unique_id=1094286822 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.770042, 20.628292, -1.8533378)
 
-[node name="XP_Pickup6" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -3.3939865)
+[node name="XP_Pickup3" parent="." unique_id=865206676 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.220749, 20.628292, -1.8533378)
 
-[node name="XP_Pickup7" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -3.3939865)
+[node name="XP_Pickup4" parent="." unique_id=932075873 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.68398, 20.628292, -1.8533378)
 
-[node name="XP_Pickup8" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -3.3939865)
+[node name="XP_Pickup5" parent="." unique_id=1334022909 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.40982, 20.628292, -1.8533378)
 
-[node name="XP_Pickup9" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -2.2245405)
+[node name="XP_Pickup6" parent="." unique_id=965651947 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.40982, 20.628292, 0.11071253)
 
-[node name="XP_Pickup10" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -2.2245405)
+[node name="XP_Pickup7" parent="." unique_id=749685417 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.897194, 20.628292, 0.11071253)
 
-[node name="XP_Pickup11" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -2.2245405)
+[node name="XP_Pickup8" parent="." unique_id=311384593 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.173777, 20.628292, 0.11071253)
 
-[node name="XP_Pickup12" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -2.2245405)
+[node name="XP_Pickup9" parent="." unique_id=2140657105 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.83219, 20.628292, 0.11071253)
 
-[node name="XP_Pickup13" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -0.8981478)
+[node name="XP_Pickup10" parent="." unique_id=268637221 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.062849, 20.628292, 0.11071253)
 
-[node name="XP_Pickup14" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -0.8981478)
+[node name="XP_Pickup11" parent="." unique_id=1915222867 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.19643, 20.628292, 0.11071253)
 
-[node name="XP_Pickup15" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -0.8981478)
+[node name="XP_Pickup12" parent="." unique_id=1890908830 instance=ExtResource("8_kmx2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.19643, 20.628292, -1.9672694)
 
-[node name="XP_Pickup16" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -0.8981478)
-
-[node name="XP_Pickup17" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -10.660105)
-
-[node name="XP_Pickup18" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -10.660105)
-
-[node name="XP_Pickup19" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -10.660105)
-
-[node name="XP_Pickup20" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -10.660105)
-
-[node name="XP_Pickup21" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -9.220258)
-
-[node name="XP_Pickup22" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -9.220258)
-
-[node name="XP_Pickup23" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -9.220258)
-
-[node name="XP_Pickup24" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -9.220258)
-
-[node name="XP_Pickup25" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -8.050812)
-
-[node name="XP_Pickup26" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -8.050812)
-
-[node name="XP_Pickup27" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -8.050812)
-
-[node name="XP_Pickup28" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -8.050812)
-
-[node name="XP_Pickup29" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.029427, 20.628292, -6.7244186)
-
-[node name="XP_Pickup30" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.504076, 20.628292, -6.7244186)
-
-[node name="XP_Pickup31" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.835764, 20.628292, -6.7244186)
-
-[node name="XP_Pickup32" parent="." instance=ExtResource("8_kmx2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.275763, 20.628292, -6.7244186)
-
-[node name="Player" parent="." instance=ExtResource("1_rwgxs")]
+[node name="Player" parent="." unique_id=2322131 instance=ExtResource("1_rwgxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.523638, 19.120367, -7.3698645)

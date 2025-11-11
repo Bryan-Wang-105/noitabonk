@@ -9,7 +9,7 @@ var already_generated = false
 func _ready() -> void:
 	if !already_generated:
 		# Base Case of spawn default loot
-		generate_random_wand(2)
+		generate_random_wand()
 	
 	
 	match loot_wand.rarity:
@@ -35,7 +35,9 @@ func interact():
 func loot_wand_preview():
 	return loot_wand.get_stats()
 
-func generate_random_wand(level):
+func generate_random_wand(level=-1):
+	if level == -1:
+		level = randi_range(0, 2)
 	loot_wand = WandData.new(level)
 	
 	already_generated = true

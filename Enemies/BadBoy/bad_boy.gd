@@ -39,7 +39,7 @@ func take_dmg(amount):
 	flash_white()
 	
 	# Calculate crit opportunity
-	var crit = randi_range(0, 100)
+	var crit = randi_range(1, 100)
 	var critted = false
 	
 	if crit <= Global.playerManager.critical_strike_chance:
