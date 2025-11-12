@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb0x38fi6a75c"]
+[gd_scene load_steps=12 format=3 uid="uid://cb0x38fi6a75c"]
 
 [ext_resource type="Script" uid="uid://b40wvld7onf1x" path="res://UI/HUD/PlayerHUD/player_hud.gd" id="1_3vyh1"]
-[ext_resource type="Texture2D" uid="uid://cncsrsp5wa8gx" path="res://Assets/Gold.png" id="2_d3cog"]
-[ext_resource type="Script" uid="uid://bv50syc7bemk4" path="res://UI/HUD/PlayerHUD/gold_added.gd" id="3_u0nfb"]
+[ext_resource type="Texture2D" uid="uid://cncsrsp5wa8gx" path="res://UI/HUD/PlayerHUD/gold/Gold.png" id="2_d3cog"]
+[ext_resource type="Script" uid="uid://bv50syc7bemk4" path="res://UI/HUD/PlayerHUD/gold/gold_added.gd" id="3_u0nfb"]
+[ext_resource type="Script" uid="uid://d4mbjypx7d8tu" path="res://UI/HUD/PlayerHUD/slain_enemies/slain_added.gd" id="4_2l7u2"]
+[ext_resource type="Texture2D" uid="uid://biagwidowmwao" path="res://UI/HUD/PlayerHUD/slain_enemies/slain.png" id="4_wn3wo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vyh1"]
 
@@ -36,7 +38,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player_HUD" type="Control"]
+[node name="Player_HUD" type="Control" unique_id=1827583910]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3vyh1")
 
-[node name="FPS" type="Label" parent="."]
+[node name="FPS" type="Label" parent="." unique_id=1974171216]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -57,7 +59,7 @@ offset_bottom = 72.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 32
 
-[node name="crosshair" type="Label" parent="."]
+[node name="crosshair" type="Label" parent="." unique_id=956584178]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,7 +77,7 @@ theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 32
 text = "x"
 
-[node name="PromptLabel" type="Label" parent="."]
+[node name="PromptLabel" type="Label" parent="." unique_id=1784167031]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -92,7 +94,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 32
 
-[node name="Reload" type="Label" parent="."]
+[node name="Reload" type="Label" parent="." unique_id=626851547]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -109,7 +111,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 32
 
-[node name="Cast" type="Label" parent="."]
+[node name="Cast" type="Label" parent="." unique_id=1080232554]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -126,7 +128,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 32
 
-[node name="Level" type="Label" parent="."]
+[node name="Level" type="Label" parent="." unique_id=31939199]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -144,7 +146,7 @@ text = "LEVEL 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WandsBar" type="PanelContainer" parent="."]
+[node name="WandsBar" type="PanelContainer" parent="." unique_id=801015039]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -155,79 +157,79 @@ offset_right = 568.0
 offset_bottom = -929.0
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="WandsBar"]
+[node name="MarginContainer" type="MarginContainer" parent="WandsBar" unique_id=1272779376]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="WandsBar/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="WandsBar/MarginContainer" unique_id=1357032350]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="WandsBar/MarginContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="WandsBar/MarginContainer/HBoxContainer" unique_id=1355323404]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Label" type="Label" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "NULL"
-
-[node name="PanelContainer2" type="PanelContainer" parent="WandsBar/MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer" unique_id=1568043736]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer"]
+[node name="Label" type="Label" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer/MarginContainer" unique_id=298234936]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "NULL"
 
-[node name="PanelContainer3" type="PanelContainer" parent="WandsBar/MarginContainer/HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="WandsBar/MarginContainer/HBoxContainer" unique_id=328469888]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer2" unique_id=1904554317]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer3/MarginContainer"]
+[node name="Label" type="Label" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer" unique_id=1008243660]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "NULL"
 
-[node name="PanelContainer4" type="PanelContainer" parent="WandsBar/MarginContainer/HBoxContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="WandsBar/MarginContainer/HBoxContainer" unique_id=974946240]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer4"]
+[node name="MarginContainer" type="MarginContainer" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer3" unique_id=1460536870]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer4/MarginContainer"]
+[node name="Label" type="Label" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer3/MarginContainer" unique_id=1632796958]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "NULL"
 
-[node name="Health" type="PanelContainer" parent="."]
+[node name="PanelContainer4" type="PanelContainer" parent="WandsBar/MarginContainer/HBoxContainer" unique_id=1230381141]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer4" unique_id=1551867605]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="WandsBar/MarginContainer/HBoxContainer/PanelContainer4/MarginContainer" unique_id=1750588741]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "NULL"
+
+[node name="Health" type="PanelContainer" parent="." unique_id=2125638764]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -242,7 +244,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3vyh1")
 
-[node name="ProgressBar" type="ProgressBar" parent="Health"]
+[node name="ProgressBar" type="ProgressBar" parent="Health" unique_id=2143634350]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -251,13 +253,13 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_d3cog")
 value = 100.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Health"]
+[node name="Label" type="Label" parent="Health" unique_id=955752410]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "100 / 100 HP"
 horizontal_alignment = 1
 
-[node name="Exp" type="PanelContainer" parent="."]
+[node name="Exp" type="PanelContainer" parent="." unique_id=1384471371]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -272,7 +274,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_d3cog")
 
-[node name="ProgressBar" type="ProgressBar" parent="Exp"]
+[node name="ProgressBar" type="ProgressBar" parent="Exp" unique_id=1498949561]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -281,13 +283,13 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_wfmc4")
 value = 7.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Exp"]
+[node name="Label" type="Label" parent="Exp" unique_id=154524205]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "0 / 100 EXP"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Gold" type="PanelContainer" parent="." unique_id=1567982320]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -298,15 +300,15 @@ offset_right = 192.0
 offset_bottom = -31.0
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="Gold" unique_id=1006272979]
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("2_d3cog")
 
-[node name="Control" type="Control" parent="PanelContainer"]
+[node name="Control" type="Control" parent="Gold" unique_id=817153305]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/Control"]
+[node name="Label" type="Label" parent="Gold/Control" unique_id=1993720328]
 layout_mode = 1
 offset_left = -15.0
 offset_top = 116.00001
@@ -318,7 +320,7 @@ theme_override_font_sizes/font_size = 32
 text = "$ 10000"
 horizontal_alignment = 1
 
-[node name="GoldAdded" type="Label" parent="PanelContainer/Control"]
+[node name="GoldAdded" type="Label" parent="Gold/Control" unique_id=1063442945]
 layout_mode = 1
 offset_left = 124.0
 offset_top = 74.00001
@@ -330,3 +332,54 @@ theme_override_font_sizes/font_size = 32
 text = "+ 10"
 horizontal_alignment = 1
 script = ExtResource("3_u0nfb")
+
+[node name="Slain" type="PanelContainer" parent="." unique_id=1525522482]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 276.0
+offset_top = -96.0
+offset_right = 354.0
+offset_bottom = -31.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Slain" unique_id=660670070]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_wn3wo")
+
+[node name="Control" type="Control" parent="Slain" unique_id=650327496]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Slain/Control" unique_id=1466068206]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.5
+offset_top = -15.666702
+offset_right = 31.5
+offset_bottom = 28.99997
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="SlainAdded" type="Label" parent="Slain/Control" unique_id=794067025]
+layout_mode = 1
+offset_left = 46.0
+offset_top = 14.000008
+offset_right = 132.0
+offset_bottom = 58.666676
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "+ 1"
+horizontal_alignment = 1
+script = ExtResource("4_2l7u2")

@@ -1,0 +1,13 @@
+Random Feature List:
+	1) Drop Wands
+	2) Drop Spells
+	3) Perks
+	4) Items
+	5) Map
+	6) Time Scaling Difficulty
+	
+	7) Spell Modifiers 
+		7a) Double Cast
+		7b) Trigger Spells
+		7c) Shuffle
+		7d) Static Spells

@@ -1,7 +1,7 @@
 extends Node
 
 var tieredSpells = {
-	"Common": ["Fireball", "Developmental Sentry"],
+	"Common": ["Fireball", "Developmental Sentry", "Bouncing Ball"],
 	"Uncommon": ["Snowball", "Pickup Truck", "User-Acceptance-Testing Sentry"],
 	"Rare": ["Planetary Devastation"]
 }
@@ -29,6 +29,10 @@ var spellMappings = {
 				 "path": "uid://bgwhgexcs5uyy",
 				 "icon": "uid://b3bjkc8upu0fl"
 				},
+	"Bouncing Ball": {
+				"path": "uid://1rw6lkhcne3c",
+				"icon": "uid://b7kromr8b2tpu"
+	}
 }
 
 var tier_weights = {

@@ -21,8 +21,11 @@ extends Control
 @onready var xp_lbl: Label = $Exp/Label
 @onready var lvl_lbl: Label = $Level
 
-@onready var gold_lbl: Label = $PanelContainer/Control/Label
-@onready var gold_added: Label = $PanelContainer/Control/GoldAdded
+@onready var gold_lbl: Label = $Gold/Control/Label
+@onready var gold_added: Label = $Gold/Control/GoldAdded
+
+@onready var slain_lbl: Label = $Slain/Control/Label
+@onready var slain_added: Label = $Slain/Control/SlainAdded
 
 var wand_controller
 var wand_inventory
@@ -36,10 +39,12 @@ func _ready() -> void:
 	update_health(Global.playerManager.health, Global.playerManager.max_health)
 	update_xp()
 	update_gold()
+	update_slain()
 	
 	Global.playerManager.connect("health_changed", update_health)
 	Global.playerManager.connect("experience_changed", update_xp)
 	Global.playerManager.connect("gold_changed", update_gold)
+	Global.playerManager.connect("slain_count_changed", update_slain)
 	Global.playerManager.connect("level_changed", update_level)
 	
 	wand_inventory.connect("inventory_changed", update_active_wand_bar)
@@ -81,6 +86,13 @@ func update_gold(amount = 0):
 		gold_added.show_gold_added(amount)
 	
 	gold_lbl.text = "$ " + str(Global.playerManager.gold)
+
+func update_slain(amount = 0):
+	if amount:
+		# Show the +amount label
+		slain_added.show_slain_added(amount)
+	
+	slain_lbl.text = str(Global.playerManager.enemies_slain)
 
 func show_hide_wands_bar():
 	wands_bar.visible = !wands_bar.visible

@@ -10,7 +10,7 @@ func _init():
 	rarity = "Common"
 	projectile_scene = preload("uid://ilq773iptj75")
 	projectile_sound = null
-	icon_path = "uid://cclpsgje314oj"
+	icon_path = "uid://b7kromr8b2tpu"
 	cast_delay = -.02
 	damage = 5
 	modifier = false

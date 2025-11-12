@@ -34,6 +34,7 @@ func toggle_pause():
 	
 	# Case 2: Normal pause toggle (not leveling up)
 	get_tree().paused = !is_paused
+	Global.paused = !is_paused
 	visible = !is_paused
 	
 	# Handle mouse mode

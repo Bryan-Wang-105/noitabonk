@@ -9,20 +9,20 @@ extends CharacterBody3D
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var speed = 6.0
-var health = 30
+var speed = 3.0
+var health = 600
 
 var accumulated_forces: Vector3 = Vector3.ZERO
 var level = 0
 var alive = true
 
 var being_pulled = false
-var mass = 100
+var mass = 300
 
 var attack_timer: Timer
 var attack_radius = 1
 var can_attack = true
-var attack_dmg = 5
+var attack_dmg = 50
 var attack_cooldown: float = 2.0
 const ATTACK_INTERVAL: float = 2.0  # Time between attacks in seconds
 
@@ -62,9 +62,9 @@ func take_dmg(amount):
 	health -= amount
 	
 	if health <= 0:
-		print("ENEMY IS DEAD 1")
+		print("ENEMY IS DEAD")
 		alive = false
-		#die()
+		die()
 
 func flash_white() -> void:
 	# Set white material as override (only affects THIS enemy)

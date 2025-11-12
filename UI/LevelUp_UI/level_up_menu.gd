@@ -85,6 +85,7 @@ func _show_next_levelup():
 	next_level_to_show += 1  # increment one level at a time
 	is_leveling_up = true
 	get_tree().paused = true
+	Global.paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	visible = true
 	
@@ -115,6 +116,7 @@ func close_lvlup_menu():
 	is_leveling_up = false
 	visible = false
 	get_tree().paused = false
+	Global.paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 

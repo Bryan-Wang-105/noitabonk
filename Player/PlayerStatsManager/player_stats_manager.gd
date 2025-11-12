@@ -5,6 +5,7 @@ class_name PlayerStats
 var curr_level: int = 1
 var curr_xp: int = 0
 var next_xp_req: int = 100
+var enemies_slain = 0
 @export var enhanced_xp_gain: float = 0.0
 
 const BASE_XP: int = 100
@@ -39,6 +40,7 @@ signal health_changed(new_health, max_health)
 signal level_changed(new_level)
 signal experience_changed(new_exp)
 signal gold_changed(new_gold)
+signal slain_count_changed(new_amt)
 signal stats_changed
 
 func _ready():
@@ -129,6 +131,13 @@ func add_xp(amount: int):
 	# Check for level up(s)
 	while curr_xp >= next_xp_req:
 		level_up()
+
+# Add # of enemies slain
+func add_slain(amount: int):
+	enemies_slain += amount
+	
+	slain_count_changed.emit(amount)
+
 
 func level_up():
 	curr_xp -= next_xp_req  # Carry over excess XP

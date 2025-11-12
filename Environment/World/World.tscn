@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtncas7j2bcxp"]
+[gd_scene load_steps=12 format=3 uid="uid://dtncas7j2bcxp"]
 
 [ext_resource type="Script" uid="uid://jghl5ybncuby" path="res://Environment/World/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://b8245vgq3eije" path="res://Player/player.tscn" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://ba6ggmup51a3y" path="res://Environment/Sandbox.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://dac2ydve0lbjs" path="res://Enemies/Enemy_Manager/enemy_manager.tscn" id="2_71j4m"]
-[ext_resource type="PackedScene" uid="uid://q4y1siqkv8x7" path="res://Enemies/BadBoy/bad_boy.tscn" id="4_5ukr8"]
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="5_qfnet"]
 [ext_resource type="PackedScene" uid="uid://dtquw8l245126" path="res://Spells/Spell Pickups/GlitchedSpell/glitch_spell.tscn" id="6_74n4s"]
 [ext_resource type="PackedScene" uid="uid://cjiuy2fi1v5cs" path="res://Spells/Spell Pickups/Spell_Pickup.tscn" id="6_o06y3"]
@@ -37,9 +36,24 @@ directional_shadow_max_distance = 1.0
 
 [node name="Sandbox" parent="." unique_id=1419241562 instance=ExtResource("2_4wyf3")]
 
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1273368795]
+
+[node name="SpawnA" type="Node3D" parent="SpawnPoints" unique_id=243828488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.731113, 116.1436, 43.94244)
+
+[node name="SpawnB" type="Node3D" parent="SpawnPoints" unique_id=2091721683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.76494, 85.279655, 53.465706)
+
+[node name="SpawnC" type="Node3D" parent="SpawnPoints" unique_id=1555494989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.513485, 85.279655, -76.24046)
+
+[node name="SpawnD" type="Node3D" parent="SpawnPoints" unique_id=838897933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.735516, 119.62228, -31.204857)
+
+[node name="SpawnE" type="Node3D" parent="SpawnPoints" unique_id=1588328008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.127888, 79.26681, -22.076992)
+
 [node name="EnemyManager" parent="." unique_id=1150220047 instance=ExtResource("2_71j4m")]
-enemy_count = 40
-enemyScene = ExtResource("4_5ukr8")
 
 [node name="Loot" parent="." unique_id=1401542438 instance=ExtResource("5_qfnet")]
 transform = Transform3D(-0.011449084, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449084, 28.62066, 20.76449, -3.3995957)

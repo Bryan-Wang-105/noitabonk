@@ -11,7 +11,7 @@ func _init():
 	projectile_scene = preload("uid://bkewgxp4yf3ev")
 	projectile_sound = null#load("uid://kqqsvhd1vj0a")
 	icon_path = "uid://7o0cili8xiay"
-	cast_delay = 1.0
+	cast_delay = 0.15
 	damage = 15
 	modifier = false
 	description = "Summons a small turret to fight on your behalf!"

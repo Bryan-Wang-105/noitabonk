@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://blhjw6c6bhkil"]
+
+[ext_resource type="Script" uid="uid://b1sa1vj3k456c" path="res://Enemies/BadderBoy/badderBoy.gd" id="1_2bsov"]
+[ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="2_11rhj"]
+[ext_resource type="Material" uid="uid://da05kka4mhv1w" path="res://Enemies/BadBoy/bad_boy.tres" id="3_01svo"]
+[ext_resource type="Material" uid="uid://cpm6h6ptlfmpn" path="res://Enemies/BadBoy/sunglass.tres" id="4_rddir"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_adkxl"]
+material = ExtResource("3_01svo")
+radius = 1.0
+height = 4.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3mxyf"]
+radius = 1.0366211
+height = 4.0117188
+
+[node name="BadBoy" type="CharacterBody3D" unique_id=1597908582 groups=["enemy", "physics"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_2bsov")
+loot = ExtResource("2_11rhj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=669704765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0357978, 0)
+mesh = SubResource("CapsuleMesh_adkxl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=431352490]
+transform = Transform3D(1, 0, 0, 0, 0.98529184, 0.17088021, 0, -0.17088021, 0.98529184, -0.009153336, 2.981995, -0.68997663)
+size = Vector3(2.0802002, 0.6694032, 0.5795896)
+material = ExtResource("4_rddir")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1815117706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0293236, 0)
+shape = SubResource("CapsuleShape3D_3mxyf")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=70545631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15338331, -0.3825606)
+target_position = Vector3(0, 0, -0.75)
+
+[node name="toAim" type="Node3D" parent="." unique_id=607940213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4463153, -0.3669772)

@@ -17,48 +17,48 @@
 [ext_resource type="PackedScene" uid="uid://coftjh4fsfb2m" path="res://UI/PauseMenu/pause_menu.tscn" id="13_pdh0u"]
 [ext_resource type="PackedScene" uid="uid://btqc1hlh3igp4" path="res://UI/LevelUp_UI/Level_Up_Menu.tscn" id="14_io3ga"]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" unique_id=1887599526]
 script = ExtResource("1_254ry")
 
-[node name="Current_Scene" type="Node" parent="."]
+[node name="Current_Scene" type="Node" parent="." unique_id=2028687400]
 
-[node name="AudioNode" parent="Current_Scene" instance=ExtResource("2_r5gy5")]
+[node name="AudioNode" parent="Current_Scene" unique_id=1464265429 instance=ExtResource("2_r5gy5")]
 
-[node name="WandInventory" parent="Current_Scene" instance=ExtResource("2_yqnby")]
+[node name="WandInventory" parent="Current_Scene" unique_id=452599048 instance=ExtResource("2_yqnby")]
 
-[node name="WandController" parent="Current_Scene" instance=ExtResource("3_do47b")]
+[node name="WandController" parent="Current_Scene" unique_id=695919760 instance=ExtResource("3_do47b")]
 
-[node name="PlayerStatsManager" parent="Current_Scene" instance=ExtResource("4_do47b")]
+[node name="PlayerStatsManager" parent="Current_Scene" unique_id=320643602 instance=ExtResource("4_do47b")]
 
-[node name="DamageNumberPool" parent="Current_Scene" instance=ExtResource("5_e2svq")]
+[node name="DamageNumberPool" parent="Current_Scene" unique_id=1624080478 instance=ExtResource("5_e2svq")]
 
-[node name="DopamineGenerator" parent="Current_Scene" instance=ExtResource("7_67ast")]
+[node name="DopamineGenerator" parent="Current_Scene" unique_id=1887770985 instance=ExtResource("7_67ast")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Current_Scene"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Current_Scene" unique_id=1604830527]
 script = ExtResource("3_u5cad")
 
-[node name="Player_HUD" parent="Current_Scene/CanvasLayer" instance=ExtResource("4_ks21e")]
+[node name="Player_HUD" parent="Current_Scene/CanvasLayer" unique_id=1034924940 instance=ExtResource("4_ks21e")]
 
-[node name="Wand_Preview" parent="Current_Scene/CanvasLayer" instance=ExtResource("5_ks21e")]
+[node name="Wand_Preview" parent="Current_Scene/CanvasLayer" unique_id=1240888969 instance=ExtResource("5_ks21e")]
 visible = false
 
-[node name="Inventory" parent="Current_Scene/CanvasLayer" instance=ExtResource("7_njaee")]
+[node name="Inventory" parent="Current_Scene/CanvasLayer" unique_id=1191604885 instance=ExtResource("7_njaee")]
 visible = false
 
-[node name="SpellPreview" parent="Current_Scene/CanvasLayer" instance=ExtResource("8_05q57")]
-visible = false
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Preview_Wand_Panel" parent="Current_Scene/CanvasLayer" instance=ExtResource("6_ils22")]
+[node name="SpellPreview" parent="Current_Scene/CanvasLayer" unique_id=2079904128 instance=ExtResource("8_05q57")]
 visible = false
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="LevelUp_UI" parent="Current_Scene/CanvasLayer" instance=ExtResource("14_io3ga")]
+[node name="Preview_Wand_Panel" parent="Current_Scene/CanvasLayer" unique_id=1180052747 instance=ExtResource("6_ils22")]
+visible = false
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LevelUp_UI" parent="Current_Scene/CanvasLayer" unique_id=925730502 instance=ExtResource("14_io3ga")]
 visible = false
 
-[node name="PauseMenu" parent="Current_Scene/CanvasLayer" instance=ExtResource("13_pdh0u")]
+[node name="PauseMenu" parent="Current_Scene/CanvasLayer" unique_id=520852965 instance=ExtResource("13_pdh0u")]
 visible = false
 
-[node name="World" parent="Current_Scene" instance=ExtResource("1_j5px3")]
+[node name="World" parent="Current_Scene" unique_id=1977615918 instance=ExtResource("1_j5px3")]
