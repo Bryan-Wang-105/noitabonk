@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b1sa1vj3k456c" path="res://Enemies/BadderBoy/badderBoy.gd" id="1_2bsov"]
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="2_11rhj"]
+[ext_resource type="Material" uid="uid://bwgqwkd3ha23s" path="res://Enemies/BadderBoy/bad_boy.tres" id="3_2bsov"]
 [ext_resource type="Material" uid="uid://cpm6h6ptlfmpn" path="res://Enemies/BadBoy/sunglass.tres" id="4_rddir"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbl8c"]
-albedo_color = Color(1, 0.46666667, 0.40784314, 1)
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_adkxl"]
-material = SubResource("StandardMaterial3D_cbl8c")
+material = ExtResource("3_2bsov")
 radius = 1.0
 height = 4.0
 
@@ -41,3 +39,11 @@ target_position = Vector3(0, 0, -0.75)
 
 [node name="toAim" type="Node3D" parent="." unique_id=607940213]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4463153, -0.3669772)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=251692943]
+transform = Transform3D(1, 0, 0, 0, 0.78361756, 0.62124354, 0, -0.62124354, 0.78361756, 1.1275659, 2.6364083, -1.0508975)
+size = Vector3(0.18023682, 3.1209717, 0.41436768)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1190315875]
+transform = Transform3D(0.36053574, -0.34182444, -0.86785364, 0.029801097, 0.9341758, -0.3555666, 0.932269, 0.10233147, 0.34699047, -1.018231, 2.2039964, -1.2921393)
+size = Vector3(0.18023682, 1.8396606, 1.1469116)

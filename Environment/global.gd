@@ -10,3 +10,4 @@ var dmg_num_pool
 var audio_node
 var rewardGenerator
 var paused = false
+var enemy_manager

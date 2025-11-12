@@ -9,7 +9,8 @@ extends CharacterBody3D
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var speed = 6.0
+var base_speed = 4.0
+var speed = 4.0
 var health = 30
 
 var accumulated_forces: Vector3 = Vector3.ZERO
@@ -23,8 +24,7 @@ var attack_timer: Timer
 var attack_radius = 1
 var can_attack = true
 var attack_dmg = 5
-var attack_cooldown: float = 2.0
-const ATTACK_INTERVAL: float = 2.0  # Time between attacks in seconds
+const ATTACK_INTERVAL: float = 1.0  # Time between attacks in seconds
 
 func _ready():
 	# Create and setup the timer
@@ -33,6 +33,17 @@ func _ready():
 	attack_timer.one_shot = true
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 	add_child(attack_timer)
+
+func apply_slow(slow_amt, time):
+	print("APPLYING SLOW")
+	# Set to new value
+	speed = base_speed * slow_amt
+
+	# Wait 4 seconds
+	await get_tree().create_timer(time).timeout
+
+	# Restore original value
+	speed = base_speed
 
 func take_dmg(amount):
 	print("ENEMY TOOK DAMAGE")
@@ -81,7 +92,7 @@ func flash_white() -> void:
 
 func die():
 	# 30% to drop gold and xp
-	if randi_range(0, 100) + Global.playerManager.luck > 70:
+	if randi_range(0, 100) + Global.playerManager.luck > 10:
 		var gold_drop = load("uid://c7fyfw2mhsj5g") 
 		gold_drop = gold_drop.instantiate()
 		gold_drop.set_amount(level)
@@ -92,7 +103,7 @@ func die():
 		gold_drop.global_position.z += randf_range(-.25, .25)
 		
 	# 30% to drop gold and xp
-	if randi_range(0, 100) + Global.playerManager.luck > 70:
+	if randi_range(0, 100) + Global.playerManager.luck > 10:
 		# Always drop xp
 		var xp_drop = load("uid://dpi1yh7clswrh") 
 		
@@ -106,7 +117,7 @@ func die():
 		xp_drop.global_position.z += randf_range(-.25, .25)
 	
 	# Chance to drop special loot (10%)
-	if randi_range(0,100) + Global.playerManager.luck > 50:
+	if randi_range(0,100) + Global.playerManager.luck > 80:
 		# Chance to drop upgraded loot to Uncommon (2%)
 		if randi_range(0,100) + Global.playerManager.luck > 80:
 			level = 1

@@ -11,7 +11,7 @@ const TIER_STATS = {
 		"dmg_mult": [1.0, 1.15],
 		"cast_delay": [0.5, 1.2],
 		"reload_speed": [.5, 1.3],
-		"capacity": [1, 3],
+		"capacity": [3, 4],
 		"spread": [.1, .2]
 	},
 	1: {

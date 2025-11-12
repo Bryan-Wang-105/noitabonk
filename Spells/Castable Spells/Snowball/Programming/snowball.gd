@@ -10,6 +10,8 @@ var world
 @export var initial_speed: float = 25.0
 @export var max_speed: float = 200.0
 @export var acceleration: float = 45.0
+@export var slow_amt: float = .3 #(30% slow)
+@export var slow_time: float = 1.5
 
 # Physics properties
 @export var mass: float = 45.0
@@ -78,7 +80,7 @@ func _physics_process(delta):
 		
 
 func _handle_collision(body):
-	print("Fireball hit body: ", body)
+	print("Snowball hit body: ", body)
 	
 	# Apply knockback force if the body supports it
 	if body.has_method("apply_central_force") or body.has_method("apply_impulse"):
@@ -94,9 +96,14 @@ func _handle_collision(body):
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
 	
+	if body.has_method("apply_slow"):
+		body.apply_slow(slow_amt, slow_time)
+	
 	# Spawn hit effect if available
 	if hit_effect_scene:
 		var hit_effect = hit_effect_scene.instantiate()
+		hit_effect.slow_amt = slow_amt
+		hit_effect.slow_time = slow_time
 		
 		Global.world.add_child(hit_effect)
 		hit_effect.global_position = global_position

@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dwuir35k061rt" path="res://Enemies/BadBoy/bad_boy.gd" id="1_rm27s"]
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="2_adkxl"]
-[ext_resource type="Material" uid="uid://bwgqwkd3ha23s" path="res://Enemies/BadderBoy/bad_boy.tres" id="3_76sh5"]
 [ext_resource type="Material" uid="uid://cpm6h6ptlfmpn" path="res://Enemies/BadBoy/sunglass.tres" id="4_76sh5"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmthw"]
+albedo_color = Color(0.6517832, 0, 0.024983278, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_adkxl"]
-material = ExtResource("3_76sh5")
+material = SubResource("StandardMaterial3D_mmthw")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3mxyf"]
 

@@ -32,6 +32,7 @@ var enemies = []
 var start = false
 
 func _ready():
+	Global.enemy_manager = self
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	_spawn_loop()
 

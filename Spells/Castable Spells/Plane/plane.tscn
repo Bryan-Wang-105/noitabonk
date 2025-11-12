@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp4xhnia4k1i"]
+
+[ext_resource type="PackedScene" uid="uid://bruqa2uhxmuej" path="res://Spells/Castable Spells/Plane/Airplane.fbx" id="1_aji54"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c3gnd"]
+radius = 1.7333984
+height = 27.509155
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2y4rl"]
+size = Vector3(29.635757, 5.1435547, 1)
+
+[node name="Plane" type="RigidBody3D" unique_id=951859265]
+
+[node name="Airplane" parent="." unique_id=4493237 instance=ExtResource("1_aji54")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.0985179, -4.501997, -0.56795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=488325438]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.0856171, -0.8346677, 2.5298462)
+shape = SubResource("CapsuleShape3D_c3gnd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=929861887]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.98586273, -0.8346677, 4.6016235)
+shape = SubResource("BoxShape3D_2y4rl")

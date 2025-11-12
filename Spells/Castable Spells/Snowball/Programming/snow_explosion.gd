@@ -7,10 +7,11 @@ extends Node3D
 var player_name
 var player_id
 
-var slow_amt = .6 # 30% Slow
 var damage
 var type = "ice"
 var force_amt = 300
+var slow_amt = .6
+var slow_time = 1.5
 var source_group: String = "" # The group of the entity that created this explosion
 
 func _ready():
@@ -57,7 +58,9 @@ func _check_ray_hit(target: Node3D) -> bool:
 func _apply_damage(target: Node3D) -> void:
 	if target.has_method("take_dmg") and target.is_in_group("enemy"):
 		target.take_dmg(damage)
-		#target.apply_slow(slow_amt)
+		if target.has_method("apply_slow"):
+			print("EXPLOSION APPLYING SLOW")
+			target.apply_slow(slow_amt, slow_time)
 	else:
 		print("\nENEMY Hit with damage: ", damage)
 		target.get_node("Damageable").take_damage(damage, type, false)

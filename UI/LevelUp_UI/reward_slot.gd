@@ -56,7 +56,7 @@ func setup(indx_in, obj, tier):
 			var rounded_stat_after = int((obj[1] + obj[2]) * 100)
 			load_amounts = str(rounded_stat_before) + "% → " + str(rounded_stat_after) + "%"
 		else:
-			load_amounts= str(int(obj[1])) + " → " + str(int(obj[1] + obj[2]))
+			load_amounts= str(obj[1]) + " → " + str(obj[1] + obj[2])
 	
 	elif obj is Resource:
 		print("WAND")
