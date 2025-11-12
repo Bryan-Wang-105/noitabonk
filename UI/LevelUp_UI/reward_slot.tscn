@@ -14,81 +14,81 @@ bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5205"]
 bg_color = Color(0.40018785, 0.40018785, 0.40018785, 0.453)
 
-[node name="RewardSlot" type="PanelContainer"]
+[node name="RewardSlot" type="PanelContainer" unique_id=120521426]
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_edbh3")
 script = ExtResource("1_edbh3")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=425447365]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1612542270]
 custom_minimum_size = Vector2(440, 110)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vrxt5")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1206185951]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1982244096]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=309207506]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 texture = ExtResource("1_esnys")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=859225870]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1139335193]
 layout_mode = 2
 
-[node name="StatName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="StatName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1508922731]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Max Health"
 
-[node name="space" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="space" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1842784694]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1240371792]
 layout_mode = 2
 
-[node name="Amt" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Amt" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1583001451]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Amount:   "
 
-[node name="Amounts" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Amounts" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2131726444]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "100 → 105"
 horizontal_alignment = 1
 
-[node name="Level" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Level" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=57761160]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Reward
 Level 1"
 horizontal_alignment = 2
 
-[node name="Control" type="Control" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=963255211]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1482631969]
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_aoy1p")

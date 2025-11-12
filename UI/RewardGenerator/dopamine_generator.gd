@@ -1,9 +1,9 @@
 extends Node
 
 var tier_weights = {
-	"Wand": 65,
+	"BaseStat": 65,
 	"Spell": 90, #25%
-	"BaseStat": 95,  #5%
+	"Wand": 95,  #5%
 	"Perk": 100  #5%
 }
 
@@ -105,18 +105,23 @@ func generate_stat():
 	var rng2 = randi_range(0, 100) + int(Global.playerManager.luck)
 	print("STAT GENERATED RNG2: ", rng2)
 
+	# If curr stat is at 0
 	if curr_stat_amt == 0:
 		# Base 3% value if starting from zero
-		upgrade_amt = 3
+		upgrade_amt = .03
 
+	# If it's a percentage based stat like crit, luck, lifesteal etc
+	# start at 5% increase up to potentially 
+	if curr_stat_amt < 1:
+		upgrade_amt = .05
 		# Still allow RNG-based boosts
 		if rng2 > 90:
-			upgrade_amt *= 2  # 15%
+			upgrade_amt *= 2.5
 			tier = 3
 		elif rng2 > 80:
 			upgrade_amt *= 1.5 # ~10%
 			tier = 2
-
+			
 	else:
 		# Base 5% upgrade from current amount
 		upgrade_amt = curr_stat_amt * 0.05

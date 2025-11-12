@@ -28,7 +28,7 @@ const MULTIPLIER: float = 1.5  # 50% increase per level
 
 # MISC STATS
 @export var life_steal: float = 0.0
-@export var luck: float = 0
+@export var luck: float = 0.0
 @export var gold: int = 10
 @export var enhanced_gold_gain: float = 0.0
 @export var pickup_range: float = .5

@@ -50,7 +50,13 @@ func setup(indx_in, obj, tier):
 		# if array stat_name -> curr amt -> amt increase
 		load_texture = load("res://UI/LevelUp_UI/BaseStatIcons/" + obj[0] + ".png")
 		load_stat_name = clean_name(obj[0])
-		load_amounts= str(obj[1]) + " → " + str(obj[1] + obj[2])
+		
+		if obj[1] < 1:
+			var rounded_stat_before = int(obj[1] * 100)
+			var rounded_stat_after = int((obj[1] + obj[2]) * 100)
+			load_amounts = str(rounded_stat_before) + "% → " + str(rounded_stat_after) + "%"
+		else:
+			load_amounts= str(int(obj[1])) + " → " + str(int(obj[1] + obj[2]))
 	
 	elif obj is Resource:
 		print("WAND")

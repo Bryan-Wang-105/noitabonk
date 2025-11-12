@@ -39,7 +39,7 @@ directional_shadow_max_distance = 1.0
 [node name="SpawnPoints" type="Node3D" parent="." unique_id=1273368795]
 
 [node name="SpawnA" type="Node3D" parent="SpawnPoints" unique_id=243828488]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.731113, 116.1436, 43.94244)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.446247, 24.129314, -23.58685)
 
 [node name="SpawnB" type="Node3D" parent="SpawnPoints" unique_id=2091721683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.76494, 85.279655, 53.465706)
@@ -54,6 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.735516, 119.62228, -31.204
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.127888, 79.26681, -22.076992)
 
 [node name="EnemyManager" parent="." unique_id=1150220047 instance=ExtResource("2_71j4m")]
+frozen = true
 
 [node name="Loot" parent="." unique_id=1401542438 instance=ExtResource("5_qfnet")]
 transform = Transform3D(-0.011449084, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449084, 28.62066, 20.76449, -3.3995957)

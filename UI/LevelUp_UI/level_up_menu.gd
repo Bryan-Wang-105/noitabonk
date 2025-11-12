@@ -45,12 +45,12 @@ func fill_labels():
 	var pm = Global.playerManager
 	
 	# XP Stats
-	enhanced_xp.text = "%.1f%%" % pm.enhanced_xp_gain
+	enhanced_xp.text = "%.1f%%" % (pm.enhanced_xp_gain * 100)
 	
 	# Health Stats
 	max_hp.text = "%.0f" % pm.max_health
-	hp_regen.text = "%.1f/s" % pm.hp_regen
-	enhanced_hp.text = "%.1f%%" % pm.enhanced_hp_gain
+	hp_regen.text = "%.0f" % (pm.hp_regen * 100)
+	enhanced_hp.text = "%.0f%%" % (pm.enhanced_hp_gain * 100)
 	
 	# Movement Stats
 	walk_speed.text = "%.1f" % pm.walk_speed
@@ -58,15 +58,14 @@ func fill_labels():
 	jump_height.text = "%.1f" % pm.jump_height
 	
 	# Crit Stats (assuming critical_strike_chance is 0.0-1.0, convert to %)
-	crit_chance.text = "%.0f%%" % (pm.critical_strike_chance)
+	crit_chance.text = "%.0f%%" % (pm.critical_strike_chance * 100)
 	crit_dmg.text = "%.0f%%" % pm.critical_strike_dmg
 	
 	# Misc Stats
-	life_steal.text = "%.1f%%" % pm.life_steal
-	gold_gain.text = "%.1f%%" % pm.enhanced_gold_gain
-	pickup_range.text = "%.2fm" % pm.pickup_range
-	luck.text = "%.0f" % pm.luck
-
+	life_steal.text = "%.0f%%" % (pm.life_steal * 100)
+	gold_gain.text = "%.0f%%" % (pm.enhanced_gold_gain * 100)
+	pickup_range.text = "%.0fm" % (pm.pickup_range * 100)
+	luck.text = "%.0f" % (pm.luck * 100)
 
 func open_lvlup_menu(level):
 	# If we're not already showing menus, start from current level

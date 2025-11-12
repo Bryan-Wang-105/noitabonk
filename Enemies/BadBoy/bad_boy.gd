@@ -42,7 +42,7 @@ func take_dmg(amount):
 	var crit = randi_range(1, 100)
 	var critted = false
 	
-	if crit <= Global.playerManager.critical_strike_chance:
+	if crit <= Global.playerManager.critical_strike_chance * 100:
 		critted = true
 		amount *= ((100 +  Global.playerManager.critical_strike_dmg)/100)
 		
@@ -51,7 +51,7 @@ func take_dmg(amount):
 	
 	# Apply lifesteal if exists
 	if Global.playerManager.life_steal > 0:
-		var heal_amt = amount * (Global.playerManager.life_steal / 100)
+		var heal_amt = amount * (Global.playerManager.life_steal)
 		Global.playerManager.add_health(heal_amt)
 		
 		# Show damage number

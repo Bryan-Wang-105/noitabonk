@@ -25,6 +25,8 @@ var player_locked = false
 
 func _ready() -> void:
 	Global.player = self
+	pick_up_collider.shape = pick_up_collider.shape.duplicate()
+	
 	wand_inventory = Global.wandInventory
 	wand_controller = Global.wandController
 	
@@ -61,7 +63,7 @@ func _process(delta):
 		if regen_timer >= regen_interval:
 			regen_timer = 0.0  # Reset timer
 			Global.playerManager.set_health(
-				Global.playerManager.health + Global.playerManager.hp_regen * .33
+				Global.playerManager.health + Global.playerManager.hp_regen * 33
 			)
 
 func _physics_process(delta: float) -> void:

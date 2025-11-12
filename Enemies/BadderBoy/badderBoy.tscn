@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b1sa1vj3k456c" path="res://Enemies/BadderBoy/badderBoy.gd" id="1_2bsov"]
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="2_11rhj"]
-[ext_resource type="Material" uid="uid://da05kka4mhv1w" path="res://Enemies/BadBoy/bad_boy.tres" id="3_01svo"]
 [ext_resource type="Material" uid="uid://cpm6h6ptlfmpn" path="res://Enemies/BadBoy/sunglass.tres" id="4_rddir"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbl8c"]
+albedo_color = Color(1, 0.46666667, 0.40784314, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_adkxl"]
-material = ExtResource("3_01svo")
+material = SubResource("StandardMaterial3D_cbl8c")
 radius = 1.0
 height = 4.0
 
@@ -14,7 +16,7 @@ height = 4.0
 radius = 1.0366211
 height = 4.0117188
 
-[node name="BadBoy" type="CharacterBody3D" unique_id=1597908582 groups=["enemy", "physics"]]
+[node name="BadderBoy" type="CharacterBody3D" unique_id=1597908582 groups=["enemy", "physics"]]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_2bsov")

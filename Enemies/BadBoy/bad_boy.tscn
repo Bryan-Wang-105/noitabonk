@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwuir35k061rt" path="res://Enemies/BadBoy/bad_boy.gd" id="1_rm27s"]
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="2_adkxl"]
-[ext_resource type="Material" uid="uid://da05kka4mhv1w" path="res://Enemies/BadBoy/bad_boy.tres" id="3_76sh5"]
+[ext_resource type="Material" uid="uid://bwgqwkd3ha23s" path="res://Enemies/BadderBoy/bad_boy.tres" id="3_76sh5"]
 [ext_resource type="Material" uid="uid://cpm6h6ptlfmpn" path="res://Enemies/BadBoy/sunglass.tres" id="4_76sh5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_adkxl"]
@@ -10,28 +10,28 @@ material = ExtResource("3_76sh5")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3mxyf"]
 
-[node name="BadBoy" type="CharacterBody3D" groups=["enemy", "physics"]]
+[node name="BadBoy" type="CharacterBody3D" unique_id=1126914103 groups=["enemy", "physics"]]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_rm27s")
 loot = ExtResource("2_adkxl")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1419848674]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0139978, 0)
 mesh = SubResource("CapsuleMesh_adkxl")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=144099116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00286674, 1.6365808, -0.414517)
 size = Vector3(0.737305, 0.261597, 0.139648)
 material = ExtResource("4_76sh5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1414965630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0234642, 0)
 shape = SubResource("CapsuleShape3D_3mxyf")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1865459878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15338331, -0.3825606)
 target_position = Vector3(0, 0, -0.25)
 
-[node name="toAim" type="Node3D" parent="."]
+[node name="toAim" type="Node3D" parent="." unique_id=315579259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3035293, 0)
