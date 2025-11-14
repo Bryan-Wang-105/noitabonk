@@ -12,7 +12,7 @@ func _init():
 	projectile_sound = null#load("uid://kqqsvhd1vj0a")
 	icon_path = "uid://cdjim0p5p52sk"
 	cast_delay = 3.0
-	damage = 100
+	damage = 10 # per tick every .5 seconds for 10 seconds
 	modifier = false
 	description = "It was said the moon was created with this spell"
 
@@ -45,6 +45,8 @@ func spawn_black_hole(sprd = 0):
 	# Set the velocity data
 	#black_hole_instance.direction = forward_direction
 	black_hole_instance.linear_velocity = forward_direction * launch_speed
+	
+	black_hole_instance.damage = damage
 	
 	# Now add the fully configured fireball to the scene
 	Global.world.add_child(black_hole_instance)

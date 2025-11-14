@@ -12,6 +12,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var spawn_spell_pos: Node3D = $Head/spawnSpellPos
 @onready var pick_up_collider: CollisionShape3D = $Area3D/CollisionShape3D
 @onready var heal_num: Node3D = $Head/heal_num
+@onready var anim: AnimationPlayer = $CollisionShape3D/Kakashi/AnimationPlayer
+
 
 # At the top of your script
 var regen_timer: float = 0.0
@@ -66,6 +68,9 @@ func _process(delta):
 				Global.playerManager.health + Global.playerManager.hp_regen * 33
 			)
 
+var was_moving = false
+var is_braking = false
+
 func _physics_process(delta: float) -> void:
 	# Add gravity
 	if not is_on_floor():
@@ -84,17 +89,46 @@ func _physics_process(delta: float) -> void:
 		
 		# Apply sprint
 		var sprint = Global.playerManager.sprint_speed
+		var current_speed
 		var walk = Global.playerManager.walk_speed
 		
-		var current_speed =  sprint if Input.is_action_pressed("ui_shift") else walk
+		if Input.is_action_pressed("ui_shift"):
+			current_speed =  sprint
+		else:
+			current_speed = walk
+			
 		
 		# Move the player
 		if direction:
+			# ----- START RUNNING -----
+			if not was_moving:
+				is_braking = false
+				anim.play("run start")
+
+			# ----- TRANSITION TO RUN LOOP -----
+			elif anim.current_animation != "running" and not anim.is_playing():
+				anim.play("running")
+
 			velocity.x = direction.x * current_speed
 			velocity.z = direction.z * current_speed
+			was_moving = true
+
 		else:
+			# ----- STOP RUNNING -----
+			if was_moving and not is_braking:
+				is_braking = true
+				# Play run_start backwards
+				anim.play_backwards("run start")
+				# Start at end of the animation
+				anim.seek(anim.get_current_animation_length(), true)
+
+			# After braking finishes, go idle
+			elif is_braking and not anim.is_playing():
+				is_braking = false
+
 			velocity.x = move_toward(velocity.x, 0, current_speed)
 			velocity.z = move_toward(velocity.z, 0, current_speed)
+			was_moving = false
 	else:
 		if is_on_floor():
 			velocity.x = 0

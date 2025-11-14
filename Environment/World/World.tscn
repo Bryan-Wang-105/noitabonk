@@ -54,6 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.735516, 119.62228, -31.204
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.127888, 79.26681, -22.076992)
 
 [node name="EnemyManager" parent="." unique_id=1150220047 instance=ExtResource("2_71j4m")]
+frozen = true
 
 [node name="Loot" parent="." unique_id=1401542438 instance=ExtResource("5_qfnet")]
 transform = Transform3D(-0.011449084, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449084, 28.095972, 20.912033, -4.023445)
