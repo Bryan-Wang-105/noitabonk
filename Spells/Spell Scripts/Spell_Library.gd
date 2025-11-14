@@ -3,7 +3,7 @@ extends Node
 var tieredSpells = {
 	"Common": ["Fireball", "Developmental Sentry", "Bouncing Ball"],
 	"Uncommon": ["Snowball", "Pickup Truck", "User-Acceptance-Testing Sentry"],
-	"Rare": ["Planetary Devastation"]
+	"Rare": ["Planetary Devastation", "Greater Fireball"]
 }
 
 var spellMappings = {
@@ -32,6 +32,10 @@ var spellMappings = {
 	"Bouncing Ball": {
 				"path": "uid://1rw6lkhcne3c",
 				"icon": "uid://b7kromr8b2tpu"
+	},
+	"Greater Fireball": {
+				"path": "uid://yoec0vewpa0b",
+				"icon": "uid://cptymhe4wac6w"
 	}
 }
 

@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgipaj3olyuhj"]
+
+[ext_resource type="Script" uid="uid://yoec0vewpa0b" path="res://Spells/Castable Spells/GreaterFireball/Programming/GreaterFireballSpell.gd" id="1_05hmb"]
+[ext_resource type="PackedScene" uid="uid://cta5bgu3f4d5s" path="res://Spells/Castable Spells/GreaterFireball/Visual/Fireball/Greater_Fire_Ball.tscn" id="2_7mc2r"]
+[ext_resource type="AudioStream" uid="uid://c6lurycb7tcc5" path="res://Spells/Castable Spells/GreaterFireball/Audio/Fireball.mp3" id="3_gxrd8"]
+
+[node name="Fireball_power" type="Node"]
+script = ExtResource("1_05hmb")
+fireball_scene = ExtResource("2_7mc2r")
+fireball_launch_sound = ExtResource("3_gxrd8")

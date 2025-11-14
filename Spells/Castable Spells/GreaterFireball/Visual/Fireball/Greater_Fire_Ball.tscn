@@ -1,0 +1,123 @@
+[gd_scene load_steps=21 format=3 uid="uid://cta5bgu3f4d5s"]
+
+[ext_resource type="Script" uid="uid://fgpwgbyw4wjp" path="res://Spells/Castable Spells/GreaterFireball/Programming/Greater_fire_ball.gd" id="1_1mosu"]
+[ext_resource type="PackedScene" uid="uid://cf5660tj4601k" path="res://Spells/Castable Spells/GreaterFireball/Programming/GreaterExplosion.tscn" id="2_alwhx"]
+[ext_resource type="Shader" uid="uid://bu0sn3caad5p" path="res://Spells/Castable Spells/GreaterFireball/Visual/Fireball/fireballShader.tres" id="3_5mto1"]
+[ext_resource type="ArrayMesh" uid="uid://cucryi3lr5fqw" path="res://Spells/Castable Spells/GreaterFireball/Visual/Fireball/fireball.obj" id="4_vqoha"]
+[ext_resource type="Shader" uid="uid://c0ax1ok2m5nd0" path="res://Spells/Castable Spells/GreaterFireball/Visual/Fireball/FireHeaderShader.tres" id="5_tfnb0"]
+[ext_resource type="Shader" uid="uid://dg3veuvlwk23v" path="res://Spells/Castable Spells/GreaterFireball/Visual/Fireball/Trail_Shader.tres" id="6_eemsr"]
+[ext_resource type="Texture2D" uid="uid://d5fwmoo1ext7" path="res://Spells/Castable Spells/GreaterFireball/Visual/Fireball/T_VFX_basic1.PNG" id="7_cae2n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hfn2d"]
+radius = 1.4725984
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iuavw"]
+render_priority = 1
+shader = ExtResource("3_5mto1")
+shader_parameter/Fire_Color = Color(2.5, 1.3, 0.3, 1)
+shader_parameter/Speed = Vector2(1, 3)
+
+[sub_resource type="SphereMesh" id="SphereMesh_x3ier"]
+radius = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_corkq"]
+render_priority = 0
+shader = ExtResource("5_tfnb0")
+shader_parameter/Ball_Color = Color(0.703215, 0.301637, 0.0233266, 1)
+shader_parameter/Fresnel_Power = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_hgmst"]
+
+[sub_resource type="Gradient" id="Gradient_k33xv"]
+offsets = PackedFloat32Array(0, 0.195833, 1)
+colors = PackedColorArray(1, 0.041, 0.022, 0, 1, 0.0405029, 0.0223527, 1, 1.3, 1.5, 0.1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7kqo6"]
+gradient = SubResource("Gradient_k33xv")
+use_hdr = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q2ttc"]
+render_priority = 0
+shader = ExtResource("6_eemsr")
+shader_parameter/Color_texture = SubResource("GradientTexture1D_7kqo6")
+shader_parameter/TrailSpeed = Vector2(3, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbk2i"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("7_cae2n")
+
+[sub_resource type="Curve" id="Curve_tvu3y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bax0x"]
+curve = SubResource("Curve_tvu3y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8e3pw"]
+particle_flag_align_y = true
+emission_shape = 2
+emission_sphere_radius = 0.5
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 3.0
+initial_velocity_max = 8.0
+radial_velocity_min = 0.999978
+radial_velocity_max = 1.99998
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_bax0x")
+color = Color(2, 1.3, 0.5, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ai2lq"]
+size = Vector2(0.1, 0.5)
+
+[node name="GreaterFireball" type="CharacterBody3D" unique_id=583741156 groups=["physics"]]
+collision_layer = 520
+collision_mask = 5
+script = ExtResource("1_1mosu")
+hit_effect_scene = ExtResource("2_alwhx")
+
+[node name="HitboxCollider" type="CollisionShape3D" parent="." unique_id=485814906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18063831, 0.49084473)
+shape = SubResource("SphereShape3D_hfn2d")
+
+[node name="Fireball" type="MeshInstance3D" parent="." unique_id=1656905249]
+transform = Transform3D(2.7244473, 0, 0, 0, -2.6415753, 0.00089208526, 0, -0.0017978456, -1.3107413, 0, -5.96046e-08, -0.0162987)
+material_override = SubResource("ShaderMaterial_iuavw")
+cast_shadow = 0
+mesh = ExtResource("4_vqoha")
+
+[node name="Head" type="MeshInstance3D" parent="Fireball" unique_id=410586323]
+transform = Transform3D(0.9999999, 0, 0, 0, 2.7735684, 6.9849193e-10, 0, -4.656613e-10, 2.98532, 0, -0.0001776659, -0.32890895)
+mesh = SubResource("SphereMesh_x3ier")
+surface_material_override/0 = SubResource("ShaderMaterial_corkq")
+
+[node name="TrailMesh" type="MeshInstance3D" parent="Fireball" unique_id=1095972863]
+transform = Transform3D(-2.8788077e-07, 0, -0.9999999, 4.656613e-10, 1.699608, -3.469447e-18, 6.5859375, -4.656613e-10, -4.3711395e-08, 0.005916599, -0.0007555192, -4.012835)
+mesh = SubResource("QuadMesh_hgmst")
+surface_material_override/0 = SubResource("ShaderMaterial_q2ttc")
+
+[node name="TrailMesh2" type="MeshInstance3D" parent="Fireball" unique_id=1813660447]
+transform = Transform3D(-0.0048599546, 1.6754886, 0.16787004, 0.005757839, -0.28531215, 0.9858086, 6.5859313, 0.0014858298, -0.0007379801, 0.005916599, -0.00075551955, -4.012835)
+mesh = SubResource("QuadMesh_hgmst")
+surface_material_override/0 = SubResource("ShaderMaterial_q2ttc")
+
+[node name="Sparks" type="GPUParticles3D" parent="Fireball" unique_id=1327289379]
+transform = Transform3D(-1.75549e-07, 0, -2.34265, 0, 1.66958, 0, 4.01609, 0, -1.02401e-07, 0, 0.0211658, -1.3711)
+material_override = SubResource("StandardMaterial3D_cbk2i")
+amount = 10
+lifetime = 0.3
+explosiveness = 0.4
+process_material = SubResource("ParticleProcessMaterial_8e3pw")
+draw_pass_1 = SubResource("QuadMesh_ai2lq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Fireball" unique_id=408249115]
+light_color = Color(0.840227, 0.395364, 0.0233929, 1)
+light_energy = 3.705
+omni_range = 1.742

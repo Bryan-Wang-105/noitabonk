@@ -1,0 +1,55 @@
+[gd_resource type="VisualShader" load_steps=10 format=3 uid="uid://dg3veuvlwk23v"]
+
+[ext_resource type="Texture2D" uid="uid://b2e64hfwsc5k8" path="res://Spells/Castable Spells/GreaterFireball/Visual/Fireball/fireballTrail.jpg" id="1_ac6uf"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_t1omy"]
+texture = ExtResource("1_ac6uf")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_h830m"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_70uid"]
+default_input_values = [1, Vector2(1, 0), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_o6txd"]
+parameter_name = "TrailSpeed"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_85ie5"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_m7dii"]
+parameter_name = "Color_texture"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_d4px5"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_cwfg3"]
+operator = 2
+
+[resource]
+modes/cull = 2
+flags/unshaded = true
+flags/shadows_disabled = true
+flags/ambient_light_disabled = true
+flags/fog_disabled = true
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_t1omy")
+nodes/fragment/2/position = Vector2(-280, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_h830m")
+nodes/fragment/3/position = Vector2(-1180, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_70uid")
+nodes/fragment/4/position = Vector2(-600, 260)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVec2Parameter_o6txd")
+nodes/fragment/5/position = Vector2(-1180, 400)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_85ie5")
+nodes/fragment/6/position = Vector2(-820, 240)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture2DParameter_m7dii")
+nodes/fragment/7/position = Vector2(-460, -260)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_d4px5")
+nodes/fragment/8/position = Vector2(-40, -180)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatOp_cwfg3")
+nodes/fragment/9/position = Vector2(160, 200)
+nodes/fragment/connections = PackedInt32Array(4, 0, 2, 0, 3, 0, 6, 0, 5, 0, 6, 1, 6, 0, 4, 2, 7, 0, 8, 2, 8, 0, 0, 0, 8, 4, 9, 0, 2, 0, 9, 1, 9, 0, 0, 1)

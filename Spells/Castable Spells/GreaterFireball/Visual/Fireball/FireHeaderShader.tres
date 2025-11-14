@@ -1,0 +1,24 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://c0ax1ok2m5nd0"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_f551o"]
+expanded_output_ports = [0]
+parameter_name = "Ball_Color"
+
+[sub_resource type="VisualShaderNodeFresnel" id="VisualShaderNodeFresnel_beys4"]
+default_input_values = [2, true, 3, 4.0]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_uug1u"]
+parameter_name = "Fresnel_Power"
+
+[resource]
+flags/unshaded = true
+flags/shadows_disabled = true
+flags/ambient_light_disabled = true
+flags/fog_disabled = true
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_f551o")
+nodes/fragment/2/position = Vector2(-494.543, 173.969)
+nodes/fragment/3/node = SubResource("VisualShaderNodeFresnel_beys4")
+nodes/fragment/3/position = Vector2(-480, 520)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatParameter_uug1u")
+nodes/fragment/4/position = Vector2(-840, 520)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 0, 1, 4, 0, 3, 3)

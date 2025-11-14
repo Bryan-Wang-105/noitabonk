@@ -1,15 +1,15 @@
-[gd_scene load_steps=74 format=3 uid="uid://bfowhpu4mi31j"]
+[gd_scene load_steps=74 format=3 uid="uid://cf5660tj4601k"]
 
-[ext_resource type="Script" uid="uid://du4efpn7sexsf" path="res://Spells/Castable Spells/Fireball/Programming/explosion.gd" id="1_3mklu"]
-[ext_resource type="Texture2D" uid="uid://dlmfoarujgoxe" path="res://Spells/Castable Spells/Fireball/Visual/Explosion/T_VFX_Noise_44xainv.png" id="2_42if3"]
-[ext_resource type="Shader" uid="uid://bwc142geki81" path="res://Spells/Castable Spells/Fireball/Visual/Fireball/streaks.tres" id="2_cpf0x"]
-[ext_resource type="Texture2D" uid="uid://btqwv6rdqx2kj" path="res://Spells/Castable Spells/Fireball/Visual/Explosion/T_cloudy_noise_211c.png" id="3_b32km"]
-[ext_resource type="Texture2D" uid="uid://bso1xatarcfle" path="res://Spells/Castable Spells/Fireball/Visual/Explosion/T_vfx_hit122.jpg" id="3_nmtrc"]
-[ext_resource type="Texture2D" uid="uid://dkrjuyubkhqpe" path="res://Spells/Castable Spells/Fireball/Visual/Explosion/T_PerlinNoise_46_inv.png" id="4_1coyj"]
-[ext_resource type="Texture2D" uid="uid://ubx5dd6alfwq" path="res://Spells/Castable Spells/Fireball/Visual/Explosion/T_cracks35.png" id="4_h66af"]
-[ext_resource type="Texture2D" uid="uid://h1082y5kqb3e" path="res://Spells/Castable Spells/Fireball/Visual/Explosion/T_cracks33_E3.jpg" id="5_3mklu"]
-[ext_resource type="Shader" uid="uid://nk5slp3jind0" path="res://Spells/Castable Spells/Fireball/Visual/Explosion/shaderExplosionCloud.tres" id="5_42if3"]
-[ext_resource type="AudioStream" uid="uid://cmq2s8mk16e5f" path="res://Spells/Castable Spells/Fireball/Audio/Explosion Fireball Sound.mp3" id="6_jgo5u"]
+[ext_resource type="Script" uid="uid://dv65l2brxkplu" path="res://Spells/Castable Spells/GreaterFireball/Programming/GreaterExplosion.gd" id="1_tapyi"]
+[ext_resource type="Texture2D" uid="uid://bw0400u5dwe7u" path="res://Spells/Castable Spells/GreaterFireball/Visual/Explosion/T_VFX_Noise_44xainv.png" id="2_wq7ec"]
+[ext_resource type="Texture2D" uid="uid://cdvo8dhfh33t7" path="res://Spells/Castable Spells/GreaterFireball/Visual/Explosion/T_cloudy_noise_211c.png" id="3_ys4qv"]
+[ext_resource type="Texture2D" uid="uid://dqhtpbjveupt8" path="res://Spells/Castable Spells/GreaterFireball/Visual/Explosion/T_PerlinNoise_46_inv.png" id="4_auclu"]
+[ext_resource type="Shader" uid="uid://bxdtw8i0erf3a" path="res://Spells/Castable Spells/GreaterFireball/Visual/Explosion/shaderExplosionCloud.tres" id="5_3kg4i"]
+[ext_resource type="Shader" uid="uid://cey8qnxty14ng" path="res://Spells/Castable Spells/GreaterFireball/Visual/Fireball/streaks.tres" id="6_uwe60"]
+[ext_resource type="Texture2D" uid="uid://cpp81tgq1m68i" path="res://Spells/Castable Spells/GreaterFireball/Visual/Explosion/T_vfx_hit122.jpg" id="7_lq6o5"]
+[ext_resource type="Texture2D" uid="uid://bt4b8eq0t83vv" path="res://Spells/Castable Spells/GreaterFireball/Visual/Explosion/T_cracks35.png" id="8_tdop5"]
+[ext_resource type="Texture2D" uid="uid://c3xjhl8cvpnq6" path="res://Spells/Castable Spells/GreaterFireball/Visual/Explosion/T_cracks33_E3.jpg" id="9_xqajo"]
+[ext_resource type="AudioStream" uid="uid://b0w2mk60w1h7g" path="res://Spells/Castable Spells/GreaterFireball/Audio/Explosion Fireball Sound.mp3" id="10_g47dj"]
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_88cud"]
 size = Vector2(704, 494)
@@ -24,7 +24,7 @@ attached_nodes = PackedInt32Array(4, 7, 6, 9, 8, 5, 18, 19, 20)
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_j3blc"]
 expanded_output_ports = [0]
 linked_parent_graph_frame = 16
-texture = ExtResource("2_42if3")
+texture = ExtResource("2_wq7ec")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_cvht4"]
@@ -52,7 +52,7 @@ operator = 2
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_onvjv"]
 expanded_output_ports = [0]
 linked_parent_graph_frame = 11
-texture = ExtResource("3_b32km")
+texture = ExtResource("3_ys4qv")
 
 [sub_resource type="VisualShaderNodeProximityFade" id="VisualShaderNodeProximityFade_cijij"]
 linked_parent_graph_frame = 12
@@ -128,7 +128,7 @@ input_name = "normal"
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_vfg8f"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_jlr7i"]
-texture = ExtResource("4_1coyj")
+texture = ExtResource("4_auclu")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_bs28i"]
@@ -215,7 +215,7 @@ shader_parameter/ExplosionColor = Color(0.937297, 0.399599, 0.203536, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b32km"]
 render_priority = 0
-shader = ExtResource("5_42if3")
+shader = ExtResource("5_3kg4i")
 shader_parameter/CloudSpeed = Vector2(0, 1)
 shader_parameter/CloudIntensity = 0.1
 shader_parameter/ExplosionColor = Color(0.802178, 0.33265, 0.0702644, 1)
@@ -261,10 +261,12 @@ color_ramp = SubResource("GradientTexture1D_yv3d1")
 alpha_curve = SubResource("CurveTexture_cpf0x")
 
 [sub_resource type="SphereMesh" id="SphereMesh_3mklu"]
+radius = 2.0
+height = 4.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nmtrc"]
 render_priority = -1
-shader = ExtResource("2_cpf0x")
+shader = ExtResource("6_uwe60")
 shader_parameter/StreaksColor = Color(4, 0.8, 0.2, 1)
 
 [sub_resource type="Curve" id="Curve_h24vi"]
@@ -508,7 +510,7 @@ _data = {
 blend_mode = 1
 shading_mode = 0
 albedo_color = Color(2, 0.6, 0.3, 1)
-albedo_texture = ExtResource("3_nmtrc")
+albedo_texture = ExtResource("7_lq6o5")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -542,17 +544,17 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[node name="Explosion" type="Node3D"]
-script = ExtResource("1_3mklu")
+[node name="GreaterExplosion" type="Node3D" unique_id=1538291916]
+script = ExtResource("1_tapyi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1533928852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0605178)
 material_override = SubResource("ShaderMaterial_64bdr")
 mesh = SubResource("SphereMesh_nmtrc")
 
-[node name="VFX_Explosion" type="Node3D" parent="."]
+[node name="VFX_Explosion" type="Node3D" parent="." unique_id=1919994427]
 
-[node name="Explosion" type="GPUParticles3D" parent="VFX_Explosion"]
+[node name="Explosion" type="GPUParticles3D" parent="VFX_Explosion" unique_id=1205779198]
 material_override = SubResource("ShaderMaterial_b32km")
 emitting = false
 lifetime = 0.6
@@ -562,7 +564,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_h66af")
 draw_pass_1 = SubResource("SphereMesh_3mklu")
 
-[node name="Streak" type="GPUParticles3D" parent="VFX_Explosion"]
+[node name="Streak" type="GPUParticles3D" parent="VFX_Explosion" unique_id=392823222]
 material_override = SubResource("ShaderMaterial_nmtrc")
 emitting = false
 lifetime = 0.4
@@ -573,18 +575,18 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_mrufk")
 draw_pass_1 = SubResource("QuadMesh_cpf0x")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="VFX_Explosion"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VFX_Explosion" unique_id=1301401600]
 libraries = {
 &"": SubResource("AnimationLibrary_nmtrc")
 }
-autoplay = "Boom"
+autoplay = &"Boom"
 
-[node name="OmniLight3D" type="OmniLight3D" parent="VFX_Explosion"]
+[node name="OmniLight3D" type="OmniLight3D" parent="VFX_Explosion" unique_id=209939522]
 light_color = Color(0.97972, 0.43242, 0.187879, 1)
 light_energy = 20.0
 omni_range = 10.0
 
-[node name="Flare" type="GPUParticles3D" parent="VFX_Explosion"]
+[node name="Flare" type="GPUParticles3D" parent="VFX_Explosion" unique_id=693065101]
 material_override = SubResource("StandardMaterial3D_h24vi")
 emitting = false
 amount = 1
@@ -595,24 +597,24 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jgo5u")
 draw_pass_1 = SubResource("QuadMesh_m6565")
 
-[node name="Decal" type="Decal" parent="VFX_Explosion"]
+[node name="Decal" type="Decal" parent="VFX_Explosion" unique_id=1168977831]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.189213, 0)
 size = Vector3(5, 0.5, 5)
-texture_albedo = ExtResource("4_h66af")
-texture_emission = ExtResource("5_3mklu")
+texture_albedo = ExtResource("8_tdop5")
+texture_emission = ExtResource("9_xqajo")
 emission_energy = 15.0
 modulate = Color(0.989651, 0.400709, 0.195351, 1)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="VFX_Explosion"]
-stream = ExtResource("6_jgo5u")
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="VFX_Explosion" unique_id=99936914]
+stream = ExtResource("10_g47dj")
 autoplay = true
 
-[node name="ExplosionArea" type="Area3D" parent="."]
+[node name="ExplosionArea" type="Area3D" parent="." unique_id=2070737676]
 collision_layer = 24
 collision_mask = 7
 
-[node name="ExplosionCollider" type="CollisionShape3D" parent="ExplosionArea"]
+[node name="ExplosionCollider" type="CollisionShape3D" parent="ExplosionArea" unique_id=1439283171]
 shape = SubResource("SphereShape3D_3mklu")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=239757694]
 replication_config = SubResource("SceneReplicationConfig_vn5rs")
