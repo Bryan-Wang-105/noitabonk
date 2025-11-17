@@ -19,7 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01536, 0)
 shape = SubResource("CapsuleShape3D_cvnsp")
 
 [node name="Kakashi" parent="CollisionShape3D" unique_id=1572167643 instance=ExtResource("2_btcbx")]
-transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 0, -1.0103402, 0)
+transform = Transform3D(-0.756, 0, -6.556708e-08, 0, 0.75600004, 0, 6.609161e-08, 0, -0.75, 0.001273036, -1.0146651, 0.004125595)
 
 [node name="Head" type="Node3D" parent="." unique_id=996719322]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4572141, -0.33395958)

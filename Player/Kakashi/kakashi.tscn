@@ -5,3 +5,6 @@
 
 [node name="Kakashi" unique_id=1572167643 instance=ExtResource("1_mmj8r")]
 script = ExtResource("2_mrcuq")
+
+[node name="Body" parent="." index="0" unique_id=588816100]
+transform = Transform3D(1.4813511, 0, 0, 0, 1.4491518, 0, 0, 0, 1.6118808, 0, 1.0720186, 0)

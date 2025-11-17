@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://q4y1siqkv8x7"]
+[gd_scene load_steps=8 format=3 uid="uid://q4y1siqkv8x7"]
 
 [ext_resource type="Script" uid="uid://dwuir35k061rt" path="res://Enemies/BadBoy/bad_boy.gd" id="1_rm27s"]
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="2_adkxl"]
 [ext_resource type="Material" uid="uid://cpm6h6ptlfmpn" path="res://Enemies/BadBoy/sunglass.tres" id="4_76sh5"]
+[ext_resource type="PackedScene" uid="uid://de65lphrps7me" path="res://Player/Wizard/Assets/wizard.tscn" id="4_i2g26"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmthw"]
 albedo_color = Color(0.6517832, 0, 0.024983278, 1)
@@ -11,6 +12,8 @@ albedo_color = Color(0.6517832, 0, 0.024983278, 1)
 material = SubResource("StandardMaterial3D_mmthw")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3mxyf"]
+radius = 0.65185547
+height = 3.260254
 
 [node name="BadBoy" type="CharacterBody3D" unique_id=1126914103 groups=["enemy", "physics"]]
 collision_layer = 4
@@ -20,15 +23,17 @@ loot = ExtResource("2_adkxl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1419848674]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0139978, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_adkxl")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=144099116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00286674, 1.6365808, -0.414517)
+visible = false
 size = Vector3(0.737305, 0.261597, 0.139648)
 material = ExtResource("4_76sh5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1414965630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0234642, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6535912, 0)
 shape = SubResource("CapsuleShape3D_3mxyf")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1865459878]
@@ -37,3 +42,6 @@ target_position = Vector3(0, 0, -0.25)
 
 [node name="toAim" type="Node3D" parent="." unique_id=315579259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3035293, 0)
+
+[node name="Wizard" parent="." unique_id=254556683 instance=ExtResource("4_i2g26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015770614, 0.19634879, -0.05321765)

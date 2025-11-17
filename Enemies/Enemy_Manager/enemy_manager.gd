@@ -13,6 +13,8 @@ extends Node
 @export var difficulty_scale: float = 0.05  # how fast difficulty increases
 @export var max_difficulty: float = 10.0
 
+@export var spawn: bool = false
+
 var spawn_credit: float = 0.0
 var difficulty: float = 1.0
 var time_alive: float = 0.0
@@ -27,16 +29,20 @@ var enemy_costs = {
 
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-
 var enemies = []
 var start = false
 
 func _ready():
 	Global.enemy_manager = self
 	process_mode = Node.PROCESS_MODE_PAUSABLE
-	_spawn_loop()
+	
+	if spawn:
+		_spawn_loop()
 
 func _spawn_loop():
+	if not spawn:
+		return
+	
 	spawning = true
 	
 	while true and not Global.paused:

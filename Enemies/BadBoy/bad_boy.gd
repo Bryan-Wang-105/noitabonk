@@ -8,6 +8,7 @@ extends CharacterBody3D
 
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var collider: CollisionShape3D = $CollisionShape3D
 
 var base_speed = 4.0
 var speed = 4.0
@@ -21,7 +22,7 @@ var being_pulled = false
 var mass = 100
 
 var attack_timer: Timer
-var attack_radius = 1
+@onready var attack_radius = collider.shape.radius + Global.player.collider.shape.radius
 var can_attack = true
 var attack_dmg = 5
 const ATTACK_INTERVAL: float = 1.0  # Time between attacks in seconds

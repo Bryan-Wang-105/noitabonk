@@ -13,6 +13,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var pick_up_collider: CollisionShape3D = $Area3D/CollisionShape3D
 @onready var heal_num: Node3D = $Head/heal_num
 @onready var anim: AnimationPlayer = $CollisionShape3D/Kakashi/AnimationPlayer
+@onready var collider: CollisionShape3D = $CollisionShape3D
 
 
 # At the top of your script
@@ -107,7 +108,7 @@ func _physics_process(delta: float) -> void:
 
 			# ----- TRANSITION TO RUN LOOP -----
 			elif anim.current_animation != "running" and not anim.is_playing():
-				anim.play("running")
+				anim.play("running", 0.0, 1.25)
 
 			velocity.x = direction.x * current_speed
 			velocity.z = direction.z * current_speed

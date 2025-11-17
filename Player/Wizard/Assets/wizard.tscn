@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://de65lphrps7me"]
 
 [ext_resource type="PackedScene" uid="uid://co3rfyfahe35i" path="res://Player/Wizard/Assets/wizard.gltf" id="1_wn6hg"]
-[ext_resource type="Script" uid="uid://dv0kg3mlj5to0" path="res://wizard.gd" id="2_kwlyd"]
+[ext_resource type="Script" uid="uid://dv0kg3mlj5to0" path="res://Enemies/BadBoy/wizard.gd" id="2_kwlyd"]
 
 [node name="Wizard" unique_id=254556683 instance=ExtResource("1_wn6hg")]
 script = ExtResource("2_kwlyd")
