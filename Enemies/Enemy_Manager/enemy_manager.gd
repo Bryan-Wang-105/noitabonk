@@ -7,6 +7,7 @@ extends Node
 @onready var spawn_points: Node3D = $"../SpawnPoints"
 
 @export var enemy_weak: PackedScene
+@export var enemy_med: PackedScene
 @export var enemy_strong: PackedScene
 @export var spawn_interval: float = 1.0  # seconds between spawn checks
 @export var base_credit_gain: float = 1.0
@@ -24,6 +25,7 @@ var spawning = false
 
 var enemy_costs = {
 	"weak": 5.0,
+	"med": 5.0,
 	"strong": 15.0
 }
 
@@ -70,10 +72,12 @@ func _attempt_spawn():
 	# 1. Pick what to spawn based on difficulty
 	var possible_spawns = []
 	if difficulty < 3:
-		possible_spawns = [{"scene": enemy_weak, "cost": enemy_costs["weak"]}]
+		possible_spawns = [{"scene": enemy_weak, "cost": enemy_costs["weak"]},
+						   {"scene": enemy_med, "cost": enemy_costs["med"]}]
 	else:
 		possible_spawns = [
 			{"scene": enemy_weak, "cost": enemy_costs["weak"]},
+			{"scene": enemy_med, "cost": enemy_costs["med"]},
 			{"scene": enemy_strong, "cost": enemy_costs["strong"]}
 		]
 
@@ -83,6 +87,8 @@ func _attempt_spawn():
 		format_time(elapsed_time)
 		if choice["scene"] == enemy_weak:
 			print(timestamp, ": Spawning WEAK Enemy Now! Difficulty: ", difficulty)
+		elif choice["scene"] == enemy_med:
+			print(timestamp, ": Spawning MED Enemy Now! Difficulty: ", difficulty)
 		else:
 			print(timestamp, ": Spawning STRONG Enemy Now! Difficulty: ", difficulty)
 			
@@ -161,7 +167,7 @@ func update_enemy(enemy, delta: float):
 	
 	# Apply gravity
 	# Climbing logic
-	if enemy.is_on_wall() and !enemy.being_pulled:
+	if enemy.ray.is_colliding() and !enemy.being_pulled:
 		enemy.velocity.y = enemy.speed  # Climb up at same speed as horizontal movement
 	elif not enemy.is_on_floor():
 		enemy.velocity.y -= gravity * delta  # Apply gravity when in air

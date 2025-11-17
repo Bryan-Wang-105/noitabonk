@@ -37,11 +37,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6535912, 0)
 shape = SubResource("CapsuleShape3D_3mxyf")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1865459878]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15338331, -0.3825606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.014098048, -0.5808546)
 target_position = Vector3(0, 0, -0.25)
+
+[node name="Wizard" parent="." unique_id=254556683 instance=ExtResource("4_i2g26")]
 
 [node name="toAim" type="Node3D" parent="." unique_id=315579259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3035293, 0)
-
-[node name="Wizard" parent="." unique_id=254556683 instance=ExtResource("4_i2g26")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015770614, 0.19634879, -0.05321765)

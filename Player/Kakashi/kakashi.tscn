@@ -1,10 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbo7olhfqnmmn"]
+[gd_scene load_steps=2 format=3 uid="uid://cbo7olhfqnmmn"]
 
 [ext_resource type="PackedScene" uid="uid://dearkhw0haot2" path="res://Player/Kakashi/kakashi.gltf" id="1_mmj8r"]
-[ext_resource type="Script" uid="uid://ciw3liwegb2ui" path="res://Player/Kakashi/kakashi.gd" id="2_mrcuq"]
 
 [node name="Kakashi" unique_id=1572167643 instance=ExtResource("1_mmj8r")]
-script = ExtResource("2_mrcuq")
 
 [node name="Body" parent="." index="0" unique_id=588816100]
-transform = Transform3D(1.4813511, 0, 0, 0, 1.4491518, 0, 0, 0, 1.6118808, 0, 1.0720186, 0)
+transform = Transform3D(1.4813511, 0, 0, 0, 0.8103552, -1.3363099, 0, 1.2014014, 0.9013521, 0, 0.75625, 0.175)
+
+[node name="LeftLeg" parent="Body" index="9" unique_id=2130561496]
+transform = Transform3D(1, 0, 0, 0, 0.83867055, 0.54463905, 0, -0.54463905, 0.83867055, 0, -0.1125, 0.05)
+
+[node name="LFoot" parent="Body/LeftLeg/LeftCalf" parent_id_path=PackedInt32Array(619381582) index="1" unique_id=1141093551]
+transform = Transform3D(1, 0, 0, 0, 0.6087614, -0.7933533, 0, 0.7933533, 0.6087614, 0.15, 0.125, 0.01875)
+
+[node name="RightLeg" parent="Body" index="10" unique_id=144019581]
+transform = Transform3D(1, 0, 0, 0, 0.30901697, 0.95105654, 0, -0.95105654, 0.30901697, -0.0625, -0.00625, 0)
+
+[node name="RightCalf" parent="Body/RightLeg" index="2" unique_id=2076398825]
+transform = Transform3D(1, 0, 0, 0, 0.45399052, -0.8910065, 0, 0.8910065, 0.45399052, 0.0625, -0.33125, 0)
+
+[node name="RightArm" parent="Body" index="11" unique_id=67331483]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.50000006, 0, 0.50000006, 0.8660254, -0.1875, 0.40625, 0)
+
+[node name="Head" parent="Body" index="12" unique_id=2037650431]
+transform = Transform3D(1, 0, 0, 0, 0.6087614, 0.7933533, 0, -0.7933533, 0.6087614, 0, 0.58125, 0)
+
+[node name="LeftArm" parent="Body" index="14" unique_id=1499003197]
+transform = Transform3D(1, 0, 0, 0, 0.8910065, -0.4539905, 0, 0.4539905, 0.8910065, 0.1875, 0.425, 0)

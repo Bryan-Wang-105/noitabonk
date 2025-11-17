@@ -2,14 +2,12 @@ extends CharacterBody3D
 
 @export var loot: PackedScene
 @onready var ray: RayCast3D = $RayCast3D
-@onready var mesh: MeshInstance3D = $MeshInstance3D
-@onready var sunglass_mesh: CSGBox3D = $CSGBox3D
 @onready var to_aim: Node3D = $toAim
-@onready var anim: AnimationPlayer = $Wizard/AnimationPlayer
 
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var collider: CollisionShape3D = $CollisionShape3D
+@onready var anim: AnimationPlayer = $AnimationPlayer
 
 var base_speed = 4.0
 var speed = 4.0
@@ -23,10 +21,11 @@ var being_pulled = false
 var mass = 100
 
 var attack_timer: Timer
-@onready var attack_radius = collider.shape.radius + Global.player.collider.shape.radius
+var is_attacking
+@onready var attack_radius = collider.shape.radius + Global.player.collider.shape.radius + 5
 var can_attack = true
 var attack_dmg = 5
-const ATTACK_INTERVAL: float = 1.0  # Time between attacks in seconds
+const ATTACK_INTERVAL: float = 5.0  # Time between attacks in seconds
 
 func _ready():
 	# Create and setup the timer
@@ -49,7 +48,6 @@ func apply_slow(slow_amt, time):
 
 func take_dmg(amount):
 	print("ENEMY TOOK DAMAGE")
-	flash_white()
 	
 	# Calculate crit opportunity
 	var crit = randi_range(1, 100)
@@ -78,19 +76,6 @@ func take_dmg(amount):
 		print("ENEMY IS DEAD 1")
 		alive = false
 		#die()
-
-func flash_white() -> void:
-	# Set white material as override (only affects THIS enemy)
-	mesh.set_surface_override_material(0, load("uid://dwt5nwlmv0bwq"))
-	sunglass_mesh.material_override = load("uid://6w0io6vltb80")
-	
-	# Wait 0.15 seconds
-	await get_tree().create_timer(0.15).timeout
-	
-	# Restore original material
-	mesh.set_surface_override_material(0, load("uid://da05kka4mhv1w"))
-	sunglass_mesh.material_override = load("uid://cpm6h6ptlfmpn")
-
 
 func die():
 	# 30% to drop gold and xp
@@ -140,14 +125,24 @@ func apply_central_force(force: Vector3) -> void:
 	accumulated_forces += force
 
 func apply_impulse(impulse: Vector3) -> void:
-	velocity += impulse / mass
+	pass
+	#velocity += impulse / mass
 
 func stop_pull():
 	being_pulled = false
 
-
 func attack_player():
 	if can_attack:
+		# Stop walk animation and play attack animation
+		anim.stop()
+		anim.play("jump attack", 0.0, 2.0)
+		
+		speed = 12
+		is_attacking = true
+		
+		# Apply jump force
+		velocity.y = 8.0  # Adjust this value for jump height
+		
 		Global.playerManager.take_damage(attack_dmg)
 	
 		# Start cooldown AFTER animation finishes
@@ -156,26 +151,15 @@ func attack_player():
 func _on_attack_timer_timeout():
 	can_attack = true
 	
-	
 func _physics_process(delta):
-	if being_pulled:
-		# Apply accumulated forces using F = ma
-		var force_acceleration = accumulated_forces / mass
-		velocity += force_acceleration * delta
-		
-		# Accelerate the fireball in its travel direction over time
-		var current_speed = velocity.length()
-		
-		# Clear accumulated forces (they only apply for one frame)
-		accumulated_forces = Vector3.ZERO
-		
-		# Check if jump attack animation just finished
-	if not anim.is_playing():
+	# Check if jump attack animation just finished
+	if is_attacking and not anim.is_playing():
+		is_attacking = false
 		speed = base_speed
-		anim.play("walking")
+		anim.play("walk")
 		attack_timer.start()  # Start cooldown timer here
 	
 	# ----- TRANSITION TO RUN LOOP -----
 	# Only resume walk if not attacking
-	elif not anim.is_playing():
+	elif not anim.is_playing() and not is_attacking:
 		anim.play("walk")

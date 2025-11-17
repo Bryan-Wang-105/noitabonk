@@ -1,12 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://b53nc2ocrhtci"]
+[gd_scene load_steps=3 format=3 uid="uid://b53nc2ocrhtci"]
 
 [ext_resource type="Script" uid="uid://y4jl5fgdvm5d" path="res://Audio/audio_node.gd" id="1_q7vr7"]
+[ext_resource type="AudioStream" uid="uid://lsp403c4owbf" path="res://Audio/Music/BirdOnWire.mp3" id="2_2blik"]
 
-[node name="AudioNode" type="Node"]
+[node name="AudioNode" type="Node" unique_id=1511589339]
 script = ExtResource("1_q7vr7")
 
-[node name="GoldAudio" type="AudioStreamPlayer" parent="."]
+[node name="GoldAudio" type="AudioStreamPlayer" parent="." unique_id=1566646557]
 
-[node name="XPAudio" type="AudioStreamPlayer" parent="."]
+[node name="XPAudio" type="AudioStreamPlayer" parent="." unique_id=2137961732]
 
-[node name="LevelUpAudio" type="AudioStreamPlayer" parent="."]
+[node name="LevelUpAudio" type="AudioStreamPlayer" parent="." unique_id=1175412756]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=681246139]
+stream = ExtResource("2_2blik")
+volume_db = -20.0
+autoplay = true
