@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var sunglass_mesh: CSGBox3D = $CSGBox3D
 @onready var to_aim: Node3D = $toAim
+@onready var body: MeshInstance3D = $MeshInstance3D
 
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -36,7 +37,6 @@ func _ready():
 
 func take_dmg(amount):
 	print("ENEMY TOOK DAMAGE")
-	flash_white()
 	
 	# Calculate crit opportunity
 	var crit = randi_range(1, 100)
@@ -64,7 +64,9 @@ func take_dmg(amount):
 	if health <= 0:
 		print("ENEMY IS DEAD")
 		alive = false
-		die()
+		#die()
+		
+	Global.dmg_display.flash_dmg(body)
 
 func flash_white() -> void:
 	# Set white material as override (only affects THIS enemy)

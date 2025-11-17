@@ -8,6 +8,7 @@ extends CharacterBody3D
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var body: Node3D = $Body
 
 var base_speed = 4.0
 var speed = 4.0
@@ -76,6 +77,8 @@ func take_dmg(amount):
 		print("ENEMY IS DEAD 1")
 		alive = false
 		#die()
+	
+	Global.dmg_display.flash_dmg(body)
 
 func die():
 	# 30% to drop gold and xp
@@ -152,6 +155,18 @@ func _on_attack_timer_timeout():
 	can_attack = true
 	
 func _physics_process(delta):
+	if being_pulled:
+		# Apply accumulated forces using F = ma
+		var force_acceleration = accumulated_forces / mass
+		velocity += force_acceleration * delta
+		
+		# Accelerate the fireball in its travel direction over time
+		var current_speed = velocity.length()
+		
+		# Clear accumulated forces (they only apply for one frame)
+		accumulated_forces = Vector3.ZERO
+		
+		
 	# Check if jump attack animation just finished
 	if is_attacking and not anim.is_playing():
 		is_attacking = false

@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var sunglass_mesh: CSGBox3D = $CSGBox3D
 @onready var to_aim: Node3D = $toAim
 @onready var anim: AnimationPlayer = $Wizard/AnimationPlayer
+@onready var body: Node3D = $Wizard/Body
 
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -49,7 +50,6 @@ func apply_slow(slow_amt, time):
 
 func take_dmg(amount):
 	print("ENEMY TOOK DAMAGE")
-	flash_white()
 	
 	# Calculate crit opportunity
 	var crit = randi_range(1, 100)
@@ -78,19 +78,8 @@ func take_dmg(amount):
 		print("ENEMY IS DEAD 1")
 		alive = false
 		#die()
-
-func flash_white() -> void:
-	# Set white material as override (only affects THIS enemy)
-	mesh.set_surface_override_material(0, load("uid://dwt5nwlmv0bwq"))
-	sunglass_mesh.material_override = load("uid://6w0io6vltb80")
-	
-	# Wait 0.15 seconds
-	await get_tree().create_timer(0.15).timeout
-	
-	# Restore original material
-	mesh.set_surface_override_material(0, load("uid://da05kka4mhv1w"))
-	sunglass_mesh.material_override = load("uid://cpm6h6ptlfmpn")
-
+		
+	Global.dmg_display.flash_dmg(body)
 
 func die():
 	# 30% to drop gold and xp
