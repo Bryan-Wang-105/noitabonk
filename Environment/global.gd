@@ -11,3 +11,4 @@ var audio_node
 var rewardGenerator
 var paused = false
 var enemy_manager
+var dmg_display

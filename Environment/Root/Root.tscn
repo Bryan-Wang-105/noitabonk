@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bk43map7dcky8"]
+[gd_scene load_steps=19 format=3 uid="uid://bk43map7dcky8"]
 
 [ext_resource type="Script" uid="uid://ddqpbt1603703" path="res://Environment/Root/Root.gd" id="1_254ry"]
 [ext_resource type="PackedScene" uid="uid://dtncas7j2bcxp" path="res://Environment/World/World.tscn" id="1_j5px3"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dfharhy0jvelk" path="res://UI/RewardGenerator/dopamine_generator.tscn" id="7_67ast"]
 [ext_resource type="PackedScene" uid="uid://boqskgfeluso" path="res://UI/HUD/Inventory_UI/inventory_ui.tscn" id="7_njaee"]
 [ext_resource type="PackedScene" uid="uid://ks7qceniqy6g" path="res://UI/Spells_UI/Spell_Preview/Spell_Preview.tscn" id="8_05q57"]
+[ext_resource type="PackedScene" uid="uid://1ui1yxnauu27" path="res://UI/DMG_Display/dmg_util.tscn" id="8_ibpss"]
+[ext_resource type="Script" uid="uid://fw6x1uxm5my5" path="res://UI/DMG_Display/dmg_display.gd" id="9_xiqv1"]
 [ext_resource type="PackedScene" uid="uid://coftjh4fsfb2m" path="res://UI/PauseMenu/pause_menu.tscn" id="13_pdh0u"]
 [ext_resource type="PackedScene" uid="uid://btqc1hlh3igp4" path="res://UI/LevelUp_UI/Level_Up_Menu.tscn" id="14_io3ga"]
 
@@ -33,6 +35,9 @@ script = ExtResource("1_254ry")
 [node name="DamageNumberPool" parent="Current_Scene" unique_id=1624080478 instance=ExtResource("5_e2svq")]
 
 [node name="DopamineGenerator" parent="Current_Scene" unique_id=1887770985 instance=ExtResource("7_67ast")]
+
+[node name="DMG_Util" parent="Current_Scene" unique_id=658474414 instance=ExtResource("8_ibpss")]
+script = ExtResource("9_xiqv1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Current_Scene" unique_id=1604830527]
 script = ExtResource("3_u5cad")

@@ -1,38 +1,50 @@
 # enemy_manager.gd
 extends Node
 
-@export var enemy_count: int
+# Enemy Spawn configurations
+@export var spawn: bool = false
 @export var frozen: bool
+var spawning = false
+
+# Vars
+var start = false
 @onready var world: Node3D = $".."
 @onready var spawn_points: Node3D = $"../SpawnPoints"
 
-@export var enemy_weak: PackedScene
-@export var enemy_med: PackedScene
-@export var enemy_strong: PackedScene
+# Spawning Manager Vars
 @export var spawn_interval: float = 1.0  # seconds between spawn checks
 @export var base_credit_gain: float = 1.0
 @export var difficulty_scale: float = 0.05  # how fast difficulty increases
 @export var max_difficulty: float = 10.0
-
-@export var spawn: bool = false
-
 var spawn_credit: float = 0.0
 var difficulty: float = 1.0
 var time_alive: float = 0.0
 var timestamp = ""
 var elapsed_time = 0.0
-var spawning = false
 
 var enemy_costs = {
 	"weak": 5.0,
-	"med": 5.0,
+	"med": 6.0,
 	"strong": 15.0
 }
 
+var enemies = []
+
+var enemy_list = {
+	"weak": ["uid://q4y1siqkv8x7", "uid://dt7o63tgencf8"], # Wizard / Duck
+	"med": ["uid://chruqu6gxfks"], 						   # Orc
+	"strong": ["uid://blhjw6c6bhkil"]					   # BigBoy
+}
+
+#@export var enemy_weak: PackedScene
+#@export var enemy_med: PackedScene
+#@export var enemy_strong: PackedScene
+var enemy_weak
+var enemy_med
+var enemy_strong
+
 # Get the gravity from the project settings
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var enemies = []
-var start = false
 
 func _ready():
 	Global.enemy_manager = self
@@ -72,9 +84,16 @@ func _attempt_spawn():
 	# 1. Pick what to spawn based on difficulty
 	var possible_spawns = []
 	if difficulty < 3:
+		enemy_weak = enemy_list["weak"][randi_range(0, len(enemy_list["weak"]) - 1)]
+		enemy_med = enemy_list["med"][randi_range(0, len(enemy_list["med"]) - 1)]
+		
 		possible_spawns = [{"scene": enemy_weak, "cost": enemy_costs["weak"]},
 						   {"scene": enemy_med, "cost": enemy_costs["med"]}]
 	else:
+		enemy_weak = enemy_list["weak"][randi_range(0, len(enemy_list["weak"]) - 1)]
+		enemy_med = enemy_list["med"][randi_range(0, len(enemy_list["med"]) - 1)]
+		enemy_strong = enemy_list["strong"][randi_range(0, len(enemy_list["strong"]) - 1)]
+		
 		possible_spawns = [
 			{"scene": enemy_weak, "cost": enemy_costs["weak"]},
 			{"scene": enemy_med, "cost": enemy_costs["med"]},
@@ -82,12 +101,13 @@ func _attempt_spawn():
 		]
 
 	# 2. Pick random option
+	# Getting random elgible choice
 	var choice = possible_spawns[randi() % possible_spawns.size()]
 	if spawn_credit >= choice["cost"]:
 		format_time(elapsed_time)
-		if choice["scene"] == enemy_weak:
+		if choice["cost"] == enemy_costs["weak"]:
 			print(timestamp, ": Spawning WEAK Enemy Now! Difficulty: ", difficulty)
-		elif choice["scene"] == enemy_med:
+		elif choice["cost"] == enemy_costs["med"]:
 			print(timestamp, ": Spawning MED Enemy Now! Difficulty: ", difficulty)
 		else:
 			print(timestamp, ": Spawning STRONG Enemy Now! Difficulty: ", difficulty)
@@ -95,15 +115,15 @@ func _attempt_spawn():
 		_spawn_enemy(choice["scene"])
 		spawn_credit -= choice["cost"]
 
-func _spawn_enemy(enemy_scene: PackedScene):
+func _spawn_enemy(enemy_uid):
 	if not start:
 		start = true
 
-	if not enemy_scene or spawn_points.get_child_count() == 0:
+	if not enemy_uid or spawn_points.get_child_count() == 0:
 		return
 
 	var spawn_point = spawn_points.get_children().pick_random()
-	var enemy = enemy_scene.instantiate()
+	var enemy = load(enemy_uid).instantiate()
 	world.add_child(enemy)
 	enemies.append(enemy)
 	enemy.global_position = spawn_point.global_position
@@ -167,7 +187,7 @@ func update_enemy(enemy, delta: float):
 	
 	# Apply gravity
 	# Climbing logic
-	if enemy.ray.is_colliding() and !enemy.being_pulled:
+	if enemy.ray and enemy.ray.is_colliding() and !enemy.being_pulled:
 		enemy.velocity.y = enemy.speed  # Climb up at same speed as horizontal movement
 	elif not enemy.is_on_floor():
 		enemy.velocity.y -= gravity * delta  # Apply gravity when in air
