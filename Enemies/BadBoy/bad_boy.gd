@@ -79,7 +79,7 @@ func take_dmg(amount):
 		alive = false
 		#die()
 		
-	Global.dmg_display.flash_dmg(body)
+	Global.dmg_display.flash_dmg(body, critted)
 
 func die():
 	# 30% to drop gold and xp
