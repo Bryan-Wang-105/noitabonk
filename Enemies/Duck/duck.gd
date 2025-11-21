@@ -9,6 +9,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var anim: AnimationPlayer = $Body/AnimationPlayer
 @onready var body: Node3D = $Body
+@onready var audio: AudioStreamPlayer3D = $audio
 
 var base_speed = 7.0
 var speed = 4.0

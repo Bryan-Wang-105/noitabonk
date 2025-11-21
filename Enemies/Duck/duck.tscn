@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt7o63tgencf8"]
+[gd_scene load_steps=6 format=3 uid="uid://dt7o63tgencf8"]
 
 [ext_resource type="PackedScene" uid="uid://cq0wpm0ahwa8n" path="res://Enemies/Duck/duck_mesh.tscn" id="1_pf25d"]
 [ext_resource type="Script" uid="uid://ct1vpa01dcm33" path="res://Enemies/Duck/duck.gd" id="1_qpexn"]
 [ext_resource type="PackedScene" uid="uid://ylenccne1pab" path="res://Wands/Wand Pickup/Loot_Wand.tscn" id="2_cf5va"]
+[ext_resource type="AudioStream" uid="uid://ckfrojoo5cr4g" path="res://Enemies/Duck/bird.mp3" id="4_sm2ui"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qpexn"]
 height = 0.89868164
@@ -26,3 +27,6 @@ shape = SubResource("CylinderShape3D_qpexn")
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=275361293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19496977, -0.21918833)
 target_position = Vector3(0, 0, -1)
+
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=412356314]
+stream = ExtResource("4_sm2ui")
