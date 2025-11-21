@@ -31,7 +31,7 @@ var enemy_costs = {
 var enemies = []
 
 var enemy_list = {
-	"weak": ["uid://q4y1siqkv8x7", "uid://dt7o63tgencf8"], # Wizard / Duck
+	"weak": ["uid://q4y1siqkv8x7", "uid://dt7o63tgencf8", "uid://d1s37xh70tlr2"], # Wizard / Duck / OrcKnight
 	"med": ["uid://chruqu6gxfks"], 						   # Orc
 	"strong": ["uid://blhjw6c6bhkil"]					   # BigBoy
 }

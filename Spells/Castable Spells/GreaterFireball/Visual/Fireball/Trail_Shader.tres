@@ -31,6 +31,54 @@ source = 5
 operator = 2
 
 [resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled, ambient_light_disabled, fog_disabled;
+
+uniform sampler2D Color_texture : source_color;
+uniform vec2 TrailSpeed;
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+	vec4 n_out8p0;
+// Texture2D:8
+	n_out8p0 = texture(Color_texture, UV);
+	float n_out8p4 = n_out8p0.a;
+
+
+// Input:3
+	float n_out3p0 = TIME;
+
+
+// Vector2Parameter:5
+	vec2 n_out5p0 = TrailSpeed;
+
+
+// VectorOp:6
+	vec2 n_out6p0 = vec2(n_out3p0) * n_out5p0;
+
+
+// UVFunc:4
+	vec2 n_in4p1 = vec2(1.00000, 0.00000);
+	vec2 n_out4p0 = n_out6p0 * n_in4p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out4p0);
+
+
+// FloatOp:9
+	float n_out9p0 = n_out8p4 * n_out2p0.x;
+
+
+// Output:0
+	ALBEDO = vec3(n_out8p0.xyz);
+	ALPHA = n_out9p0;
+
+
+}
+"
 modes/cull = 2
 flags/unshaded = true
 flags/shadows_disabled = true

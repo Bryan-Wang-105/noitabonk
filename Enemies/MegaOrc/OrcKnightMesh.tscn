@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cilj35qrgwq1i"]
+
+[ext_resource type="PackedScene" uid="uid://dr8yq0denmnj2" path="res://Enemies/MegaOrc/gremlin.gltf" id="1_ogmnj"]
+
+[node name="OrcKnight" instance=ExtResource("1_ogmnj")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
