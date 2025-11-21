@@ -1495,212 +1495,213 @@ _data = {
 radius = 0.79541016
 height = 3.3845215
 
-[node name="ORC" type="CharacterBody3D" unique_id=1100315701 groups=["enemy", "physics"]]
+[node name="ORC" type="CharacterBody3D" groups=["enemy", "physics"]]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("2_owuh1")
 loot = ExtResource("2_glsjn")
 
-[node name="Body" type="Node3D" parent="." unique_id=965785624]
+[node name="Body" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.9375, 0)
 
-[node name="Head" type="Node3D" parent="Body" unique_id=512610371]
+[node name="Head" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9375, 0)
 
-[node name="cylinder" type="MeshInstance3D" parent="Body/Head" unique_id=819483178]
+[node name="cylinder" type="MeshInstance3D" parent="Body/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025, 0.23125, 0)
 mesh = SubResource("ArrayMesh_l23tk")
 
-[node name="cylinder2" type="MeshInstance3D" parent="Body/Head" unique_id=763552424]
+[node name="cylinder2" type="MeshInstance3D" parent="Body/Head"]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, -0.1125, -0.125, 0.23125)
 mesh = SubResource("ArrayMesh_rwv1f")
 
-[node name="cylinder3" type="MeshInstance3D" parent="Body/Head" unique_id=1236190694]
+[node name="cylinder3" type="MeshInstance3D" parent="Body/Head"]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0.1125, -0.125, 0.23125)
 mesh = SubResource("ArrayMesh_l78n1")
 
-[node name="beveled_cuboid" type="MeshInstance3D" parent="Body/Head" unique_id=349323479]
+[node name="beveled_cuboid" type="MeshInstance3D" parent="Body/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 mesh = SubResource("ArrayMesh_bron3")
 
-[node name="beveled_cuboid2" type="MeshInstance3D" parent="Body/Head" unique_id=1482235444]
+[node name="beveled_cuboid2" type="MeshInstance3D" parent="Body/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.367507e-17, -0.1375, 0)
 mesh = SubResource("ArrayMesh_ao1ax")
 
-[node name="cylinder4" type="MeshInstance3D" parent="Body/Head" unique_id=953677612]
+[node name="cylinder4" type="MeshInstance3D" parent="Body/Head"]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -0.025, 0.21875, 0)
 mesh = SubResource("ArrayMesh_jjtob")
 
-[node name="Spine" type="Node3D" parent="Body" unique_id=1179318054]
+[node name="Spine" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, -0.125, 0)
 
-[node name="beveled_cuboid3" type="MeshInstance3D" parent="Body/Spine" unique_id=1556982692]
+[node name="beveled_cuboid3" type="MeshInstance3D" parent="Body/Spine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05625, 0.66875, 0)
 mesh = SubResource("ArrayMesh_tomjm")
 
-[node name="group" type="Node3D" parent="Body/Spine" unique_id=619528649]
+[node name="group" type="Node3D" parent="Body/Spine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6875, -1.1875, 0)
 
-[node name="Neck" type="Node3D" parent="Body" unique_id=714942244]
+[node name="Neck" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6875, 0)
 
-[node name="cylinder5" type="MeshInstance3D" parent="Body/Neck" unique_id=1883855524]
+[node name="cylinder5" type="MeshInstance3D" parent="Body/Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89806e-17, 0.05625, 0)
 mesh = SubResource("ArrayMesh_82fo1")
 
-[node name="LeftArm" type="Node3D" parent="Body" unique_id=1174192368]
+[node name="LeftArm" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4875, 0.4875, 0)
 
-[node name="beveled_cuboid4" type="MeshInstance3D" parent="Body/LeftArm" unique_id=275571945]
+[node name="beveled_cuboid4" type="MeshInstance3D" parent="Body/LeftArm"]
 transform = Transform3D(0.7771459, 0.32412398, -0.5394329, -0.6293204, 0.40025973, -0.6661441, 0, 0.8571673, 0.515038, -0.07825, -0.037875, 0.051625)
 mesh = SubResource("ArrayMesh_qypde")
 
-[node name="beveled_cuboid5" type="MeshInstance3D" parent="Body/LeftArm" unique_id=472700505]
+[node name="beveled_cuboid5" type="MeshInstance3D" parent="Body/LeftArm"]
 transform = Transform3D(-0.77714574, 0.4676761, -0.42109752, 0.6293203, 0.577532, -0.52001214, -1.4901161e-08, -0.66913056, -0.74314463, 0.025, -0.185375, -0.081125)
 mesh = SubResource("ArrayMesh_fn1pc")
 
-[node name="beveled_cuboid6" type="MeshInstance3D" parent="Body/LeftArm" unique_id=365075926]
+[node name="beveled_cuboid6" type="MeshInstance3D" parent="Body/LeftArm"]
 transform = Transform3D(0.76604444, 0.64278764, 0, -0.64278764, 0.76604444, 0, 0, 0, 1, -0.041375, 0.01375, 0)
 mesh = SubResource("ArrayMesh_go21k")
 
-[node name="cylinder6" type="MeshInstance3D" parent="Body/LeftArm" unique_id=318010452]
+[node name="cylinder6" type="MeshInstance3D" parent="Body/LeftArm"]
 transform = Transform3D(0.78260815, 0.62251467, 0, -0.62251467, 0.78260815, 0, 0, 0, 1, 0.1, 0.20625, 0)
 mesh = SubResource("ArrayMesh_x7pjw")
 
-[node name="cylinder7" type="MeshInstance3D" parent="Body/LeftArm" unique_id=353205898]
+[node name="cylinder7" type="MeshInstance3D" parent="Body/LeftArm"]
 transform = Transform3D(-0.63360035, -0.6087615, 0.47745204, -0.48617855, 0.7933533, 0.3663618, -0.6018151, 1.4901161e-08, -0.7986357, 0.325, -0.3625, 0)
 mesh = SubResource("ArrayMesh_nvhcm")
 
-[node name="sphere" type="MeshInstance3D" parent="Body/LeftArm" unique_id=655063035]
+[node name="sphere" type="MeshInstance3D" parent="Body/LeftArm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39375, -0.45, 0)
 mesh = SubResource("ArrayMesh_650qj")
 
-[node name="LeftForearm" type="Node3D" parent="Body/LeftArm" unique_id=982629244]
+[node name="LeftForearm" type="Node3D" parent="Body/LeftArm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5625, -0.875, 0)
 
-[node name="cylinder8" type="MeshInstance3D" parent="Body/LeftArm/LeftForearm" unique_id=778829936]
+[node name="cylinder8" type="MeshInstance3D" parent="Body/LeftArm/LeftForearm"]
 transform = Transform3D(0.9170601, -0.39874908, 0, 0.39874908, 0.9170601, 0, 0, 0, 1, 0.3125, -0.06875, 0.0125)
 mesh = SubResource("ArrayMesh_fn4i7")
 
-[node name="Hand2" type="Node3D" parent="Body/LeftArm/LeftForearm" unique_id=711338919]
+[node name="Hand2" type="Node3D" parent="Body/LeftArm/LeftForearm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.225, -0.75, 0)
 
-[node name="sphere2" type="MeshInstance3D" parent="Body/LeftArm/LeftForearm/Hand2" unique_id=1283657010]
+[node name="sphere2" type="MeshInstance3D" parent="Body/LeftArm/LeftForearm/Hand2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14375, 0.425, 0)
 mesh = SubResource("ArrayMesh_kby51")
 
-[node name="RightArm" type="Node3D" parent="Body" unique_id=62459786]
+[node name="RightArm" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1125, -0.075, 0)
 
-[node name="cylinder9" type="MeshInstance3D" parent="Body/RightArm" unique_id=745127957]
+[node name="cylinder9" type="MeshInstance3D" parent="Body/RightArm"]
 transform = Transform3D(-0.63360035, 0.6087615, -0.47745204, 0.48617855, 0.7933533, 0.3663618, 0.6018151, 1.4901161e-08, -0.7986357, -0.7, 0.2, 0)
 mesh = SubResource("ArrayMesh_4cbgt")
 
-[node name="beveled_cuboid7" type="MeshInstance3D" parent="Body/RightArm" unique_id=601076600]
+[node name="beveled_cuboid7" type="MeshInstance3D" parent="Body/RightArm"]
 transform = Transform3D(0.7771459, -0.32412398, 0.5394329, 0.6293204, 0.40025973, -0.6661441, 0, 0.8571673, 0.515038, -0.303, 0.562125, 0.051625)
 mesh = SubResource("ArrayMesh_tdd5u")
 
-[node name="beveled_cuboid8" type="MeshInstance3D" parent="Body/RightArm" unique_id=1405578676]
+[node name="beveled_cuboid8" type="MeshInstance3D" parent="Body/RightArm"]
 transform = Transform3D(-0.77714574, -0.4676761, 0.42109752, -0.6293203, 0.577532, -0.52001214, 1.4901161e-08, -0.66913056, -0.74314463, -0.40625, 0.414625, -0.081125)
 mesh = SubResource("ArrayMesh_82aqp")
 
-[node name="beveled_cuboid9" type="MeshInstance3D" parent="Body/RightArm" unique_id=1717919756]
+[node name="beveled_cuboid9" type="MeshInstance3D" parent="Body/RightArm"]
 transform = Transform3D(0.76604444, -0.64278764, 0, 0.64278764, 0.76604444, 0, 0, 0, 1, -0.339875, 0.61375, 0)
 mesh = SubResource("ArrayMesh_h3fff")
 
-[node name="cylinder10" type="MeshInstance3D" parent="Body/RightArm" unique_id=922371983]
+[node name="cylinder10" type="MeshInstance3D" parent="Body/RightArm"]
 transform = Transform3D(0.78260815, -0.62251467, 0, 0.62251467, 0.78260815, 0, 0, 0, 1, -0.48125, 0.80625, 0)
 mesh = SubResource("ArrayMesh_c22qu")
 
-[node name="sphere3" type="MeshInstance3D" parent="Body/RightArm" unique_id=1822964261]
+[node name="sphere3" type="MeshInstance3D" parent="Body/RightArm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76875, 0.1125, 0)
 mesh = SubResource("ArrayMesh_i63g1")
 
-[node name="RightForearm2" type="Node3D" parent="Body/RightArm" unique_id=1661863219]
+[node name="RightForearm2" type="Node3D" parent="Body/RightArm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9375, -0.3125, 0)
 
-[node name="cylinder11" type="MeshInstance3D" parent="Body/RightArm/RightForearm2" unique_id=661090991]
+[node name="cylinder11" type="MeshInstance3D" parent="Body/RightArm/RightForearm2"]
 transform = Transform3D(0.9170601, 0.39874908, 0, -0.39874908, 0.9170601, 0, 0, 0, 1, 0.21875, 0.05625, 0.0125)
 mesh = SubResource("ArrayMesh_n1ym0")
 
-[node name="Hand" type="Node3D" parent="Body/RightArm/RightForearm2" unique_id=1382482489]
+[node name="Hand" type="Node3D" parent="Body/RightArm/RightForearm2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.75, 0)
 
-[node name="sphere4" type="MeshInstance3D" parent="Body/RightArm/RightForearm2/Hand" unique_id=1037901677]
+[node name="sphere4" type="MeshInstance3D" parent="Body/RightArm/RightForearm2/Hand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25625, 0.425, 0)
 mesh = SubResource("ArrayMesh_md1vw")
 
-[node name="beveled_cuboid10" type="MeshInstance3D" parent="Body/RightArm/RightForearm2/Hand" unique_id=1285538052]
+[node name="beveled_cuboid10" type="MeshInstance3D" parent="Body/RightArm/RightForearm2/Hand"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.25, 0.40625, 0.5)
 mesh = SubResource("ArrayMesh_dmjer")
 
-[node name="beveled_cuboid11" type="MeshInstance3D" parent="Body/RightArm/RightForearm2/Hand" unique_id=1154051753]
+[node name="beveled_cuboid11" type="MeshInstance3D" parent="Body/RightArm/RightForearm2/Hand"]
 transform = Transform3D(0, 0, 1, 1, 0, 0, 0, 1, 0, 0.25, 0.40625, 1.31875)
 mesh = SubResource("ArrayMesh_aetb6")
 
-[node name="LeftLeg" type="Node3D" parent="Body" unique_id=1312522821]
+[node name="LeftLeg" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, -0.8125, 0)
 
-[node name="beveled_cuboid12" type="MeshInstance3D" parent="Body/LeftLeg" unique_id=1777709413]
+[node name="beveled_cuboid12" type="MeshInstance3D" parent="Body/LeftLeg"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18125, -0.25, 0)
 mesh = SubResource("ArrayMesh_tk8tm")
 
-[node name="LeftCalf" type="Node3D" parent="Body/LeftLeg" unique_id=1727404505]
+[node name="LeftCalf" type="Node3D" parent="Body/LeftLeg"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
 
-[node name="beveled_cuboid13" type="MeshInstance3D" parent="Body/LeftLeg/LeftCalf" unique_id=1178564724]
+[node name="beveled_cuboid13" type="MeshInstance3D" parent="Body/LeftLeg/LeftCalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, -0.13125, 0.0125)
 mesh = SubResource("ArrayMesh_802xy")
 
-[node name="beveled_cuboid14" type="MeshInstance3D" parent="Body/LeftLeg/LeftCalf" unique_id=2146443455]
+[node name="beveled_cuboid14" type="MeshInstance3D" parent="Body/LeftLeg/LeftCalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, -0.13125, 0.0125)
 mesh = SubResource("ArrayMesh_6i2m6")
 
-[node name="Foot2" type="Node3D" parent="Body/LeftLeg/LeftCalf" unique_id=1144241400]
+[node name="Foot2" type="Node3D" parent="Body/LeftLeg/LeftCalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
 
-[node name="beveled_cuboid15" type="MeshInstance3D" parent="Body/LeftLeg/LeftCalf/Foot2" unique_id=1328422057]
+[node name="beveled_cuboid15" type="MeshInstance3D" parent="Body/LeftLeg/LeftCalf/Foot2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, -1.29375, 0.25)
 mesh = SubResource("ArrayMesh_13cny")
 
-[node name="RightLeg" type="Node3D" parent="Body" unique_id=545613851]
+[node name="RightLeg" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24375, -0.8125, -0.0125)
 
-[node name="beveled_cuboid16" type="MeshInstance3D" parent="Body/RightLeg" unique_id=1482425915]
+[node name="beveled_cuboid16" type="MeshInstance3D" parent="Body/RightLeg"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7755576e-17, -0.25, 0)
 mesh = SubResource("ArrayMesh_i776u")
 
-[node name="RightCalf" type="Node3D" parent="Body/RightLeg" unique_id=245902643]
+[node name="RightCalf" type="Node3D" parent="Body/RightLeg"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29375, -0.6875, 0.0125)
 
-[node name="beveled_cuboid17" type="MeshInstance3D" parent="Body/RightLeg/RightCalf" unique_id=309293424]
+[node name="beveled_cuboid17" type="MeshInstance3D" parent="Body/RightLeg/RightCalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29375, -0.19375, 6.938894e-18)
 mesh = SubResource("ArrayMesh_w4mj8")
 
-[node name="Foot" type="Node3D" parent="Body/RightLeg/RightCalf" unique_id=1002728692]
+[node name="Foot" type="Node3D" parent="Body/RightLeg/RightCalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0625, 0)
 
-[node name="beveled_cuboid18" type="MeshInstance3D" parent="Body/RightLeg/RightCalf/Foot" unique_id=615494101]
+[node name="beveled_cuboid18" type="MeshInstance3D" parent="Body/RightLeg/RightCalf/Foot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29375, -0.25625, 6.938894e-18)
 mesh = SubResource("ArrayMesh_ftgbv")
 
-[node name="beveled_cuboid19" type="MeshInstance3D" parent="Body/RightLeg/RightCalf/Foot" unique_id=903773546]
+[node name="beveled_cuboid19" type="MeshInstance3D" parent="Body/RightLeg/RightCalf/Foot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.54375, 0.2375)
 mesh = SubResource("ArrayMesh_k8ksw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=823525085]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_avseq")
 }
-autoplay = &"walk"
+autoplay = "walk"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289891191]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6989224, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_i6r0e")
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1983248223]
+[node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08761877, -0.36715162)
 target_position = Vector3(0, 0, -0.5)
 
-[node name="toAim" type="Node3D" parent="." unique_id=1344557921]
+[node name="toAim" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3035293, 0)

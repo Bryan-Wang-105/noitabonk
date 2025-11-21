@@ -1,10 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dac2ydve0lbjs"]
+[gd_scene load_steps=2 format=3 uid="uid://dac2ydve0lbjs"]
 
 [ext_resource type="Script" uid="uid://cv5i6ubf0mfq6" path="res://Enemies/Enemy_Manager/enemy_manager.gd" id="1_sqyd6"]
-[ext_resource type="PackedScene" uid="uid://q4y1siqkv8x7" path="res://Enemies/BadBoy/bad_boy.tscn" id="2_2wa40"]
-[ext_resource type="PackedScene" uid="uid://blhjw6c6bhkil" path="res://Enemies/BadderBoy/badderBoy.tscn" id="3_o6bij"]
 
-[node name="EnemyManager" type="Node3D" unique_id=1711000842]
+[node name="EnemyManager" type="Node3D"]
 script = ExtResource("1_sqyd6")
-enemy_weak = ExtResource("2_2wa40")
-enemy_strong = ExtResource("3_o6bij")
